@@ -1,0 +1,1825 @@
+a:3:{s:4:"time";i:1560803267;s:3:"ttl";i:0;s:4:"data";O:12:"CI_DB_result":7:{s:7:"conn_id";N;s:9:"result_id";N;s:12:"result_array";a:32:{i:0;a:6:{s:10:"snippet_id";s:1:"1";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:11:"body_header";s:16:"snippet_contents";s:819:"<!-- BODY HEADER -->
+<header>
+
+	<div class="container">
+
+		<div class="row header-top">
+
+			<a id="menu-icon" href="#" class="btn btn-default red" title="Main Menu"><em class="fa fa-bars"></em></a>
+
+			<div class="logo-holder smooth scaleimg col-sm-7 col-md-6">
+				<a href="{site_url_front}/" title="{site_name}">
+					<img class="" src="{static_url}/images/logo-novecentoweb.png"  alt="{site_name} logo">
+				</a>
+			</div>
+
+			<div id="secondary-nav" class="second-level-nav col-sm-5 col-md-6" role="menubar">
+
+				{exp:iv_navmenu levels="1" refresh="{general_nav_session_refresh}" mode="top"}
+
+			</div>
+
+		</div>
+
+		<div class="row header-bottom hidden">
+
+			<div class="social-icons smooth">
+
+				<span>follow us on</span>
+
+				{body_social_icons}
+
+			</div>
+
+		</div>
+
+	</div>
+
+</header>
+<!-- /BODY HEADER -->
+
+
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:1;a:6:{s:10:"snippet_id";s:1:"2";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:9:"head_meta";s:16:"snippet_contents";s:1284:"<!-- Metatags -->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<!-- Mobile -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport" content="width=device-width, initial-scale=1,  maximum-scale=1, minimal-ui">
+
+<!-- Website -->
+<meta name="google-site-verification" content="A7aL7e_YAYTPVvc1Pjkrgtg-o4eN4hVRMCSlquw4xXs" />
+<meta name="msvalidate.01" content="62E839A5C1C721090187DD099A68ADB0" />
+<meta http-equiv="imagetoolbar" content="no">
+<!-- meta http-equiv="pragma" content="no-cache"/-->
+<meta http-equiv="reply-to" content="info@novecentoweb.com">
+<meta name="resource-type" content="document">
+<meta name="revisit" content="1 days">
+<meta name="revisit-after" content="1 days">
+<meta name="classification" content="Legal">
+<meta name="robots" content="ALL">
+<meta name="distribution" content="Global">
+<meta name="rating" content="General">
+<meta name="copyright" content="{site_name}">
+<meta name="author" content="Neomedia Comunicacion | http://neomedia.com.ar"/>
+<meta name="language" content="{country_code_iso}">
+<meta name="Content-Language" content="{country_code_iso}">
+<meta name="doc-type" content="Web Page">
+<meta name="doc-class" content="Completed">
+<meta name="doc-rights" content="Public">
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:2;a:6:{s:10:"snippet_id";s:1:"3";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:11:"body_footer";s:16:"snippet_contents";s:1645:"<footer>
+
+	<div id="footer-top">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-sm-12 ">
+
+					<div class="footer-col col-xs-6 col-sm-3 footer-services">
+
+						{exp:iv_navmenu levels="2" refresh="{general_nav_session_refresh}" mode="footer-1" from_id="1071"}
+
+					</div>
+
+					<div class="footer-col col-xs-6 col-sm-3 footer-citizenship">
+
+						{exp:iv_navmenu levels="2" refresh="{general_nav_session_refresh}" mode="footer-2" from_id="1061"}
+
+					</div>
+
+					<div class="footer-col col-xs-6 col-sm-3 footer-passport">
+
+						{exp:iv_navmenu levels="2" refresh="{general_nav_session_refresh}" mode="footer-3" from_id="1070"}
+
+					</div>
+
+					<div class="footer-col col-xs-6 col-sm-3 footer-site">
+
+						{exp:iv_navmenu levels="1" refresh="{general_nav_session_refresh}" mode="footer-4" title="{site_name}" not="1061|1070|1071|1077"}
+
+					</div>
+
+					<div class="social-icons col-xs-12  col-sm-3 col-sm-offset-9">
+
+						{body_social_icons}
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div id="footer-bottom">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-sm-12">
+
+					<div class="col-sm-6 text-left copyright">
+						{site_name} {current_year} &copy;<br>
+						<address>Belgrano, CABA</address> - <address>Quilmes, pcia. de Buenos Aires</address>.
+					</div>
+
+					<div class="col-sm-6 text-right credits">
+						<a href="{site_url_front}/politicas-privacidad/">Políticas de privacidad</a><br>
+						<a href="http://neomedia.com.ar" target="_blank" rel="author">Neomedia Comunicación</a>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</footer>
+<!-- /FOOTER -->
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:3;a:6:{s:10:"snippet_id";s:2:"35";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:21:"body_social_sharethis";s:16:"snippet_contents";s:1451:"<div class="share-bar">
+	
+	{if '{embed:fblikebutton}' == 'yes'}
+	<div id="fb-like-container">
+		<div class="fb-like" data-href="{current_page}" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+	</div>
+	{/if}
+	
+	{if '{embed:fblikebuttonpost}' == 'yes'}
+	<div id="fb-like-container">
+		<div class="fb-like" data-href="{this_url}" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+	</div>
+	{/if}
+	
+	<ul>
+		<li>Compartir <span>en:</span></li>
+		<!--li><span class='st_sharethis' st_title="{embed:text}" st_url="{embed:url}" displayText='ShareThis'></span></li-->
+		<li><span class='st_facebook_custom sharethis' st_title="{embed:text}" st_url="{embed:url}" displayText='Facebook'></span></li>
+		<li><span class='st_twitter_custom sharethis' st_title="{embed:text}" st_url="{embed:url}" displayText='Tweet'></span></li>
+		<li><span class='st_googleplus_custom sharethis' st_title="{embed:text}" st_url="{embed:url}" displayText='Google +'></span></li>
+		<li><span class='st_linkedin_custom sharethis' st_title="{embed:text}" st_url="{embed:url}" displayText='LinkedIn'></span></li>
+		<li><span class='st_pinterest_custom sharethis' st_title="{embed:text}" st_url="{embed:url}" displayText='Pinterest'></span></li>
+		<li><span class='st_email_custom sharethis' st_title="{embed:text}" st_url="{embed:url}" displayText='Email'></span></li>
+	</ul>
+</div>";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:4;a:6:{s:10:"snippet_id";s:1:"4";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:16:"head_stylesheets";s:16:"snippet_contents";s:3897:"<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="57x57" href="{static_url}/images/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="{static_url}/images/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="{static_url}/images/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="{static_url}/images/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="{static_url}/images/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="{static_url}/images/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="{static_url}/images/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="{static_url}/images/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="{static_url}/images/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="{static_url}/images/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="{static_url}/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="{static_url}/images/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="{static_url}/images/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<!--
+<link href="{static_url}/images/favicon.png" rel="shortcut icon"/>
+<link rel="shortcut icon" href="{static_url}/images/favicon.ico">
+<link rel="apple-touch-icon" href="{static_url}/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="{static_url}/images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="{static_url}/images/apple-touch-icon-114x114.png">
+-->
+
+{exp:minimee:css display="contents" attribute:type="text/css"}
+	<link href="{static_url}/stylesheets/preloader.css?v={general_timestamp}" rel="stylesheet" >
+{/exp:minimee:css}
+
+<!--link href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet"-->
+<style>
+@font-face{font-family:'FontAwesome';src:url('{static_url}/fonts/fontawesome-webfont.eot?v=4.6.3');src:url('{static_url}/fonts/fontawesome-webfont.eot?#iefix&v=4.6.3') format('embedded-opentype'),url('{static_url}/fonts/fontawesome-webfont.woff2?v=4.6.3') format('woff2'),url('{static_url}/fonts/fontawesome-webfont.woff?v=4.6.3') format('woff'),url('{static_url}/fonts/fontawesome-webfont.ttf?v=4.6.3') format('truetype'),url('{static_url}/fonts/fontawesome-webfont.svg?v=4.6.3#fontawesomeregular') format('svg');font-weight:normal;font-style:normal;}
+</style>
+
+{exp:minimee:css queue="style_files"}
+<!-- G Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+<!-- Local Css -->
+<link href="{static_url}/stylesheets/library/font-awesome.min.css" rel="stylesheet">
+<link href="{static_url}/stylesheets/library/superslides.css" rel="stylesheet">
+<link href="{static_url}/stylesheets/library/bootstrap/bootstrap.min.css" rel="stylesheet" >
+<link href="{static_url}/stylesheets/library/bootstrap-select.css" rel="stylesheet" >
+<link href="{static_url}/stylesheets/library/fancybox/jquery.fancybox.css" rel="stylesheet">
+<link href="{static_url}/stylesheets/library/superfish/superfish.css" rel="stylesheet" media="screen">
+<link href="{static_url}/stylesheets/library/dl-menu-component.css" rel="stylesheet" >
+<link href="{static_url}/stylesheets/library/superslides.css" rel="stylesheet" >
+<link href="{static_url}/stylesheets/styles.css?v={general_timestamp}" rel="stylesheet" >
+<link href="{static_url}/stylesheets/media.css?v={general_timestamp}" rel="stylesheet" >
+{/exp:minimee:css}
+
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:5;a:6:{s:10:"snippet_id";s:1:"5";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:11:"head_google";s:16:"snippet_contents";s:478:"<!-- Google Analytics -->
+
+{exp:minimee:js queue="analytics_js"}
+<script src='https://www.googletagmanager.com/gtag/js?id=UA-1361460-9'></script>
+{/exp:minimee:js}
+
+<script>
+var analyticsCachedSrc = '{exp:minimee:display js="analytics_js" display="url"}';
+
+function gtag(){dataLayer.push(arguments);}
+</script>
+
+
+{if is_live_site}
+
+<script type="text/javascript">
+	// Code to track google adsense in analytics
+	//window.google_analytics_uacct = "UA-1361460-9";
+</script>
+
+{/if}
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:6;a:6:{s:10:"snippet_id";s:1:"7";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:9:"body_menu";s:16:"snippet_contents";s:721:"<section id="nav-holder">
+
+	<div class="container-fluid navbar-custom nav-desktop-container">
+
+		<div class="row ">
+
+			<nav class="navbar navbar-default" role="navigation">
+				<div id="nav-inner">
+
+					<div id="navigation" class="collapse navbar-collapse">
+
+						{exp:iv_navmenu levels="2" refresh="{general_nav_session_refresh}" mode="main" class="sf-menu nav navbar-nav"}
+
+					</div>
+
+				</div>
+
+			</nav>
+
+		</div>
+
+	</div>
+
+	<div class="container nav-mobile-container">
+
+		<div class="row ">
+
+			<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+
+				{exp:iv_navmenu levels="2" refresh="{general_nav_session_refresh}" mode="mobile" class="dl-menu" not="997"}
+
+			</nav>
+
+		</div>
+
+	</div>
+
+</section>
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:7;a:6:{s:10:"snippet_id";s:2:"49";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:22:"body_facebook_comments";s:16:"snippet_contents";s:173:"<div id="facebook-comments" >
+	<div class="fb-comments" data-href="{facebook_comments_url}" data-width="auto" data-num-posts="{social_facebook_comments_limit}"></div>
+</div>";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:8;a:6:{s:10:"snippet_id";s:2:"32";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:17:"body_booking_form";s:16:"snippet_contents";s:2768:"<!--Booking Form-->
+<div class="booking-holder">
+	
+	<span class="sprite sprite-leaves-left"></span>
+	
+	<div class="booking-holder-inner">
+		
+		<form class="form-inline validate" data-ajax="false" name="checkaressrch" target="_blank" method="get" action="https://flamingowaterpark.reztrip.com/search?">
+			
+			<div>
+			
+				<div class="form-group">
+					<div class="input-group">
+						<label for="arrival_date" class="sr-only">Check-in date</label>
+						<input type="text" class="datefrom datepicker validate:{required: true}" name="arrival_date" placeholder="Check in" readonly>
+						<div class="input-group-addon "><em class="fa fa-calendar"></em></div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="input-group">
+						<label for="departure_date" class="sr-only">Check-out date</label>
+						<input type="text" class="dateto datepicker validate:{required: true}" name="departure_date" placeholder="Check out" readonly>
+						<div class="input-group-addon "><em class="fa fa-calendar"></em></div>
+					</div>
+				</div>
+
+				<div class="form-group select">
+					<label for="rooms"><span>Rooms</span><span class="fa fa-bed"></span></label>
+					<select name="rooms" class="form-control">
+						<option value="1" selected>1</option>
+						<option value="2" >2</option>
+						<option value="3" >3</option>
+						<option value="4" >4</option>
+					</select>
+				</div>
+
+				<div class="form-group select">
+					<label for="adults"><span>Adults</span><span class="fa fa-male"></span></label>
+					<select name="adults[]" class="form-control">
+						<option value="1" selected>1</option>
+						<option value="2" >2</option>
+						<option value="3" >3</option>
+						<option value="4" >4</option>
+						<option value="5" >5</option>
+						<option value="6" >6</option>
+						<option value="7" >7</option>
+						<option value="8" >8</option>
+						<option value="9" >9</option>
+					</select>
+				</div>
+
+				<div class="form-group select">
+				<label for="children"><span>Children</span><span class="fa fa-child"></span></label>
+				<select name="children[]" class="form-control">
+					<option value="0" selected>0</option>
+					<option value="1" >1</option>
+					<option value="2" >2</option>
+					<option value="3" >3</option>
+					<option value="4" >4</option>
+					<option value="5" >5</option>
+					<option value="6" >6</option>
+					<option value="7" >7</option>
+					<option value="8" >8</option>
+					<option value="9" >9</option>
+				</select>
+			</div>
+				
+			</div>
+			
+			<button type="submit" class="btn btn-default" data-event="ga('send', 'event', 'Booking-widget', 'Book', 'Search dates with booking widget');">Book</button>
+			
+		</form>
+		
+	</div>
+	
+	<span class="sprite sprite-leaves-right"></span>
+	
+</div>
+<!--/Booking Form-->";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:9;a:6:{s:10:"snippet_id";s:2:"25";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:13:"head_og_image";s:16:"snippet_contents";s:1420:"
+
+{if meta_social_image != ''}
+
+{exp:ce_img:pair src="{meta_social_image}" crop="yes" allow_scale_larger="yes" width="1200" height="630"}
+{layout:set name="ogimage"}{site_url}{made}{/layout:set}
+{layout:set name="ogimage_width"}{width}{/layout:set}
+{layout:set name="ogimage_height"}{height}{/layout:set}
+{/exp:ce_img:pair}
+
+{exp:gwcode_fileinfo:single file="{meta_social_image}"}
+{layout:set name="ogimage_type"}{image_mime}{/layout:set}
+{/exp:gwcode_fileinfo:single}
+
+{if:elseif page_image:total_rows > 0 && '{meta_social_image}' == ''}
+
+{page_image limit="1"}
+
+{exp:ce_img:pair src="{page_image:image}" crop="yes" allow_scale_larger="yes" width="1200" height="630"}
+{layout:set name="ogimage"}{site_url}{made}?v=1{/layout:set}
+{layout:set name="ogimage_width"}{width}{/layout:set}
+{layout:set name="ogimage_height"}{height}{/layout:set}
+{/exp:ce_img:pair}
+
+{exp:gwcode_fileinfo:single file="{page_image:image}"}
+{layout:set name="ogimage_type"}{image_mime}{/layout:set}
+{/exp:gwcode_fileinfo:single}
+
+{/page_image}
+
+{if:else}
+
+{layout:set name="ogimage"}{static_url}/images/social-image.jpg?v={general_timestamp}{/layout:set}
+{exp:gwcode_fileinfo:single file="{static_url}/images/social-image.jpg"}
+{layout:set name="ogimage_type"}{image_mime}{/layout:set}
+{layout:set name="ogimage_width"}{image_width}{/layout:set}
+{layout:set name="ogimage_height"}{image_height}{/layout:set}
+{/exp:gwcode_fileinfo:single}
+
+{/if}
+
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:10;a:6:{s:10:"snippet_id";s:2:"11";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:12:"body_scripts";s:16:"snippet_contents";s:1689:"
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>
+//jsFiles = '<script src="{static_url}/scripts/library/jquery.2.2.4.min.js"><\/script>';
+//
+//window.jQuery || document.write(jsFiles);
+</script>
+
+
+<!--<script src="{static_url}/scripts/library/infinite-scroll.pkgd.js"></script>-->
+
+<!-- Javascript files -->
+{exp:minimee:js queue="js_files" priority="2"}
+<script src="{static_url}/scripts/library/jquery.sticky-kit.min.js"></script>
+<script src="{static_url}/scripts/library/bootstrap/bootstrap.min.js"></script>
+<script src="{static_url}/scripts/library/jquery-livequery-1.0.2.js"></script>
+<script src="{static_url}/scripts/library/superfish/superfish.js"></script>
+<script src="{static_url}/scripts/library/jquery.dlmenu.js"></script>
+<script src="{static_url}/scripts/library/jquery.superslides.js"></script>
+<script src="{static_url}/scripts/library/jquery.touchSwipe.1.6.18.min.js"></script>
+<script src="{static_url}/scripts/library/iv-common.5.0.js?v={general_timestamp}"></script>
+<script src="{static_url}/scripts/main.js?v={general_timestamp}"></script>
+{/exp:minimee:js}
+
+{exp:minimee:display js="js_files"}
+
+<script>
+	console.log('js_files url: {exp:minimee:display js="js_files" display="url"}');
+</script>
+
+<!--
+// Share this optimization code
+<script type="text/javascript">
+	(function(a,b,c,d,e,f,g){
+		a[e]=a[e]||function(){
+			(a[e].q=a[e].q||[]).push(arguments)
+		},a[e].l=1*new Date,f=b.createElement(c),g=b.getElementsByTagName(c)[0],f.async=1,f.src=d,g.parentNode.insertBefore(f,g)
+	})
+	(window,document,"script","https://platform.sharethis.com/sop.js","sop");
+	sop('property', '5840127b7331240012e7c82a');
+</script>
+-->
+
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:11;a:6:{s:10:"snippet_id";s:2:"12";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:12:"head_scripts";s:16:"snippet_contents";s:1246:"{exp:minimee:js queue="js_files" priority="1"}
+<script src="{static_url}/scripts/library/modernizr-2.6.2.min.js"></script>
+<script src="{static_url}/scripts/library/iv-isMobile.js"></script>
+{/exp:minimee:js}
+
+<!--
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="https://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">
+	stLight.options({publisher: "972843c6-9284-46df-8b2d-b192d9a0ef74", doNotHash: false, doNotCopy: false, hashAddressBar: false});
+</script>-->
+
+{exp:minimee:js queue="secondary_js"}
+<script src="{static_url}/scripts/library/jquery.superslides.js"></script>
+<script src="{static_url}/scripts/library/jquery.easing.1.3.js"></script>
+<script src="{static_url}/scripts/library/jquery-afterresize.js"></script>
+<script src="{static_url}/scripts/library/fancybox/jquery.fancybox.pack.js"></script>
+<script src="{static_url}/scripts/library/superfish/hoverIntent.js"></script>
+<script src="{static_url}/scripts/library/bootstrap-select.min.js"></script>
+<script src="{static_url}/scripts/library/jquery.touchSwipe.1.6.18.min.js"></script>
+{/exp:minimee:js}
+
+<script>
+	var secondaryjsSrc = '{exp:minimee:display js="secondary_js" display="url"}';
+</script>
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:12;a:6:{s:10:"snippet_id";s:2:"43";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:17:"body_layout_right";s:16:"snippet_contents";s:117:"<aside id="side-right" class="{layout_right_col_class}" role="complementary">
+		
+  {exp:ce_vars:side_right}
+
+</aside>";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:13;a:6:{s:10:"snippet_id";s:2:"27";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:23:"groups_form_group_event";s:16:"snippet_contents";s:2766:"<div id="form-group-event-container" class="col-sm-12">
+					
+	<h2 class="red">planning a group event?</h2>
+
+	<form id="form-group-event" method="post" class="validate" data-dialog="true" data-action="group-request">
+		<div class="form-group">
+			<div class="input-group">
+				<label class="sr-only" for="fullname">Full name</label>
+				<input type="text" placeholder="Full name" name="fullname" class=" validate:{required: true}">
+				<div class="input-group-addon "></div>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<div class="input-group">
+				<label class="sr-only" for="arrival_date">Email</label>
+				<input type="text" placeholder="Email" name="email" class=" validate:{required: true, email: true}">
+				<div class="input-group-addon "></div>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<div class="input-group">
+				<label class="sr-only" for="arrival_date">Check-in date</label>
+				<input type="text" readonly placeholder="Check in" name="arrival_date" class="datefrom datepicker validate:{required: true}">
+				<div class="input-group-addon "><em class="fa fa-calendar"></em></div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="input-group">
+				<label class="sr-only" for="departure_date">Check-out date</label>
+				<input type="text" readonly placeholder="Check out" name="departure_date" class="dateto datepicker validate:{required: true}">
+				<div class="input-group-addon "><em class="fa fa-calendar"></em></div>
+			</div>
+		</div>
+
+		<div class="custom-form-group">
+			<div class="form-group col-xs-7">
+				<label for="rooms">No. of Guest Room Needed on Peak Day</label>
+			</div>
+			<div class="select-container col-xs-5 pull-right">
+				<select name="rooms" class="form-control validate:{required: true}">
+					<option value="">---------</option>
+					<option value="10-20">10-20</option>
+					<option value="21-50">21-50</option>
+					<option value="51-100">51-100</option>
+					<option value="101-150">101-150</option>
+					<option value="151-200">151-200</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="custom-form-group">
+			<div class="form-group col-xs-7">
+				<label for="rooms">No. of Attendees for Function Room</label>
+			</div>
+			<div class="select-container col-xs-5 pull-right">
+				<select name="attendees" class="form-control validate:{required: true}">
+					<option value="">---------</option>
+					<option value="10-20">10-20</option>
+					<option value="21-50">21-50</option>
+					<option value="51-100">51-100</option>
+					<option value="101-150">101-150</option>
+					<option value="151-200">151-200</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="custom-form-group">
+			<button type="submit" class="btn btn-default">SUBMIT YOUR REQUEST</button>
+		</div>
+	</form>
+
+</div>";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:14;a:6:{s:10:"snippet_id";s:2:"28";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:17:"body_social_icons";s:16:"snippet_contents";s:390:"<div>
+	<a href="{social_facebook}" class="social-icon fb" target="_blank" title="Facebook"><em class=" fa fa-facebook"></em></a> 
+	<a href="{social_twitter}" class="social-icon tw" target="_blank" title="Twitter"><em class="fa fa-twitter"></em></a> 
+<!--	<a href="{social_linkedin}" class="social-icon gplus" target="_blank" title="Linked In"><em class="fa fa-linkedin"></em></a> -->
+</div>";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:15;a:6:{s:10:"snippet_id";s:2:"33";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:19:"body_facebook_jssdk";s:16:"snippet_contents";s:935:"
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+
+<!-- script loader -->
+<script>
+//(function() {
+//  var url = '//connect.facebook.net/es_LA/sdk.js';
+//  var iframe = document.createElement('iframe');
+//  (iframe.frameElement || iframe).style.cssText = "width: 0; height: 0; border: 0; display: none;";
+//  iframe.src = "javascript:false";
+//  document.getElementById('fb-root').appendChild(iframe);
+//  var doc = iframe.contentWindow.document;
+//  doc.open().write('<body onload="'+
+//    'window.inDapIF = true;' +
+//    'var js = document.createElement(\'script\');'+
+//    'js.src = \''+ url +'\';'+
+//    'document.body.appendChild(js);">');
+//  doc.close();
+//}());
+
+// async init once loading is done
+//window.fbAsyncInit = function() {
+//  FB.init({
+//      appId      : '902868253093459',
+//      xfbml      : true,
+//      version    : 'v2.8',
+//	  status	 : false
+//    });
+//};
+</script>
+<!-- FB -->
+
+
+
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:16;a:6:{s:10:"snippet_id";s:2:"42";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:21:"body_help_contact_box";s:16:"snippet_contents";s:560:"<div class="help-contact-box panel panel-default border-box">
+  <div class="panel-body">
+	<h3><span class="fa fa-play"></span>¿Necesita ayuda? Contáctenos!</h3>
+	<p>Para obtener mayor información y asesoramiento acerca de: <a href="{site_url_front}/contacto/{segment_2}/pagina/">{exp:ce_vars:main_title}</a>, puede ponerse en contacto con nosotros, su consulta será respondida a la brevedad.</p>
+	<div class="text-right">
+		<a class="btn btn-primary" href="{site_url_front}/contacto/{segment_2}/pagina/">¡Contáctenos ahora!</a>
+	</div>
+  </div>			
+</div>";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:17;a:6:{s:10:"snippet_id";s:2:"36";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:15:"body_side_right";s:16:"snippet_contents";s:1169:"{if page_side_right:total_rows > 0}
+
+	{page_side_right}
+
+		{if '{page_side_right:contenido strip_tags="true" strip_line_breaks="true"}' != ''}
+
+			{embed="{page_side_right:contenido}" titulo="{page_side_right:titulo}" seccion="{page_side_right:seccion}" cantidad="{page_side_right:cantidad}"}
+
+		{/if}
+
+		{if page_side_right:texto OR page_side_right:imagen}
+
+			<div class="side-box">
+				<div class="panel panel-default banner">
+					<div class="panel-body">
+						{if page_side_right:titulo}<h5>{page_side_right:titulo}</h5>{/if}
+						{if page_side_right:imagen}
+							<figure>
+							{exp:ce_img:pair src="{page_side_right:imagen}" crop="yes" allow_scale_larger="yes" width="276"}<img src="{made}" alt="{page_side_right:titulo}" width="{width}" height="{height}">{/exp:ce_img:pair}
+							</figure>
+						{/if}
+						{if page_side_right:texto}{page_side_right:texto}{/if}
+					</div>
+				</div>
+			</div>
+
+		{/if}
+
+	{/page_side_right}
+
+{if:else}
+
+	{embed="contents/.banner_fb_fanpage_like" titulo="{general_default_titulo_fb_fanpage_like}"}
+
+	{embed="contents/.banner_actas"}
+
+	{embed="contents/.adsense_250x250_01"}
+
+	{embed="contents/.adsense_250x250_02"}
+
+{/if}";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:18;a:6:{s:10:"snippet_id";s:2:"37";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:9:"body_side";s:16:"snippet_contents";s:741:"{!--page_side_right}
+{if '{page_side_right:side_template}'}{embed="{page_side_right:side_template}" header="{page_side_right:side_header}"}{/if}
+{if '{page_side_right:side_copy}' OR '{page_side_right:side_image}'}
+<aside>
+  <div class="box">
+	<div class="richcontent">
+	  {if '{page_side_right:side_header}'}<h5>{page_side_right:side_header}</h5>{/if}
+	  {if '{page_side_right:side_image}'}
+	  <div class="image-block">
+		{exp:ce_img:pair src="{page_side_right:side_image}" crop="yes" allow_scale_larger="yes" width="276"}<img src="{made}" alt="" width="{width}" height="{height}">{/exp:ce_img:pair}
+	  </div>
+	  {/if}
+	  {if '{page_side_right:side_copy}'}{page_side_right:side_copy}{/if}
+	</div>
+  </div>
+</aside>
+{/if}
+{/page_side_right--}";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:19;a:6:{s:10:"snippet_id";s:2:"38";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:20:"body_nav_local_items";s:16:"snippet_contents";s:600:"{exp:structure_nav:advanced show_depth="1"}
+<!--a href="{!--root:page_url--}">{!--root:page_menu_title--}</a-->
+{if '{root:url_title}' == '{segment_1}'}
+{if root:has_children}
+{root:children}
+<div>
+	
+ 	<h3><a href="{child:page_url}">{child:page_main_title_{country_code}}</a></h3>
+	
+	<div class="rich">
+		{exp:eehive_hacksaw words="2" append="&hellip;" parse="inwards"}{child:page_copy_{country_code}}{/exp:eehive_hacksaw}
+	</div>
+	
+	<div><a href="{child:page_url}">Seguir leyendo <span class="fa fa-chevron-right"></span></a></div>
+	
+</div>
+{/root:children}
+{/if}
+{/if}
+{/exp:structure_nav:advanced}";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:20;a:6:{s:10:"snippet_id";s:2:"39";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:14:"body_side_left";s:16:"snippet_contents";s:1109:"{if page_side_left:total_rows > 0}
+
+	{page_side_left}
+
+		{if '{page_side_left:contenido strip_tags="true" strip_line_breaks="true"}' != ''}
+
+			{embed="{page_side_left:contenido}" titulo="{page_side_left:titulo}" seccion="{page_side_left:seccion}" cantidad="{page_side_left:cantidad}"}
+
+		{/if}
+
+		{if page_side_left:texto OR page_side_left:imagen}
+
+			<div class="side-box">
+				<div class="panel panel-default banner">
+					<div class="panel-body">
+						{if page_side_left:titulo}<h5>{page_side_left:titulo}</h5>{/if}
+						{if page_side_left:imagen}
+							<figure>
+							{exp:ce_img:pair src="{page_side_left:imagen}" crop="yes" allow_scale_larger="yes" width="276"}<img src="{made}" alt="{page_side_left:titulo}" width="{width}" height="{height}">{/exp:ce_img:pair}
+							</figure>
+						{/if}
+						{if page_side_left:texto}{page_side_left:texto}{/if}
+					</div>
+				</div>
+			</div>
+
+		{/if}
+
+	{/page_side_left}
+
+{if:else}
+
+	{embed="contents/.side_menu_servicios" titulo="{general_default_titulo_menu_servicios}"}
+
+	{embed="contents/.banner_anagrafe"}
+
+	{embed="contents/.banner_traduccion"}
+
+{/if}";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:21;a:6:{s:10:"snippet_id";s:2:"40";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:14:"body_left_side";s:16:"snippet_contents";s:710:"{page_side_left}
+{if '{page_side_left:side_template}'}{embed="{page_side_left:side_template}" header="{page_side_left:side_header}"}{/if}
+{if '{page_side_left:side_copy}' OR '{page_side_left:side_image}'}
+<div class="side-box">
+	<div class="rich">
+	{if '{page_side_left:side_header}' != ''}<h5>{page_side_left:side_header}</h5>{/if}
+	{if '{page_side_left:side_image}'}
+		<figure>
+		{exp:ce_img:pair src="{page_side_left:side_image}" crop="yes" allow_scale_larger="yes" width="276"}<img src="{made}" alt="{page_side_left:side_header}" width="{width}" height="{height}">{/exp:ce_img:pair}
+		</figure>
+	{/if}
+	{if '{page_side_left:side_copy}'}{page_side_left:side_copy}{/if}
+	</div>
+</div>
+{/if}
+{/page_side_left}";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:22;a:6:{s:10:"snippet_id";s:2:"41";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:15:"body_right_side";s:16:"snippet_contents";s:724:"{page_side_right}
+{if '{page_side_right:side_template}'}{embed="{page_side_right:side_template}" header="{page_side_right:side_header}"}{/if}
+{if '{page_side_right:side_copy}' OR '{page_side_right:side_image}'}
+<div class="side-box">
+	<div class="rich">
+	{if '{page_side_right:side_header}' != ''}<h5>{page_side_right:side_header}</h5>{/if}
+	{if '{page_side_right:side_image}'}
+		<figure>
+		{exp:ce_img:pair src="{page_side_right:side_image}" crop="yes" allow_scale_larger="yes" width="276"}<img src="{made}" alt="{page_side_right:side_header}" width="{width}" height="{height}">{/exp:ce_img:pair}
+		</figure>
+	{/if}
+	{if '{page_side_right:side_copy}'}{page_side_right:side_copy}{/if}
+	</div>
+</div>
+{/if}
+{/page_side_right}";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:23;a:6:{s:10:"snippet_id";s:2:"52";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:17:"body_left_side-V0";s:16:"snippet_contents";s:710:"{page_side_left}
+{if '{page_side_left:side_template}'}{embed="{page_side_left:side_template}" header="{page_side_left:side_header}"}{/if}
+{if '{page_side_left:side_copy}' OR '{page_side_left:side_image}'}
+<div class="side-box">
+	<div class="rich">
+	{if '{page_side_left:side_header}' != ''}<h5>{page_side_left:side_header}</h5>{/if}
+	{if '{page_side_left:side_image}'}
+		<figure>
+		{exp:ce_img:pair src="{page_side_left:side_image}" crop="yes" allow_scale_larger="yes" width="276"}<img src="{made}" alt="{page_side_left:side_header}" width="{width}" height="{height}">{/exp:ce_img:pair}
+		</figure>
+	{/if}
+	{if '{page_side_left:side_copy}'}{page_side_left:side_copy}{/if}
+	</div>
+</div>
+{/if}
+{/page_side_left}";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:24;a:6:{s:10:"snippet_id";s:2:"50";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:18:"body_right_side-V0";s:16:"snippet_contents";s:724:"{page_side_right}
+{if '{page_side_right:side_template}'}{embed="{page_side_right:side_template}" header="{page_side_right:side_header}"}{/if}
+{if '{page_side_right:side_copy}' OR '{page_side_right:side_image}'}
+<div class="side-box">
+	<div class="rich">
+	{if '{page_side_right:side_header}' != ''}<h5>{page_side_right:side_header}</h5>{/if}
+	{if '{page_side_right:side_image}'}
+		<figure>
+		{exp:ce_img:pair src="{page_side_right:side_image}" crop="yes" allow_scale_larger="yes" width="276"}<img src="{made}" alt="{page_side_right:side_header}" width="{width}" height="{height}">{/exp:ce_img:pair}
+		</figure>
+	{/if}
+	{if '{page_side_right:side_copy}'}{page_side_right:side_copy}{/if}
+	</div>
+</div>
+{/if}
+{/page_side_right}";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:25;a:6:{s:10:"snippet_id";s:2:"51";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:12:"body_side-V0";s:16:"snippet_contents";s:741:"{!--page_side_right}
+{if '{page_side_right:side_template}'}{embed="{page_side_right:side_template}" header="{page_side_right:side_header}"}{/if}
+{if '{page_side_right:side_copy}' OR '{page_side_right:side_image}'}
+<aside>
+  <div class="box">
+	<div class="richcontent">
+	  {if '{page_side_right:side_header}'}<h5>{page_side_right:side_header}</h5>{/if}
+	  {if '{page_side_right:side_image}'}
+	  <div class="image-block">
+		{exp:ce_img:pair src="{page_side_right:side_image}" crop="yes" allow_scale_larger="yes" width="276"}<img src="{made}" alt="" width="{width}" height="{height}">{/exp:ce_img:pair}
+	  </div>
+	  {/if}
+	  {if '{page_side_right:side_copy}'}{page_side_right:side_copy}{/if}
+	</div>
+  </div>
+</aside>
+{/if}
+{/page_side_right--}";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:26;a:6:{s:10:"snippet_id";s:2:"47";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:16:"body_layout_left";s:16:"snippet_contents";s:112:"<aside id="side-left" class="{layout_left_col_class}" role="complementary">
+
+  {exp:ce_vars:side_left}
+
+</aside>";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:27;a:6:{s:10:"snippet_id";s:2:"48";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:24:"body_adwords_remarketing";s:16:"snippet_contents";s:1004:"<!-- Google Code para etiquetas de remarketing -->
+<!--------------------------------------------------
+Es posible que las etiquetas de remarketing todavía no estén asociadas a la información de identificación personal o que estén en páginas relacionadas con las categorías delicadas. Para obtener más información e instrucciones sobre cómo configurar la etiqueta, consulte http://google.com/ads/remarketingsetup.
+--------------------------------------------------->
+<script type="text/javascript">
+/* <![CDATA[ */
+	//var google_conversion_id = 918023958;
+	//var google_custom_params = window.google_tag_params;
+	//var google_remarketing_only = true;
+/* ]]> */
+</script>
+<!--script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+<noscript>
+	<div style="display:inline;">
+		<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/918023958/?guid=ON&amp;script=0"/>
+	</div>
+</noscript-->
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:28;a:6:{s:10:"snippet_id";s:2:"53";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:14:"head_og_image-";s:16:"snippet_contents";s:911:"
+{if page_image:total_rows > 0}
+{page_image limit="1"}
+
+{exp:ce_img:pair src="{page_image:image}" crop="yes" allow_scale_larger="yes" width="1200" height="630"}
+{layout:set name="ogimage"}{site_url}{made}?v=1{/layout:set}
+{layout:set name="ogimage_width"}{width}{/layout:set}
+{layout:set name="ogimage_height"}{height}{/layout:set}
+{/exp:ce_img:pair}
+
+{exp:gwcode_fileinfo:single file="{page_image:image}"}
+{layout:set name="ogimage_type"}{image_mime}{/layout:set}
+{/exp:gwcode_fileinfo:single}
+
+{/page_image}
+
+{if:else}
+
+{layout:set name="ogimage"}{static_url}/images/social-image.jpg?v={general_timestamp}{/layout:set}
+{exp:gwcode_fileinfo:single file="{static_url}/images/social-image.jpg"}
+{layout:set name="ogimage_type"}{image_mime}{/layout:set}
+{layout:set name="ogimage_width"}{image_width}{/layout:set}
+{layout:set name="ogimage_height"}{image_height}{/layout:set}
+{/exp:gwcode_fileinfo:single}
+
+{/if}
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:29;a:6:{s:10:"snippet_id";s:2:"54";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:14:"head_og_image-";s:16:"snippet_contents";s:911:"
+{if page_image:total_rows > 0}
+{page_image limit="1"}
+
+{exp:ce_img:pair src="{page_image:image}" crop="yes" allow_scale_larger="yes" width="1200" height="630"}
+{layout:set name="ogimage"}{site_url}{made}?v=1{/layout:set}
+{layout:set name="ogimage_width"}{width}{/layout:set}
+{layout:set name="ogimage_height"}{height}{/layout:set}
+{/exp:ce_img:pair}
+
+{exp:gwcode_fileinfo:single file="{page_image:image}"}
+{layout:set name="ogimage_type"}{image_mime}{/layout:set}
+{/exp:gwcode_fileinfo:single}
+
+{/page_image}
+
+{if:else}
+
+{layout:set name="ogimage"}{static_url}/images/social-image.jpg?v={general_timestamp}{/layout:set}
+{exp:gwcode_fileinfo:single file="{static_url}/images/social-image.jpg"}
+{layout:set name="ogimage_type"}{image_mime}{/layout:set}
+{layout:set name="ogimage_width"}{image_width}{/layout:set}
+{layout:set name="ogimage_height"}{image_height}{/layout:set}
+{/exp:gwcode_fileinfo:single}
+
+{/if}
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:30;a:6:{s:10:"snippet_id";s:2:"55";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:14:"head_og_image-";s:16:"snippet_contents";s:911:"
+{if page_image:total_rows > 0}
+{page_image limit="1"}
+
+{exp:ce_img:pair src="{page_image:image}" crop="yes" allow_scale_larger="yes" width="1200" height="630"}
+{layout:set name="ogimage"}{site_url}{made}?v=1{/layout:set}
+{layout:set name="ogimage_width"}{width}{/layout:set}
+{layout:set name="ogimage_height"}{height}{/layout:set}
+{/exp:ce_img:pair}
+
+{exp:gwcode_fileinfo:single file="{page_image:image}"}
+{layout:set name="ogimage_type"}{image_mime}{/layout:set}
+{/exp:gwcode_fileinfo:single}
+
+{/page_image}
+
+{if:else}
+
+{layout:set name="ogimage"}{static_url}/images/social-image.jpg?v={general_timestamp}{/layout:set}
+{exp:gwcode_fileinfo:single file="{static_url}/images/social-image.jpg"}
+{layout:set name="ogimage_type"}{image_mime}{/layout:set}
+{layout:set name="ogimage_width"}{image_width}{/layout:set}
+{layout:set name="ogimage_height"}{image_height}{/layout:set}
+{/exp:gwcode_fileinfo:single}
+
+{/if}
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:31;a:6:{s:10:"snippet_id";s:2:"56";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:14:"head_og_image-";s:16:"snippet_contents";s:911:"
+{if page_image:total_rows > 0}
+{page_image limit="1"}
+
+{exp:ce_img:pair src="{page_image:image}" crop="yes" allow_scale_larger="yes" width="1200" height="630"}
+{layout:set name="ogimage"}{site_url}{made}?v=1{/layout:set}
+{layout:set name="ogimage_width"}{width}{/layout:set}
+{layout:set name="ogimage_height"}{height}{/layout:set}
+{/exp:ce_img:pair}
+
+{exp:gwcode_fileinfo:single file="{page_image:image}"}
+{layout:set name="ogimage_type"}{image_mime}{/layout:set}
+{/exp:gwcode_fileinfo:single}
+
+{/page_image}
+
+{if:else}
+
+{layout:set name="ogimage"}{static_url}/images/social-image.jpg?v={general_timestamp}{/layout:set}
+{exp:gwcode_fileinfo:single file="{static_url}/images/social-image.jpg"}
+{layout:set name="ogimage_type"}{image_mime}{/layout:set}
+{layout:set name="ogimage_width"}{image_width}{/layout:set}
+{layout:set name="ogimage_height"}{image_height}{/layout:set}
+{/exp:gwcode_fileinfo:single}
+
+{/if}
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}}s:13:"result_object";a:32:{i:0;O:8:"stdClass":6:{s:10:"snippet_id";s:1:"1";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:11:"body_header";s:16:"snippet_contents";s:819:"<!-- BODY HEADER -->
+<header>
+
+	<div class="container">
+
+		<div class="row header-top">
+
+			<a id="menu-icon" href="#" class="btn btn-default red" title="Main Menu"><em class="fa fa-bars"></em></a>
+
+			<div class="logo-holder smooth scaleimg col-sm-7 col-md-6">
+				<a href="{site_url_front}/" title="{site_name}">
+					<img class="" src="{static_url}/images/logo-novecentoweb.png"  alt="{site_name} logo">
+				</a>
+			</div>
+
+			<div id="secondary-nav" class="second-level-nav col-sm-5 col-md-6" role="menubar">
+
+				{exp:iv_navmenu levels="1" refresh="{general_nav_session_refresh}" mode="top"}
+
+			</div>
+
+		</div>
+
+		<div class="row header-bottom hidden">
+
+			<div class="social-icons smooth">
+
+				<span>follow us on</span>
+
+				{body_social_icons}
+
+			</div>
+
+		</div>
+
+	</div>
+
+</header>
+<!-- /BODY HEADER -->
+
+
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:1;O:8:"stdClass":6:{s:10:"snippet_id";s:1:"2";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:9:"head_meta";s:16:"snippet_contents";s:1284:"<!-- Metatags -->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<!-- Mobile -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport" content="width=device-width, initial-scale=1,  maximum-scale=1, minimal-ui">
+
+<!-- Website -->
+<meta name="google-site-verification" content="A7aL7e_YAYTPVvc1Pjkrgtg-o4eN4hVRMCSlquw4xXs" />
+<meta name="msvalidate.01" content="62E839A5C1C721090187DD099A68ADB0" />
+<meta http-equiv="imagetoolbar" content="no">
+<!-- meta http-equiv="pragma" content="no-cache"/-->
+<meta http-equiv="reply-to" content="info@novecentoweb.com">
+<meta name="resource-type" content="document">
+<meta name="revisit" content="1 days">
+<meta name="revisit-after" content="1 days">
+<meta name="classification" content="Legal">
+<meta name="robots" content="ALL">
+<meta name="distribution" content="Global">
+<meta name="rating" content="General">
+<meta name="copyright" content="{site_name}">
+<meta name="author" content="Neomedia Comunicacion | http://neomedia.com.ar"/>
+<meta name="language" content="{country_code_iso}">
+<meta name="Content-Language" content="{country_code_iso}">
+<meta name="doc-type" content="Web Page">
+<meta name="doc-class" content="Completed">
+<meta name="doc-rights" content="Public">
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:2;O:8:"stdClass":6:{s:10:"snippet_id";s:1:"3";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:11:"body_footer";s:16:"snippet_contents";s:1645:"<footer>
+
+	<div id="footer-top">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-sm-12 ">
+
+					<div class="footer-col col-xs-6 col-sm-3 footer-services">
+
+						{exp:iv_navmenu levels="2" refresh="{general_nav_session_refresh}" mode="footer-1" from_id="1071"}
+
+					</div>
+
+					<div class="footer-col col-xs-6 col-sm-3 footer-citizenship">
+
+						{exp:iv_navmenu levels="2" refresh="{general_nav_session_refresh}" mode="footer-2" from_id="1061"}
+
+					</div>
+
+					<div class="footer-col col-xs-6 col-sm-3 footer-passport">
+
+						{exp:iv_navmenu levels="2" refresh="{general_nav_session_refresh}" mode="footer-3" from_id="1070"}
+
+					</div>
+
+					<div class="footer-col col-xs-6 col-sm-3 footer-site">
+
+						{exp:iv_navmenu levels="1" refresh="{general_nav_session_refresh}" mode="footer-4" title="{site_name}" not="1061|1070|1071|1077"}
+
+					</div>
+
+					<div class="social-icons col-xs-12  col-sm-3 col-sm-offset-9">
+
+						{body_social_icons}
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div id="footer-bottom">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-sm-12">
+
+					<div class="col-sm-6 text-left copyright">
+						{site_name} {current_year} &copy;<br>
+						<address>Belgrano, CABA</address> - <address>Quilmes, pcia. de Buenos Aires</address>.
+					</div>
+
+					<div class="col-sm-6 text-right credits">
+						<a href="{site_url_front}/politicas-privacidad/">Políticas de privacidad</a><br>
+						<a href="http://neomedia.com.ar" target="_blank" rel="author">Neomedia Comunicación</a>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</footer>
+<!-- /FOOTER -->
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:3;O:8:"stdClass":6:{s:10:"snippet_id";s:2:"35";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:21:"body_social_sharethis";s:16:"snippet_contents";s:1451:"<div class="share-bar">
+	
+	{if '{embed:fblikebutton}' == 'yes'}
+	<div id="fb-like-container">
+		<div class="fb-like" data-href="{current_page}" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+	</div>
+	{/if}
+	
+	{if '{embed:fblikebuttonpost}' == 'yes'}
+	<div id="fb-like-container">
+		<div class="fb-like" data-href="{this_url}" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+	</div>
+	{/if}
+	
+	<ul>
+		<li>Compartir <span>en:</span></li>
+		<!--li><span class='st_sharethis' st_title="{embed:text}" st_url="{embed:url}" displayText='ShareThis'></span></li-->
+		<li><span class='st_facebook_custom sharethis' st_title="{embed:text}" st_url="{embed:url}" displayText='Facebook'></span></li>
+		<li><span class='st_twitter_custom sharethis' st_title="{embed:text}" st_url="{embed:url}" displayText='Tweet'></span></li>
+		<li><span class='st_googleplus_custom sharethis' st_title="{embed:text}" st_url="{embed:url}" displayText='Google +'></span></li>
+		<li><span class='st_linkedin_custom sharethis' st_title="{embed:text}" st_url="{embed:url}" displayText='LinkedIn'></span></li>
+		<li><span class='st_pinterest_custom sharethis' st_title="{embed:text}" st_url="{embed:url}" displayText='Pinterest'></span></li>
+		<li><span class='st_email_custom sharethis' st_title="{embed:text}" st_url="{embed:url}" displayText='Email'></span></li>
+	</ul>
+</div>";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:4;O:8:"stdClass":6:{s:10:"snippet_id";s:1:"4";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:16:"head_stylesheets";s:16:"snippet_contents";s:3897:"<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="57x57" href="{static_url}/images/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="{static_url}/images/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="{static_url}/images/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="{static_url}/images/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="{static_url}/images/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="{static_url}/images/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="{static_url}/images/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="{static_url}/images/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="{static_url}/images/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="{static_url}/images/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="{static_url}/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="{static_url}/images/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="{static_url}/images/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<!--
+<link href="{static_url}/images/favicon.png" rel="shortcut icon"/>
+<link rel="shortcut icon" href="{static_url}/images/favicon.ico">
+<link rel="apple-touch-icon" href="{static_url}/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="{static_url}/images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="{static_url}/images/apple-touch-icon-114x114.png">
+-->
+
+{exp:minimee:css display="contents" attribute:type="text/css"}
+	<link href="{static_url}/stylesheets/preloader.css?v={general_timestamp}" rel="stylesheet" >
+{/exp:minimee:css}
+
+<!--link href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet"-->
+<style>
+@font-face{font-family:'FontAwesome';src:url('{static_url}/fonts/fontawesome-webfont.eot?v=4.6.3');src:url('{static_url}/fonts/fontawesome-webfont.eot?#iefix&v=4.6.3') format('embedded-opentype'),url('{static_url}/fonts/fontawesome-webfont.woff2?v=4.6.3') format('woff2'),url('{static_url}/fonts/fontawesome-webfont.woff?v=4.6.3') format('woff'),url('{static_url}/fonts/fontawesome-webfont.ttf?v=4.6.3') format('truetype'),url('{static_url}/fonts/fontawesome-webfont.svg?v=4.6.3#fontawesomeregular') format('svg');font-weight:normal;font-style:normal;}
+</style>
+
+{exp:minimee:css queue="style_files"}
+<!-- G Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+<!-- Local Css -->
+<link href="{static_url}/stylesheets/library/font-awesome.min.css" rel="stylesheet">
+<link href="{static_url}/stylesheets/library/superslides.css" rel="stylesheet">
+<link href="{static_url}/stylesheets/library/bootstrap/bootstrap.min.css" rel="stylesheet" >
+<link href="{static_url}/stylesheets/library/bootstrap-select.css" rel="stylesheet" >
+<link href="{static_url}/stylesheets/library/fancybox/jquery.fancybox.css" rel="stylesheet">
+<link href="{static_url}/stylesheets/library/superfish/superfish.css" rel="stylesheet" media="screen">
+<link href="{static_url}/stylesheets/library/dl-menu-component.css" rel="stylesheet" >
+<link href="{static_url}/stylesheets/library/superslides.css" rel="stylesheet" >
+<link href="{static_url}/stylesheets/styles.css?v={general_timestamp}" rel="stylesheet" >
+<link href="{static_url}/stylesheets/media.css?v={general_timestamp}" rel="stylesheet" >
+{/exp:minimee:css}
+
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:5;O:8:"stdClass":6:{s:10:"snippet_id";s:1:"5";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:11:"head_google";s:16:"snippet_contents";s:478:"<!-- Google Analytics -->
+
+{exp:minimee:js queue="analytics_js"}
+<script src='https://www.googletagmanager.com/gtag/js?id=UA-1361460-9'></script>
+{/exp:minimee:js}
+
+<script>
+var analyticsCachedSrc = '{exp:minimee:display js="analytics_js" display="url"}';
+
+function gtag(){dataLayer.push(arguments);}
+</script>
+
+
+{if is_live_site}
+
+<script type="text/javascript">
+	// Code to track google adsense in analytics
+	//window.google_analytics_uacct = "UA-1361460-9";
+</script>
+
+{/if}
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:6;O:8:"stdClass":6:{s:10:"snippet_id";s:1:"7";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:9:"body_menu";s:16:"snippet_contents";s:721:"<section id="nav-holder">
+
+	<div class="container-fluid navbar-custom nav-desktop-container">
+
+		<div class="row ">
+
+			<nav class="navbar navbar-default" role="navigation">
+				<div id="nav-inner">
+
+					<div id="navigation" class="collapse navbar-collapse">
+
+						{exp:iv_navmenu levels="2" refresh="{general_nav_session_refresh}" mode="main" class="sf-menu nav navbar-nav"}
+
+					</div>
+
+				</div>
+
+			</nav>
+
+		</div>
+
+	</div>
+
+	<div class="container nav-mobile-container">
+
+		<div class="row ">
+
+			<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+
+				{exp:iv_navmenu levels="2" refresh="{general_nav_session_refresh}" mode="mobile" class="dl-menu" not="997"}
+
+			</nav>
+
+		</div>
+
+	</div>
+
+</section>
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:7;O:8:"stdClass":6:{s:10:"snippet_id";s:2:"49";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:22:"body_facebook_comments";s:16:"snippet_contents";s:173:"<div id="facebook-comments" >
+	<div class="fb-comments" data-href="{facebook_comments_url}" data-width="auto" data-num-posts="{social_facebook_comments_limit}"></div>
+</div>";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:8;O:8:"stdClass":6:{s:10:"snippet_id";s:2:"32";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:17:"body_booking_form";s:16:"snippet_contents";s:2768:"<!--Booking Form-->
+<div class="booking-holder">
+	
+	<span class="sprite sprite-leaves-left"></span>
+	
+	<div class="booking-holder-inner">
+		
+		<form class="form-inline validate" data-ajax="false" name="checkaressrch" target="_blank" method="get" action="https://flamingowaterpark.reztrip.com/search?">
+			
+			<div>
+			
+				<div class="form-group">
+					<div class="input-group">
+						<label for="arrival_date" class="sr-only">Check-in date</label>
+						<input type="text" class="datefrom datepicker validate:{required: true}" name="arrival_date" placeholder="Check in" readonly>
+						<div class="input-group-addon "><em class="fa fa-calendar"></em></div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="input-group">
+						<label for="departure_date" class="sr-only">Check-out date</label>
+						<input type="text" class="dateto datepicker validate:{required: true}" name="departure_date" placeholder="Check out" readonly>
+						<div class="input-group-addon "><em class="fa fa-calendar"></em></div>
+					</div>
+				</div>
+
+				<div class="form-group select">
+					<label for="rooms"><span>Rooms</span><span class="fa fa-bed"></span></label>
+					<select name="rooms" class="form-control">
+						<option value="1" selected>1</option>
+						<option value="2" >2</option>
+						<option value="3" >3</option>
+						<option value="4" >4</option>
+					</select>
+				</div>
+
+				<div class="form-group select">
+					<label for="adults"><span>Adults</span><span class="fa fa-male"></span></label>
+					<select name="adults[]" class="form-control">
+						<option value="1" selected>1</option>
+						<option value="2" >2</option>
+						<option value="3" >3</option>
+						<option value="4" >4</option>
+						<option value="5" >5</option>
+						<option value="6" >6</option>
+						<option value="7" >7</option>
+						<option value="8" >8</option>
+						<option value="9" >9</option>
+					</select>
+				</div>
+
+				<div class="form-group select">
+				<label for="children"><span>Children</span><span class="fa fa-child"></span></label>
+				<select name="children[]" class="form-control">
+					<option value="0" selected>0</option>
+					<option value="1" >1</option>
+					<option value="2" >2</option>
+					<option value="3" >3</option>
+					<option value="4" >4</option>
+					<option value="5" >5</option>
+					<option value="6" >6</option>
+					<option value="7" >7</option>
+					<option value="8" >8</option>
+					<option value="9" >9</option>
+				</select>
+			</div>
+				
+			</div>
+			
+			<button type="submit" class="btn btn-default" data-event="ga('send', 'event', 'Booking-widget', 'Book', 'Search dates with booking widget');">Book</button>
+			
+		</form>
+		
+	</div>
+	
+	<span class="sprite sprite-leaves-right"></span>
+	
+</div>
+<!--/Booking Form-->";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:9;O:8:"stdClass":6:{s:10:"snippet_id";s:2:"25";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:13:"head_og_image";s:16:"snippet_contents";s:1420:"
+
+{if meta_social_image != ''}
+
+{exp:ce_img:pair src="{meta_social_image}" crop="yes" allow_scale_larger="yes" width="1200" height="630"}
+{layout:set name="ogimage"}{site_url}{made}{/layout:set}
+{layout:set name="ogimage_width"}{width}{/layout:set}
+{layout:set name="ogimage_height"}{height}{/layout:set}
+{/exp:ce_img:pair}
+
+{exp:gwcode_fileinfo:single file="{meta_social_image}"}
+{layout:set name="ogimage_type"}{image_mime}{/layout:set}
+{/exp:gwcode_fileinfo:single}
+
+{if:elseif page_image:total_rows > 0 && '{meta_social_image}' == ''}
+
+{page_image limit="1"}
+
+{exp:ce_img:pair src="{page_image:image}" crop="yes" allow_scale_larger="yes" width="1200" height="630"}
+{layout:set name="ogimage"}{site_url}{made}?v=1{/layout:set}
+{layout:set name="ogimage_width"}{width}{/layout:set}
+{layout:set name="ogimage_height"}{height}{/layout:set}
+{/exp:ce_img:pair}
+
+{exp:gwcode_fileinfo:single file="{page_image:image}"}
+{layout:set name="ogimage_type"}{image_mime}{/layout:set}
+{/exp:gwcode_fileinfo:single}
+
+{/page_image}
+
+{if:else}
+
+{layout:set name="ogimage"}{static_url}/images/social-image.jpg?v={general_timestamp}{/layout:set}
+{exp:gwcode_fileinfo:single file="{static_url}/images/social-image.jpg"}
+{layout:set name="ogimage_type"}{image_mime}{/layout:set}
+{layout:set name="ogimage_width"}{image_width}{/layout:set}
+{layout:set name="ogimage_height"}{image_height}{/layout:set}
+{/exp:gwcode_fileinfo:single}
+
+{/if}
+
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:10;O:8:"stdClass":6:{s:10:"snippet_id";s:2:"11";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:12:"body_scripts";s:16:"snippet_contents";s:1689:"
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>
+//jsFiles = '<script src="{static_url}/scripts/library/jquery.2.2.4.min.js"><\/script>';
+//
+//window.jQuery || document.write(jsFiles);
+</script>
+
+
+<!--<script src="{static_url}/scripts/library/infinite-scroll.pkgd.js"></script>-->
+
+<!-- Javascript files -->
+{exp:minimee:js queue="js_files" priority="2"}
+<script src="{static_url}/scripts/library/jquery.sticky-kit.min.js"></script>
+<script src="{static_url}/scripts/library/bootstrap/bootstrap.min.js"></script>
+<script src="{static_url}/scripts/library/jquery-livequery-1.0.2.js"></script>
+<script src="{static_url}/scripts/library/superfish/superfish.js"></script>
+<script src="{static_url}/scripts/library/jquery.dlmenu.js"></script>
+<script src="{static_url}/scripts/library/jquery.superslides.js"></script>
+<script src="{static_url}/scripts/library/jquery.touchSwipe.1.6.18.min.js"></script>
+<script src="{static_url}/scripts/library/iv-common.5.0.js?v={general_timestamp}"></script>
+<script src="{static_url}/scripts/main.js?v={general_timestamp}"></script>
+{/exp:minimee:js}
+
+{exp:minimee:display js="js_files"}
+
+<script>
+	console.log('js_files url: {exp:minimee:display js="js_files" display="url"}');
+</script>
+
+<!--
+// Share this optimization code
+<script type="text/javascript">
+	(function(a,b,c,d,e,f,g){
+		a[e]=a[e]||function(){
+			(a[e].q=a[e].q||[]).push(arguments)
+		},a[e].l=1*new Date,f=b.createElement(c),g=b.getElementsByTagName(c)[0],f.async=1,f.src=d,g.parentNode.insertBefore(f,g)
+	})
+	(window,document,"script","https://platform.sharethis.com/sop.js","sop");
+	sop('property', '5840127b7331240012e7c82a');
+</script>
+-->
+
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:11;O:8:"stdClass":6:{s:10:"snippet_id";s:2:"12";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:12:"head_scripts";s:16:"snippet_contents";s:1246:"{exp:minimee:js queue="js_files" priority="1"}
+<script src="{static_url}/scripts/library/modernizr-2.6.2.min.js"></script>
+<script src="{static_url}/scripts/library/iv-isMobile.js"></script>
+{/exp:minimee:js}
+
+<!--
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="https://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">
+	stLight.options({publisher: "972843c6-9284-46df-8b2d-b192d9a0ef74", doNotHash: false, doNotCopy: false, hashAddressBar: false});
+</script>-->
+
+{exp:minimee:js queue="secondary_js"}
+<script src="{static_url}/scripts/library/jquery.superslides.js"></script>
+<script src="{static_url}/scripts/library/jquery.easing.1.3.js"></script>
+<script src="{static_url}/scripts/library/jquery-afterresize.js"></script>
+<script src="{static_url}/scripts/library/fancybox/jquery.fancybox.pack.js"></script>
+<script src="{static_url}/scripts/library/superfish/hoverIntent.js"></script>
+<script src="{static_url}/scripts/library/bootstrap-select.min.js"></script>
+<script src="{static_url}/scripts/library/jquery.touchSwipe.1.6.18.min.js"></script>
+{/exp:minimee:js}
+
+<script>
+	var secondaryjsSrc = '{exp:minimee:display js="secondary_js" display="url"}';
+</script>
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:12;O:8:"stdClass":6:{s:10:"snippet_id";s:2:"43";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:17:"body_layout_right";s:16:"snippet_contents";s:117:"<aside id="side-right" class="{layout_right_col_class}" role="complementary">
+		
+  {exp:ce_vars:side_right}
+
+</aside>";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:13;O:8:"stdClass":6:{s:10:"snippet_id";s:2:"27";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:23:"groups_form_group_event";s:16:"snippet_contents";s:2766:"<div id="form-group-event-container" class="col-sm-12">
+					
+	<h2 class="red">planning a group event?</h2>
+
+	<form id="form-group-event" method="post" class="validate" data-dialog="true" data-action="group-request">
+		<div class="form-group">
+			<div class="input-group">
+				<label class="sr-only" for="fullname">Full name</label>
+				<input type="text" placeholder="Full name" name="fullname" class=" validate:{required: true}">
+				<div class="input-group-addon "></div>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<div class="input-group">
+				<label class="sr-only" for="arrival_date">Email</label>
+				<input type="text" placeholder="Email" name="email" class=" validate:{required: true, email: true}">
+				<div class="input-group-addon "></div>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<div class="input-group">
+				<label class="sr-only" for="arrival_date">Check-in date</label>
+				<input type="text" readonly placeholder="Check in" name="arrival_date" class="datefrom datepicker validate:{required: true}">
+				<div class="input-group-addon "><em class="fa fa-calendar"></em></div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="input-group">
+				<label class="sr-only" for="departure_date">Check-out date</label>
+				<input type="text" readonly placeholder="Check out" name="departure_date" class="dateto datepicker validate:{required: true}">
+				<div class="input-group-addon "><em class="fa fa-calendar"></em></div>
+			</div>
+		</div>
+
+		<div class="custom-form-group">
+			<div class="form-group col-xs-7">
+				<label for="rooms">No. of Guest Room Needed on Peak Day</label>
+			</div>
+			<div class="select-container col-xs-5 pull-right">
+				<select name="rooms" class="form-control validate:{required: true}">
+					<option value="">---------</option>
+					<option value="10-20">10-20</option>
+					<option value="21-50">21-50</option>
+					<option value="51-100">51-100</option>
+					<option value="101-150">101-150</option>
+					<option value="151-200">151-200</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="custom-form-group">
+			<div class="form-group col-xs-7">
+				<label for="rooms">No. of Attendees for Function Room</label>
+			</div>
+			<div class="select-container col-xs-5 pull-right">
+				<select name="attendees" class="form-control validate:{required: true}">
+					<option value="">---------</option>
+					<option value="10-20">10-20</option>
+					<option value="21-50">21-50</option>
+					<option value="51-100">51-100</option>
+					<option value="101-150">101-150</option>
+					<option value="151-200">151-200</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="custom-form-group">
+			<button type="submit" class="btn btn-default">SUBMIT YOUR REQUEST</button>
+		</div>
+	</form>
+
+</div>";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:14;O:8:"stdClass":6:{s:10:"snippet_id";s:2:"28";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:17:"body_social_icons";s:16:"snippet_contents";s:390:"<div>
+	<a href="{social_facebook}" class="social-icon fb" target="_blank" title="Facebook"><em class=" fa fa-facebook"></em></a> 
+	<a href="{social_twitter}" class="social-icon tw" target="_blank" title="Twitter"><em class="fa fa-twitter"></em></a> 
+<!--	<a href="{social_linkedin}" class="social-icon gplus" target="_blank" title="Linked In"><em class="fa fa-linkedin"></em></a> -->
+</div>";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:15;O:8:"stdClass":6:{s:10:"snippet_id";s:2:"33";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:19:"body_facebook_jssdk";s:16:"snippet_contents";s:935:"
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+
+<!-- script loader -->
+<script>
+//(function() {
+//  var url = '//connect.facebook.net/es_LA/sdk.js';
+//  var iframe = document.createElement('iframe');
+//  (iframe.frameElement || iframe).style.cssText = "width: 0; height: 0; border: 0; display: none;";
+//  iframe.src = "javascript:false";
+//  document.getElementById('fb-root').appendChild(iframe);
+//  var doc = iframe.contentWindow.document;
+//  doc.open().write('<body onload="'+
+//    'window.inDapIF = true;' +
+//    'var js = document.createElement(\'script\');'+
+//    'js.src = \''+ url +'\';'+
+//    'document.body.appendChild(js);">');
+//  doc.close();
+//}());
+
+// async init once loading is done
+//window.fbAsyncInit = function() {
+//  FB.init({
+//      appId      : '902868253093459',
+//      xfbml      : true,
+//      version    : 'v2.8',
+//	  status	 : false
+//    });
+//};
+</script>
+<!-- FB -->
+
+
+
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:16;O:8:"stdClass":6:{s:10:"snippet_id";s:2:"42";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:21:"body_help_contact_box";s:16:"snippet_contents";s:560:"<div class="help-contact-box panel panel-default border-box">
+  <div class="panel-body">
+	<h3><span class="fa fa-play"></span>¿Necesita ayuda? Contáctenos!</h3>
+	<p>Para obtener mayor información y asesoramiento acerca de: <a href="{site_url_front}/contacto/{segment_2}/pagina/">{exp:ce_vars:main_title}</a>, puede ponerse en contacto con nosotros, su consulta será respondida a la brevedad.</p>
+	<div class="text-right">
+		<a class="btn btn-primary" href="{site_url_front}/contacto/{segment_2}/pagina/">¡Contáctenos ahora!</a>
+	</div>
+  </div>			
+</div>";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:17;O:8:"stdClass":6:{s:10:"snippet_id";s:2:"36";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:15:"body_side_right";s:16:"snippet_contents";s:1169:"{if page_side_right:total_rows > 0}
+
+	{page_side_right}
+
+		{if '{page_side_right:contenido strip_tags="true" strip_line_breaks="true"}' != ''}
+
+			{embed="{page_side_right:contenido}" titulo="{page_side_right:titulo}" seccion="{page_side_right:seccion}" cantidad="{page_side_right:cantidad}"}
+
+		{/if}
+
+		{if page_side_right:texto OR page_side_right:imagen}
+
+			<div class="side-box">
+				<div class="panel panel-default banner">
+					<div class="panel-body">
+						{if page_side_right:titulo}<h5>{page_side_right:titulo}</h5>{/if}
+						{if page_side_right:imagen}
+							<figure>
+							{exp:ce_img:pair src="{page_side_right:imagen}" crop="yes" allow_scale_larger="yes" width="276"}<img src="{made}" alt="{page_side_right:titulo}" width="{width}" height="{height}">{/exp:ce_img:pair}
+							</figure>
+						{/if}
+						{if page_side_right:texto}{page_side_right:texto}{/if}
+					</div>
+				</div>
+			</div>
+
+		{/if}
+
+	{/page_side_right}
+
+{if:else}
+
+	{embed="contents/.banner_fb_fanpage_like" titulo="{general_default_titulo_fb_fanpage_like}"}
+
+	{embed="contents/.banner_actas"}
+
+	{embed="contents/.adsense_250x250_01"}
+
+	{embed="contents/.adsense_250x250_02"}
+
+{/if}";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:18;O:8:"stdClass":6:{s:10:"snippet_id";s:2:"37";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:9:"body_side";s:16:"snippet_contents";s:741:"{!--page_side_right}
+{if '{page_side_right:side_template}'}{embed="{page_side_right:side_template}" header="{page_side_right:side_header}"}{/if}
+{if '{page_side_right:side_copy}' OR '{page_side_right:side_image}'}
+<aside>
+  <div class="box">
+	<div class="richcontent">
+	  {if '{page_side_right:side_header}'}<h5>{page_side_right:side_header}</h5>{/if}
+	  {if '{page_side_right:side_image}'}
+	  <div class="image-block">
+		{exp:ce_img:pair src="{page_side_right:side_image}" crop="yes" allow_scale_larger="yes" width="276"}<img src="{made}" alt="" width="{width}" height="{height}">{/exp:ce_img:pair}
+	  </div>
+	  {/if}
+	  {if '{page_side_right:side_copy}'}{page_side_right:side_copy}{/if}
+	</div>
+  </div>
+</aside>
+{/if}
+{/page_side_right--}";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:19;O:8:"stdClass":6:{s:10:"snippet_id";s:2:"38";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:20:"body_nav_local_items";s:16:"snippet_contents";s:600:"{exp:structure_nav:advanced show_depth="1"}
+<!--a href="{!--root:page_url--}">{!--root:page_menu_title--}</a-->
+{if '{root:url_title}' == '{segment_1}'}
+{if root:has_children}
+{root:children}
+<div>
+	
+ 	<h3><a href="{child:page_url}">{child:page_main_title_{country_code}}</a></h3>
+	
+	<div class="rich">
+		{exp:eehive_hacksaw words="2" append="&hellip;" parse="inwards"}{child:page_copy_{country_code}}{/exp:eehive_hacksaw}
+	</div>
+	
+	<div><a href="{child:page_url}">Seguir leyendo <span class="fa fa-chevron-right"></span></a></div>
+	
+</div>
+{/root:children}
+{/if}
+{/if}
+{/exp:structure_nav:advanced}";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:20;O:8:"stdClass":6:{s:10:"snippet_id";s:2:"39";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:14:"body_side_left";s:16:"snippet_contents";s:1109:"{if page_side_left:total_rows > 0}
+
+	{page_side_left}
+
+		{if '{page_side_left:contenido strip_tags="true" strip_line_breaks="true"}' != ''}
+
+			{embed="{page_side_left:contenido}" titulo="{page_side_left:titulo}" seccion="{page_side_left:seccion}" cantidad="{page_side_left:cantidad}"}
+
+		{/if}
+
+		{if page_side_left:texto OR page_side_left:imagen}
+
+			<div class="side-box">
+				<div class="panel panel-default banner">
+					<div class="panel-body">
+						{if page_side_left:titulo}<h5>{page_side_left:titulo}</h5>{/if}
+						{if page_side_left:imagen}
+							<figure>
+							{exp:ce_img:pair src="{page_side_left:imagen}" crop="yes" allow_scale_larger="yes" width="276"}<img src="{made}" alt="{page_side_left:titulo}" width="{width}" height="{height}">{/exp:ce_img:pair}
+							</figure>
+						{/if}
+						{if page_side_left:texto}{page_side_left:texto}{/if}
+					</div>
+				</div>
+			</div>
+
+		{/if}
+
+	{/page_side_left}
+
+{if:else}
+
+	{embed="contents/.side_menu_servicios" titulo="{general_default_titulo_menu_servicios}"}
+
+	{embed="contents/.banner_anagrafe"}
+
+	{embed="contents/.banner_traduccion"}
+
+{/if}";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:21;O:8:"stdClass":6:{s:10:"snippet_id";s:2:"40";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:14:"body_left_side";s:16:"snippet_contents";s:710:"{page_side_left}
+{if '{page_side_left:side_template}'}{embed="{page_side_left:side_template}" header="{page_side_left:side_header}"}{/if}
+{if '{page_side_left:side_copy}' OR '{page_side_left:side_image}'}
+<div class="side-box">
+	<div class="rich">
+	{if '{page_side_left:side_header}' != ''}<h5>{page_side_left:side_header}</h5>{/if}
+	{if '{page_side_left:side_image}'}
+		<figure>
+		{exp:ce_img:pair src="{page_side_left:side_image}" crop="yes" allow_scale_larger="yes" width="276"}<img src="{made}" alt="{page_side_left:side_header}" width="{width}" height="{height}">{/exp:ce_img:pair}
+		</figure>
+	{/if}
+	{if '{page_side_left:side_copy}'}{page_side_left:side_copy}{/if}
+	</div>
+</div>
+{/if}
+{/page_side_left}";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:22;O:8:"stdClass":6:{s:10:"snippet_id";s:2:"41";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:15:"body_right_side";s:16:"snippet_contents";s:724:"{page_side_right}
+{if '{page_side_right:side_template}'}{embed="{page_side_right:side_template}" header="{page_side_right:side_header}"}{/if}
+{if '{page_side_right:side_copy}' OR '{page_side_right:side_image}'}
+<div class="side-box">
+	<div class="rich">
+	{if '{page_side_right:side_header}' != ''}<h5>{page_side_right:side_header}</h5>{/if}
+	{if '{page_side_right:side_image}'}
+		<figure>
+		{exp:ce_img:pair src="{page_side_right:side_image}" crop="yes" allow_scale_larger="yes" width="276"}<img src="{made}" alt="{page_side_right:side_header}" width="{width}" height="{height}">{/exp:ce_img:pair}
+		</figure>
+	{/if}
+	{if '{page_side_right:side_copy}'}{page_side_right:side_copy}{/if}
+	</div>
+</div>
+{/if}
+{/page_side_right}";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:23;O:8:"stdClass":6:{s:10:"snippet_id";s:2:"52";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:17:"body_left_side-V0";s:16:"snippet_contents";s:710:"{page_side_left}
+{if '{page_side_left:side_template}'}{embed="{page_side_left:side_template}" header="{page_side_left:side_header}"}{/if}
+{if '{page_side_left:side_copy}' OR '{page_side_left:side_image}'}
+<div class="side-box">
+	<div class="rich">
+	{if '{page_side_left:side_header}' != ''}<h5>{page_side_left:side_header}</h5>{/if}
+	{if '{page_side_left:side_image}'}
+		<figure>
+		{exp:ce_img:pair src="{page_side_left:side_image}" crop="yes" allow_scale_larger="yes" width="276"}<img src="{made}" alt="{page_side_left:side_header}" width="{width}" height="{height}">{/exp:ce_img:pair}
+		</figure>
+	{/if}
+	{if '{page_side_left:side_copy}'}{page_side_left:side_copy}{/if}
+	</div>
+</div>
+{/if}
+{/page_side_left}";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:24;O:8:"stdClass":6:{s:10:"snippet_id";s:2:"50";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:18:"body_right_side-V0";s:16:"snippet_contents";s:724:"{page_side_right}
+{if '{page_side_right:side_template}'}{embed="{page_side_right:side_template}" header="{page_side_right:side_header}"}{/if}
+{if '{page_side_right:side_copy}' OR '{page_side_right:side_image}'}
+<div class="side-box">
+	<div class="rich">
+	{if '{page_side_right:side_header}' != ''}<h5>{page_side_right:side_header}</h5>{/if}
+	{if '{page_side_right:side_image}'}
+		<figure>
+		{exp:ce_img:pair src="{page_side_right:side_image}" crop="yes" allow_scale_larger="yes" width="276"}<img src="{made}" alt="{page_side_right:side_header}" width="{width}" height="{height}">{/exp:ce_img:pair}
+		</figure>
+	{/if}
+	{if '{page_side_right:side_copy}'}{page_side_right:side_copy}{/if}
+	</div>
+</div>
+{/if}
+{/page_side_right}";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:25;O:8:"stdClass":6:{s:10:"snippet_id";s:2:"51";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:12:"body_side-V0";s:16:"snippet_contents";s:741:"{!--page_side_right}
+{if '{page_side_right:side_template}'}{embed="{page_side_right:side_template}" header="{page_side_right:side_header}"}{/if}
+{if '{page_side_right:side_copy}' OR '{page_side_right:side_image}'}
+<aside>
+  <div class="box">
+	<div class="richcontent">
+	  {if '{page_side_right:side_header}'}<h5>{page_side_right:side_header}</h5>{/if}
+	  {if '{page_side_right:side_image}'}
+	  <div class="image-block">
+		{exp:ce_img:pair src="{page_side_right:side_image}" crop="yes" allow_scale_larger="yes" width="276"}<img src="{made}" alt="" width="{width}" height="{height}">{/exp:ce_img:pair}
+	  </div>
+	  {/if}
+	  {if '{page_side_right:side_copy}'}{page_side_right:side_copy}{/if}
+	</div>
+  </div>
+</aside>
+{/if}
+{/page_side_right--}";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:26;O:8:"stdClass":6:{s:10:"snippet_id";s:2:"47";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:16:"body_layout_left";s:16:"snippet_contents";s:112:"<aside id="side-left" class="{layout_left_col_class}" role="complementary">
+
+  {exp:ce_vars:side_left}
+
+</aside>";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:27;O:8:"stdClass":6:{s:10:"snippet_id";s:2:"48";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:24:"body_adwords_remarketing";s:16:"snippet_contents";s:1004:"<!-- Google Code para etiquetas de remarketing -->
+<!--------------------------------------------------
+Es posible que las etiquetas de remarketing todavía no estén asociadas a la información de identificación personal o que estén en páginas relacionadas con las categorías delicadas. Para obtener más información e instrucciones sobre cómo configurar la etiqueta, consulte http://google.com/ads/remarketingsetup.
+--------------------------------------------------->
+<script type="text/javascript">
+/* <![CDATA[ */
+	//var google_conversion_id = 918023958;
+	//var google_custom_params = window.google_tag_params;
+	//var google_remarketing_only = true;
+/* ]]> */
+</script>
+<!--script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+<noscript>
+	<div style="display:inline;">
+		<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/918023958/?guid=ON&amp;script=0"/>
+	</div>
+</noscript-->
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:28;O:8:"stdClass":6:{s:10:"snippet_id";s:2:"53";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:14:"head_og_image-";s:16:"snippet_contents";s:911:"
+{if page_image:total_rows > 0}
+{page_image limit="1"}
+
+{exp:ce_img:pair src="{page_image:image}" crop="yes" allow_scale_larger="yes" width="1200" height="630"}
+{layout:set name="ogimage"}{site_url}{made}?v=1{/layout:set}
+{layout:set name="ogimage_width"}{width}{/layout:set}
+{layout:set name="ogimage_height"}{height}{/layout:set}
+{/exp:ce_img:pair}
+
+{exp:gwcode_fileinfo:single file="{page_image:image}"}
+{layout:set name="ogimage_type"}{image_mime}{/layout:set}
+{/exp:gwcode_fileinfo:single}
+
+{/page_image}
+
+{if:else}
+
+{layout:set name="ogimage"}{static_url}/images/social-image.jpg?v={general_timestamp}{/layout:set}
+{exp:gwcode_fileinfo:single file="{static_url}/images/social-image.jpg"}
+{layout:set name="ogimage_type"}{image_mime}{/layout:set}
+{layout:set name="ogimage_width"}{image_width}{/layout:set}
+{layout:set name="ogimage_height"}{image_height}{/layout:set}
+{/exp:gwcode_fileinfo:single}
+
+{/if}
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:29;O:8:"stdClass":6:{s:10:"snippet_id";s:2:"54";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:14:"head_og_image-";s:16:"snippet_contents";s:911:"
+{if page_image:total_rows > 0}
+{page_image limit="1"}
+
+{exp:ce_img:pair src="{page_image:image}" crop="yes" allow_scale_larger="yes" width="1200" height="630"}
+{layout:set name="ogimage"}{site_url}{made}?v=1{/layout:set}
+{layout:set name="ogimage_width"}{width}{/layout:set}
+{layout:set name="ogimage_height"}{height}{/layout:set}
+{/exp:ce_img:pair}
+
+{exp:gwcode_fileinfo:single file="{page_image:image}"}
+{layout:set name="ogimage_type"}{image_mime}{/layout:set}
+{/exp:gwcode_fileinfo:single}
+
+{/page_image}
+
+{if:else}
+
+{layout:set name="ogimage"}{static_url}/images/social-image.jpg?v={general_timestamp}{/layout:set}
+{exp:gwcode_fileinfo:single file="{static_url}/images/social-image.jpg"}
+{layout:set name="ogimage_type"}{image_mime}{/layout:set}
+{layout:set name="ogimage_width"}{image_width}{/layout:set}
+{layout:set name="ogimage_height"}{image_height}{/layout:set}
+{/exp:gwcode_fileinfo:single}
+
+{/if}
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:30;O:8:"stdClass":6:{s:10:"snippet_id";s:2:"55";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:14:"head_og_image-";s:16:"snippet_contents";s:911:"
+{if page_image:total_rows > 0}
+{page_image limit="1"}
+
+{exp:ce_img:pair src="{page_image:image}" crop="yes" allow_scale_larger="yes" width="1200" height="630"}
+{layout:set name="ogimage"}{site_url}{made}?v=1{/layout:set}
+{layout:set name="ogimage_width"}{width}{/layout:set}
+{layout:set name="ogimage_height"}{height}{/layout:set}
+{/exp:ce_img:pair}
+
+{exp:gwcode_fileinfo:single file="{page_image:image}"}
+{layout:set name="ogimage_type"}{image_mime}{/layout:set}
+{/exp:gwcode_fileinfo:single}
+
+{/page_image}
+
+{if:else}
+
+{layout:set name="ogimage"}{static_url}/images/social-image.jpg?v={general_timestamp}{/layout:set}
+{exp:gwcode_fileinfo:single file="{static_url}/images/social-image.jpg"}
+{layout:set name="ogimage_type"}{image_mime}{/layout:set}
+{layout:set name="ogimage_width"}{image_width}{/layout:set}
+{layout:set name="ogimage_height"}{image_height}{/layout:set}
+{/exp:gwcode_fileinfo:single}
+
+{/if}
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}i:31;O:8:"stdClass":6:{s:10:"snippet_id";s:2:"56";s:7:"site_id";s:1:"1";s:12:"snippet_name";s:14:"head_og_image-";s:16:"snippet_contents";s:911:"
+{if page_image:total_rows > 0}
+{page_image limit="1"}
+
+{exp:ce_img:pair src="{page_image:image}" crop="yes" allow_scale_larger="yes" width="1200" height="630"}
+{layout:set name="ogimage"}{site_url}{made}?v=1{/layout:set}
+{layout:set name="ogimage_width"}{width}{/layout:set}
+{layout:set name="ogimage_height"}{height}{/layout:set}
+{/exp:ce_img:pair}
+
+{exp:gwcode_fileinfo:single file="{page_image:image}"}
+{layout:set name="ogimage_type"}{image_mime}{/layout:set}
+{/exp:gwcode_fileinfo:single}
+
+{/page_image}
+
+{if:else}
+
+{layout:set name="ogimage"}{static_url}/images/social-image.jpg?v={general_timestamp}{/layout:set}
+{exp:gwcode_fileinfo:single file="{static_url}/images/social-image.jpg"}
+{layout:set name="ogimage_type"}{image_mime}{/layout:set}
+{layout:set name="ogimage_width"}{image_width}{/layout:set}
+{layout:set name="ogimage_height"}{image_height}{/layout:set}
+{/exp:gwcode_fileinfo:single}
+
+{/if}
+";s:9:"sync_time";s:19:"2019-05-29 19:50:09";s:14:"unix_sync_time";s:10:"1559170209";}}s:11:"current_row";i:0;s:8:"num_rows";i:32;s:8:"row_data";N;}}

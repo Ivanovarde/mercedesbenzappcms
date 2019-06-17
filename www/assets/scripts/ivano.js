@@ -108,59 +108,8 @@ $(document).on('click', '#change-data-url', function (e) {
 });
 
 // SINCRONIZAR CONTACTOS ======================================================
-$('#btn-pending-records').off().on('click', function (e) {
-
-	e.preventDefault();
-	e.stopPropagation();
-
-	var counter = 0;
-	var btn = $('#btn-pending-records');
-
-	//Si tengo datos guardados localmente, los consulto directamente desde ahi
-	var stored_leads = JSON.parse(window.localStorage.getItem("stored_leads"));
-
-	// Si no estoy conectado a Internet, cancelo
-	if (app.isConnected && stored_leads !== null && stored_leads.length > 0) {
-
-		// Si hay conexion y hay datos locales
-		counter = stored_leads.length;
-
-		showConfirm({
-			body: 'Eportar ' + counter +' ' + (counter > 1 ? 'registros' : 'registro') + ' al servidor.<br>Esta acción podría demorar unos minutos.<br>¿Desea continuar?',
-			action: 'show',
-			fn: function () {
-				btn.addClass('loading').attr('disabled', 'disabled');
-				syncStoredLeads();
-			}
-		});
-
-	} else {
-
-		if(!app.isConnected){
-
-			showAlert({
-				body: 'Esta acción requiere conexión a internet.',
-				class: 'danger',
-				icon: 'exclamation-circle',
-				action: 'show'
-			});
-
-		}
-
-		if(stored_leads === null || stored_leads.length < 1){
-			showAlert({
-				body: 'No hay registros para exportar.',
-				class: 'danger',
-				icon: 'exclamation-circle',
-				action: 'show'
-			});
-		}
-
-	}
-
-	//$('#btn-pending-records').unbind('click');
-
-});
+//$('#btn-pending-records').off().on('click', function (e) {
+$('#btn-pending-records').livequery('click', function (e) {sendToServer({e: e, el: $(this)}); });
 
 // ACTUALIZAR CONTENIDO =======================================================
 $(document).on('click', '#btn-update-content', function (e) {
@@ -1048,20 +997,65 @@ function storeLeadsLocal(lead) {
 	console.log('storeLeadsLocal: end');
 }
 
-function syncStoredLeads() {
-	console.log('syncStoredLeads: start');
+function sendToServer(data) {
+	console.log('sendToServer: start');
 
-	//Si tengo los datos guardados localmente, los consulto directamente desde ahi
+	var e = data.e;
+	var el = data.el;
+	var el = $(e.currentTarget);
+	var counter = 0;
+
+	e.preventDefault();
+	e.stopPropagation();
+
+	//Si tengo datos guardados localmente, los consulto directamente desde ahi
 	var stored_leads = JSON.parse(window.localStorage.getItem("stored_leads"));
 
-	// Si hay datos localmente
-	if (stored_leads !== null) {
+	// Si estoy conectado a Internet y hay registros, envio
+	if (app.isConnected && stored_leads !== null && stored_leads.length > 0) {
 
-		sendRecord();
+		counter = stored_leads.length;
+
+		showConfirm({
+			body: 'Eportar ' + counter +' ' + (counter > 1 ? 'registros' : 'registro') + ' al servidor.<br>Esta acción podría demorar unos minutos.<br>¿Desea continuar?',
+			action: 'show',
+			fn: function () {
+
+				el.addClass('loading').attr('disabled', 'disabled');
+
+				sendRecord();
+			}
+		});
+
+	} else {
+
+		if(!app.isConnected){
+
+			showAlert({
+				body: 'Esta acción requiere conexión a internet.',
+				class: 'danger',
+				icon: 'exclamation-circle',
+				action: 'show'
+			});
+
+		}
+
+		if(stored_leads === null || stored_leads.length < 1){
+			showAlert({
+				body: 'No hay registros para exportar.',
+				class: 'danger',
+				icon: 'exclamation-circle',
+				action: 'show'
+			});
+		}
 
 	}
 
-	console.log('syncStoredLeads: end');
+	el.unbind('click');
+	//$('#btn-pending-records').unbind('click');
+
+	console.log('sendToServer: end');
+
 }
 
 
