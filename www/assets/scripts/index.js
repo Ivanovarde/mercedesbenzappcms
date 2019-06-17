@@ -18,7 +18,7 @@
  */
 var app = {
 
-	debug: false,
+	debug: true,
 	isConnected: false,
 	connectionTimer: null,
 	imgUrl: 'https://ssl.gstatic.com/gb/images/v1_76783e20.png?',

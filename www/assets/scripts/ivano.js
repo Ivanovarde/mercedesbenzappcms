@@ -765,7 +765,10 @@ function sendRecord(){
 	$.ajax({
 		url: server_url + '/system/php/actions.php?action=store&time=' + currentDate.ivTimeStamp(),
 		type: 'POST',
-		headers: {"Content-Type":"application/json; charset=UTF-8"},
+		headers: {
+			//"Content-Type": "application/json; charset=UTF-8"
+			//,"Access-Control-Allow-Origin": "*"
+		},
 		data: {'stored_leads': stored_leads},
 		dataType: 'json',
 		charset: 'UTF-8',
