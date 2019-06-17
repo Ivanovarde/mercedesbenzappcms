@@ -111,46 +111,51 @@ $(document).on('click', '#change-data-url', function (e) {
 $(document).on('click', '#btn-pending-records', function (e) {
 
 	var counter = 0;
+	var btn = $('#btn-pending-records');
 
 	//Si tengo datos guardados localmente, los consulto directamente desde ahi
 	var stored_leads = JSON.parse(window.localStorage.getItem("stored_leads"));
 
 	// Si no estoy conectado a Internet, cancelo
-	if (app.isConnected) {
+	if (app.isConnected && stored_leads !== null && stored_leads.length > 0) {
 
-		// Si hay datos localmente
-		if (stored_leads !== null && stored_leads.length > 0) {
-			counter = stored_leads.length;
+		// Si hay conexion y hay datos locales
+		counter = stored_leads.length;
 
-			showConfirm({
-				body: '¿Desea exportar los contactos guardados?',
-				action: 'show',
-				fn: function () {
-					syncStoredLeads();
-				}
-			});
+		showConfirm({
+			body: 'Eportar ' + counter +' ' + (counter > 1 ? 'registros' : 'registro') + ' al servidor.<br>Esta acción podría demorar unos minutos.<br>¿Desea continuar?',
+			action: 'show',
+			fn: function () {
+				btn.addClass('loading').attr('disabled', 'disabled');
+				syncStoredLeads();
+			}
+		});
 
-		} else {
+	} else {
+
+		if(!app.isConnected){
+
 			showAlert({
-				body: 'No hay contactos para exportar.',
+				body: 'Esta acción requiere conexión a internet.',
 				class: 'danger',
 				icon: 'exclamation-circle',
 				action: 'show'
 			});
 
-			return false;
 		}
-	} else {
 
-		showAlert({
-			body: 'Esta acción requiere conexión a internet.',
-			class: 'danger',
-			icon: 'exclamation-circle',
-			action: 'show'
-		});
+		if(stored_leads === null || stored_leads.length < 1){
+			showAlert({
+				body: 'No hay registros para exportar.',
+				class: 'danger',
+				icon: 'exclamation-circle',
+				action: 'show'
+			});
+		}
 
-		return false;
 	}
+
+	$('#btn-pending-records').unbind('click');
 
 });
 
@@ -273,7 +278,7 @@ $(document).on('click', '#btn-send-quote', function (e) {
 	});
 
 	// Cargo Loading...
-	$("#btn-send-quote").html("Enviando...");
+	$("#btn-send-quote").html("Enviando...").attr('disabled', 'disabled');
 
 	console.log('#btn-send-quote -> aCurrentRecord reemplazo imagen base64 por nombre de archivo');
 
@@ -294,7 +299,7 @@ $(document).on('click', '#btn-send-quote', function (e) {
 
 	//}
 
-	$("#btn-send-quote").html("Enviar cotización");
+	$("#btn-send-quote").html("Enviar cotización").removeAttr('disabled');
 
 });
 
@@ -837,10 +842,8 @@ function sendRecord() {
 
 	//Levanto todos los registros guardados y los mando via post al server
 	var stored_leads = JSON.parse(window.localStorage.getItem("stored_leads"));
-
+	var btn = $('#btn-pending-records');
 	console.log(stored_leads);
-
-	$('#btn-pending-records').addClass('loading').attr('disabled');
 
 	$.ajax({
 		//url: server_url + '/system/php/actions.php?action=store&time=' + currentDate.ivTimeStamp() + '&stored_leads='+ JSON.stringify(lead[0]),
@@ -904,14 +907,14 @@ function sendRecord() {
 		console.log(status);
 		console.log(errorThrown);
 
-		//aRecordTemp.push(lead);
+		btn.removeClass('loading').removeAttr('disabled');
 		console.log('Fallo sendRecord(): lead: (ver siguiente)');
 		//console.log(lead);
 
 	})
 	.always(function (response, status, xhr) {
 
-		$('#btn-pending-records').removeClass('loading').removeAttr('disabled');
+		btn.removeClass('loading').removeAttr('disabled');
 		$("#btn-send-quote").html("Enviar cotización");
 
 	});
