@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="no-js gt-ie9" itemscope itemtype="http://schema.org/">
+
+<head>
+	<meta charset="utf-8">
+	<title id="general_header_nombre_app">{general_header_nombre_app}</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="Content-Security-Policy" content="connect-src *; default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src * data:;">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="format-detection" content="telephone=no">
+
+	<link rel="apple-touch-icon" sizes="57x57" href="assets/favicons/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="assets/favicons/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="assets/favicons/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/favicons/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="assets/favicons/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="assets/favicons/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="assets/favicons/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="assets/favicons/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="assets/favicons/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="assets/favicons/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+	<link rel="manifest" href="assets/favicons/manifest.json">
+	<link rel="stylesheet" href="assets/stylesheets/library/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/stylesheets/library/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/stylesheets/library/bootstrap-select.min.css">
+	<link rel="stylesheet" href="assets/stylesheets/styles.css">
+
+	<style>
+		@font-face{font-family:'FontAwesome';
+			src:url('assets/fonts/fontawesome/fontawesome-webfont.eot?v=4.7.0');
+			src:url('assets/fonts/fontawesome/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'),
+				url('assets/fonts/fontawesome/fontawesome-webfont.woff2?v=4.7.0') format('woff2'),
+				url('assets/fonts/fontawesome/fontawesome-webfont.woff?v=4.7.0') format('woff'),
+				url('assets/fonts/fontawesome/fontawesome-webfont.ttf?v=4.7.0') format('truetype'),
+				url('assets/fonts/fontawesome/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
+			font-weight:normal;
+			font-style:normal;
+		}
+		#cpanel button.loading i{
+			 background-image: url(images/static/loading-white.svg) !important;
+		}
+	</style>
+
+</head>
+
+<body class="home">
+
+	<div id="preloader">
+		<div id="preloader-inner"></div>
+	</div>
+
+	<div class="ajax-status">
+		<div class="ajax-status-inner"></div>
+	</div>
+
+	<div id="wrapper">
+
+		<header>
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="logo-holder">
+							<a href="index.html"><img src="assets/images/logo-mercedes-benz.svg"></a>
+						</div>
+						<div id="general_header_texto_izquierda" class="content-add">
+							{general_header_texto_izquierda}
+						</div>
+					</div>
+					<div class="content-add col-sm-6">
+						<div id="general_header_texto_derecha" class="content-add header-right-holder">
+							{general_header_texto_derecha}
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<section class="hero">
+			<div class="container-fluid ">
+				<div class="row">
+					<div class="col-md-12 scale-img image-container">
+
+						<img id="general_header_image">
+
+						<div class="hero-info">
+							<h1 id="general_header_linea_1" class="content-add">{general_header_linea_1}</h1>
+							<h2 id="general_header_linea_2" class="content-add">{general_header_linea_2}</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="copy shadow">
+			<div class="container ">
+				<div class="row">
+					<div class="col-md-12 lead"><span></span>
+						<h1>Armá tu plan a medida.</h1>
+						<p>Configurá el plan de acuerdo a tus necesidades en 2 simples pasos: elegí tu modelo y alguno de nuestros planes.</p>
+					</div>
+				</div>
+			</div>
+			<hr class="sep sep-invisible">
+		</section>
+
+		<section id="panels" class="thumbs">
+			<div class="container">
+				<div class="row">
+
+
+				</div>
+			</div>
+		</section>
+
+	</div>
+
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div id="settings" class="col-sm-12">
+
+					<button id="cpanel-open" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#cpanel">
+						<i class="fa fa-cog"></i>
+					</button>
+
+					<div id="icons-container">
+						<span class="icon-container">
+							<i class="fa fa-user"></i> <span id="pending-records-total" class="badge">0</span>
+						</span>
+						<span class="icon-container">
+							<i class="fa fa-plug net-status"></i>
+						</span>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Modal -->
+	<div class="modal fade" id="cpanel" tabindex="-1" role="dialog" aria-labelledby="cpanel-label">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h1 class="modal-title" id="cpanel-label">Panel de control</h1>
+				</div>
+				<div class="modal-body">
+
+					<div class="">
+						<div class="row">
+
+							<!--URL server-->
+							<div class="col-xs-12 form-field-group">
+								<label for="settings-server-url">URL del servidor</label>
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-link"></i></span>
+									<input id="settings-server-url" type="text" class="input-url form-control" placeholder="URL del servidor">
+									<span class="input-group-btn">
+										<button id="change-server-url" class="btn btn-primary" type="button">Aceptar</button>
+									</span>
+								</div>
+
+							</div>
+
+							<!--URL datos-->
+							<div class="col-xs-12 form-field-group">
+								<label for="settings-server-url">URL de contenido (relativa al servidor)</label>
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-link"></i></span>
+									<input id="settings-data-url" type="text" class="input-url form-control" placeholder="URL de actualización contenidos">
+									<span class="input-group-btn">
+										<button id="change-data-url" class="btn btn-primary" type="button">Aceptar</button>
+									</span>
+								</div>
+
+							</div>
+
+							<!--Actualizar Contenidos-->
+							<div class="col-xs-12">
+
+								<div class="input-group">
+									<span class="form-control"><i class="fa fa-database"></i> Actualizar contenidos de la app *</span>
+									<span class="input-group-btn">
+										<button id="btn-update-content" class="btn btn-primary" type="button">Aceptar <i></i></button>
+									</span>
+								</div>
+
+							</div>
+
+							<!--Guardar contactos-->
+							<div class="col-xs-12">
+
+								<div class="input-group">
+									<span class="form-control"><i class="fa fa-user"></i> Exportar contactos al servidor *</span>
+									<span class="input-group-btn">
+										<button id="btn-pending-records" class="btn btn-primary" type="button">Aceptar <i></i></button>
+									</span>
+								</div>
+
+							</div>
+
+							<div id="warning" class="col-xs-12">
+
+								<small>* Requiere conexión a internet</small>
+
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+				<div class="modal-footer">
+					<div class="">
+						<div class="row">
+							<div class="col-xs-6">
+								<div class="modal-status"></div>
+							</div>
+							<div class="col-xs-6">
+								<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+								<!--<button type="button" class="btn btn-primary">Save changes</button>-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="cordova.js"></script>
+
+	<script src="assets/scripts/library/jquery-3.2.1.min.js"></script>
+	<script src="assets/scripts/library/tether.min.js"></script>
+	<script src="assets/scripts/library/bootstrap.min.js"></script>
+	<!--<script src="js/index.js"></script>-->
+	<script src="assets/scripts/index.js"></script>
+	<script src="assets/scripts/library/bootstrap-select.min.js"></script>
+	<script src="assets/scripts/library/iv-validator.3.4.js"></script>
+	<script src="assets/scripts/library/iv-validator-regional-es.js"></script>
+	<script src="assets/scripts/library/jquery.form.js"></script>
+	<script src="assets/scripts/vehicle_panel_template.js"></script>
+
+	<script src="assets/scripts/ivano.js"></script>
+
+</body>
+
+</html>

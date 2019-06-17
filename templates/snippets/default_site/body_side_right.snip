@@ -1,0 +1,41 @@
+{if page_side_right:total_rows > 0}
+
+	{page_side_right}
+
+		{if '{page_side_right:contenido strip_tags="true" strip_line_breaks="true"}' != ''}
+
+			{embed="{page_side_right:contenido}" titulo="{page_side_right:titulo}" seccion="{page_side_right:seccion}" cantidad="{page_side_right:cantidad}"}
+
+		{/if}
+
+		{if page_side_right:texto OR page_side_right:imagen}
+
+			<div class="side-box">
+				<div class="panel panel-default banner">
+					<div class="panel-body">
+						{if page_side_right:titulo}<h5>{page_side_right:titulo}</h5>{/if}
+						{if page_side_right:imagen}
+							<figure>
+							{exp:ce_img:pair src="{page_side_right:imagen}" crop="yes" allow_scale_larger="yes" width="276"}<img src="{made}" alt="{page_side_right:titulo}" width="{width}" height="{height}">{/exp:ce_img:pair}
+							</figure>
+						{/if}
+						{if page_side_right:texto}{page_side_right:texto}{/if}
+					</div>
+				</div>
+			</div>
+
+		{/if}
+
+	{/page_side_right}
+
+{if:else}
+
+	{embed="contents/.banner_fb_fanpage_like" titulo="{general_default_titulo_fb_fanpage_like}"}
+
+	{embed="contents/.banner_actas"}
+
+	{embed="contents/.adsense_250x250_01"}
+
+	{embed="contents/.adsense_250x250_02"}
+
+{/if}

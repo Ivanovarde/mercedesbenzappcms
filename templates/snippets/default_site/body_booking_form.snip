@@ -1,0 +1,80 @@
+<!--Booking Form-->
+<div class="booking-holder">
+	
+	<span class="sprite sprite-leaves-left"></span>
+	
+	<div class="booking-holder-inner">
+		
+		<form class="form-inline validate" data-ajax="false" name="checkaressrch" target="_blank" method="get" action="https://flamingowaterpark.reztrip.com/search?">
+			
+			<div>
+			
+				<div class="form-group">
+					<div class="input-group">
+						<label for="arrival_date" class="sr-only">Check-in date</label>
+						<input type="text" class="datefrom datepicker validate:{required: true}" name="arrival_date" placeholder="Check in" readonly>
+						<div class="input-group-addon "><em class="fa fa-calendar"></em></div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="input-group">
+						<label for="departure_date" class="sr-only">Check-out date</label>
+						<input type="text" class="dateto datepicker validate:{required: true}" name="departure_date" placeholder="Check out" readonly>
+						<div class="input-group-addon "><em class="fa fa-calendar"></em></div>
+					</div>
+				</div>
+
+				<div class="form-group select">
+					<label for="rooms"><span>Rooms</span><span class="fa fa-bed"></span></label>
+					<select name="rooms" class="form-control">
+						<option value="1" selected>1</option>
+						<option value="2" >2</option>
+						<option value="3" >3</option>
+						<option value="4" >4</option>
+					</select>
+				</div>
+
+				<div class="form-group select">
+					<label for="adults"><span>Adults</span><span class="fa fa-male"></span></label>
+					<select name="adults[]" class="form-control">
+						<option value="1" selected>1</option>
+						<option value="2" >2</option>
+						<option value="3" >3</option>
+						<option value="4" >4</option>
+						<option value="5" >5</option>
+						<option value="6" >6</option>
+						<option value="7" >7</option>
+						<option value="8" >8</option>
+						<option value="9" >9</option>
+					</select>
+				</div>
+
+				<div class="form-group select">
+				<label for="children"><span>Children</span><span class="fa fa-child"></span></label>
+				<select name="children[]" class="form-control">
+					<option value="0" selected>0</option>
+					<option value="1" >1</option>
+					<option value="2" >2</option>
+					<option value="3" >3</option>
+					<option value="4" >4</option>
+					<option value="5" >5</option>
+					<option value="6" >6</option>
+					<option value="7" >7</option>
+					<option value="8" >8</option>
+					<option value="9" >9</option>
+				</select>
+			</div>
+				
+			</div>
+			
+			<button type="submit" class="btn btn-default" data-event="ga('send', 'event', 'Booking-widget', 'Book', 'Search dates with booking widget');">Book</button>
+			
+		</form>
+		
+	</div>
+	
+	<span class="sprite sprite-leaves-right"></span>
+	
+</div>
+<!--/Booking Form-->

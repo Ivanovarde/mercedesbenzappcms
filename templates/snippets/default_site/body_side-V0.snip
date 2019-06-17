@@ -1,0 +1,18 @@
+{!--page_side_right}
+{if '{page_side_right:side_template}'}{embed="{page_side_right:side_template}" header="{page_side_right:side_header}"}{/if}
+{if '{page_side_right:side_copy}' OR '{page_side_right:side_image}'}
+<aside>
+  <div class="box">
+	<div class="richcontent">
+	  {if '{page_side_right:side_header}'}<h5>{page_side_right:side_header}</h5>{/if}
+	  {if '{page_side_right:side_image}'}
+	  <div class="image-block">
+		{exp:ce_img:pair src="{page_side_right:side_image}" crop="yes" allow_scale_larger="yes" width="276"}<img src="{made}" alt="" width="{width}" height="{height}">{/exp:ce_img:pair}
+	  </div>
+	  {/if}
+	  {if '{page_side_right:side_copy}'}{page_side_right:side_copy}{/if}
+	</div>
+  </div>
+</aside>
+{/if}
+{/page_side_right--}

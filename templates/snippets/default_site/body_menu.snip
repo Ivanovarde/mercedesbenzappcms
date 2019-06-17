@@ -1,0 +1,38 @@
+<section id="nav-holder">
+
+	<div class="container-fluid navbar-custom nav-desktop-container">
+
+		<div class="row ">
+
+			<nav class="navbar navbar-default" role="navigation">
+				<div id="nav-inner">
+
+					<div id="navigation" class="collapse navbar-collapse">
+
+						{exp:iv_navmenu levels="2" refresh="{general_nav_session_refresh}" mode="main" class="sf-menu nav navbar-nav"}
+
+					</div>
+
+				</div>
+
+			</nav>
+
+		</div>
+
+	</div>
+
+	<div class="container nav-mobile-container">
+
+		<div class="row ">
+
+			<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+
+				{exp:iv_navmenu levels="2" refresh="{general_nav_session_refresh}" mode="mobile" class="dl-menu" not="997"}
+
+			</nav>
+
+		</div>
+
+	</div>
+
+</section>

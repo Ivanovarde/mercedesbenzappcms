@@ -1,0 +1,40 @@
+
+{exp:http_header access_control_allow_origin="*"}
+{exp:http_header content_type="application/json" charset="{charset}"}
+
+{
+"campos": [
+{exp:query sql="SELECT field_name FROM exp_channel_fields WHERE group_id = 2 ORDER BY field_id ASC"}
+"{field_name}"{if total_results != count},{/if}
+{/exp:query}, "tipo_vehiculo", "tipo_vehiculo_url"
+],
+
+"categorias": {
+{exp:channel:categories category_group="1" parent_only="yes" show_empty="no" status="open" style="linear"}
+"{category_url_title}": {
+	"nombre": "{category_name}", "url": "{category_url_title}", "imagen": "{exp:ce_img:pair src="{category_image}" width="380" height="284" allow_scale_larger="yes"}{base64}{/exp:ce_img:pair}", "image_url": "{category_image}"
+}{if total_results != count},{/if}
+{/exp:channel:categories}},
+
+"vehiculos": [{exp:channel:categories category_group="1" parent_only="yes" show_empty="no" status="open" style="linear"}{"{category_url_title}": [{embed="json/.json_data_linea" counter_tipo="{count}" category_image="{category_image}" category_id="{category_id}" category_url_title="{category_url_title}" category_name="{category_name}"}]}
+{if total_results != count},{/if}{/exp:channel:categories}],
+
+"contenido":
+	{"general_request_time": "{current_time format='%U'}",
+	"general_server_url": "{site_url}",
+	"general_header_nombre_app": "{site_name}",
+	{exp:channel:entries status="open" channel="page" dynamic="off" limit="1" disable="categories|category_fields|member_data|pagination"}
+	"general_data_url": "{general_json_data_url}",
+"general_header_texto_izquierda": "<span>{exp:streeng allowed='none'}{general_header_texto_izquierda}{/exp:streeng}</span>",
+"general_header_texto_derecha": "{if {general_header_texto_derecha_url}}<a href='{general_header_texto_derecha_url}' target='_blank'>{exp:streeng allowed='none'}{general_header_texto_derecha}{/exp:streeng}</a>{if:else}<span>{exp:streeng allowed='none'}{general_header_texto_derecha}{/exp:streeng}</span>{/if}",
+	"general_header_image": "{exp:ce_img:pair src="{general_header_image}" width="1284" height="548" allow_scale_larger="yes"}{base64}{/exp:ce_img:pair}",
+	"general_header_linea_1": "{exp:streeng allowed='none'}{general_header_linea_1}{/exp:streeng}",
+	"general_header_linea_2": "{exp:streeng allowed='none'}{general_header_linea_2}{/exp:streeng}",
+	"general_legales": {exp:json_encode}{general_legales}{/exp:json_encode}}
+	{/exp:channel:entries}
+}
+
+
+
+
+

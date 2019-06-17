@@ -1,0 +1,118 @@
+{embed="%prefix%inc/index" page_title="Week View"}
+	</head>
+
+	<body role="document">
+
+{embed="%prefix%inc/header" page="type"}
+
+		<div class="container" style="margin-top:30px;">
+
+			<div class="page-header">
+				<h1>Week View</h1>
+				<p class="lead">Below is full week calendar view, which allows you to see all your event occurrences in a daily view.</p>
+			</div>
+
+			<div class="row">
+				<div class="col-md-9">
+
+				{if segment_3 == "by_calendar"}
+					<div class="alert alert-info" role="alert">
+						<p class="lead">
+                        	Events for
+							{exp:calendar:calendars calendar_name="{segment_4}" dynamic="off"}
+								<strong>{calendar_title}</strong>
+							{/exp:calendar:calendars}
+							calendar.
+						</p>
+					</div>
+				{/if}
+
+					<div id="wc_calendar">
+					{exp:calendar:cal enable="custom_fields" pad_short_weeks="y" dynamic="off"
+						{if segment_3 == "by_calendar"}
+							{if segment_5 == ''}
+								calendar_name="{segment_4}"
+								date_range_start="0 weeks begin"
+							{/if}
+							{if segment_5 != ''}
+								calendar_name="{segment_4}"
+								date_range_start="{segment_5}-{segment_6}-{segment_7}"
+								date_range_end="{segment_5}-{segment_6}-{segment_7}"
+							{/if}
+						{/if}
+						{if segment_3 != "by_calendar"}
+							{if segment_3 == ''}
+								date_range_start="0 weeks begin"
+							{/if}
+							{if segment_3 != ""}
+								date_range_start="{segment_3}-{segment_4}-{segment_5}"
+								date_range_end="{segment_3}-{segment_4}-{segment_5}"
+							{/if}
+						{/if}
+					}
+						{display_each_week}
+						<div class="header clearfix">
+							<div class="left">
+								<ul class="pager">
+									<li><a href="{path='%prefix%main/week'}/{if segment_3 == "by_calendar"}by_calendar/{segment_4}/{/if}{prev_week format="%Y/%m/%d"}/">&larr; Last Week</a></li>
+								</ul>
+							</div>
+							<div class="center">
+								<h3>
+									{week format="%l, %F %j, %Y"}
+									<span class="label {if week_event_total == "0"}label-default{if:else}label-warning{/if}">{week_event_total} event{if week_event_total > "1" OR week_event_total == "0"}s{/if}</span>
+								</h3>
+							</div>
+							<div class="right">
+								<ul class="pager">
+									<li><a href="{path='%prefix%main/week'}/{if segment_3 == "by_calendar"}by_calendar/{segment_4}/{/if}{next_week format="%Y/%m/%d"}/">Next Week &rarr;</a></li>
+								</ul>
+							</div>
+						</div>
+						{display_each_day}
+						<div class="panel {if day_is_today}panel-warning{if:else}panel-default{/if}">
+							<div class="panel-heading">
+								<h3 class="panel-title"><a href="{path='%prefix%main/day'}/{if segment_3 == "by_calendar"}by_calendar/{segment_4}/{/if}{day format="%Y/%m/%d"}/">{if day_is_today}TODAY{if:else}{day format="%l, %F %j, %Y"}{/if}</a> <span class="label {if day_event_total == "0"}label-default{if:else}label-warning{/if}">{day_event_total} event{if day_event_total > "1" OR day_event_total == "0"}s{/if}</span></h3>
+							</div>
+							<div class="panel-body">
+								{if day_event_total == "0"}No events for this day.{/if}
+								{events}
+									{if event_count == "1"}<ul class="list-group" style="margin-bottom:0px;">{/if}
+										<li class="list-group-item">
+											<a href="{path='%prefix%main/calendar'}/{event_calendar_url_title}/" class="badge">{event_calendar_title}</a>
+											{if event_all_day}all day{if:else}{event_start_date format="%g:%i %a"}{if event_end_time != event_start_time && event_end_time != '00:00'} - {event_end_date format="%g:%i %a"}{/if}{/if} &nbsp;
+											<b><a href="{path='%prefix%main/event'}/{event_id}/{if event_recurs}{event_start_date format="%Y/%m/%d"}/{/if}">{event_title}</a></b>
+											{if event_location}&nbsp; <i>{event_location}</i>{/if}
+										</li>
+									{if event_count == day_event_total}</ul>{/if}
+								{/events}
+							</div>
+						</div>
+						{/display_each_day}
+						{/display_each_week}
+					{/exp:calendar:cal}
+					</div>
+
+				</div>
+
+				<div class="col-md-3">				
+{embed="%prefix%inc/sidebar"}
+				</div>
+
+      		</div>
+
+			<div class="well" style="margin-top:30px;">
+				<h2 style="margin-top:5px;">About This Page</h2>
+				<p>The "Week" page is meant to show events for a particular week. Additionally, this page can be filtered down to display events for a specific calendar (if you've come from the Calendars page).</p>
+				<p>It makes use of the following tags:</p>
+				<ul>
+					<li><a href="https://solspace.com/docs/calendar/week/">Calendar:Cal in Week mode</a> to display events for a particular week.</li>
+				</ul>
+				<p>The global sidebar on the right makes use of the following tags:</p>
+				<ul>
+					<li><a href="https://solspace.com/docs/calendar/mini/">Calendar:Cal in Mini mode</a> to display a Mini Calendar that links to days that have events.</li>
+					<li><a href="https://solspace.com/docs/calendar/calendars/">Calendar:Calendars</a> to display a list of all available Calendars.</li>
+				</ul>
+			</div>
+
+{embed="%prefix%inc/footer"}

@@ -1,0 +1,296 @@
+@media all {
+
+/* MONTH CALENDAR */
+
+#fc_calendar {
+	margin: 0 auto;
+	padding: 0;
+	width: 100%;
+}
+#fc_calendar table, #fc_calendar tr, #fc_calendar td {
+	padding: 0px;
+}
+#fc_outer {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	table-layout: fixed;
+}
+#fc_inner {
+	width: 100%;
+	table-layout: fixed;
+}
+#fc_calendar #fc_inner td {
+	width: 14%;
+	height: 130px;
+	padding: 5px;
+}
+#fc_calendar .event {
+	font-size: 12px;
+	overflow: hidden;
+	white-space: nowrap;
+	color: #7f7f7f;
+	padding: 2px 0 0 0;
+}
+#fc_calander table table .event a {
+	color: #d75452;
+	text-decoration: underline;
+}
+#fc_calendar .day_cell .all_day, #fc_calendar .day_cell .multi_day {
+	padding: 0 6px;
+	line-height: 20px;
+	color: #ffffff;
+}
+#fc_calendar .day_cell .all_day {
+	margin-bottom: 2px;
+	background-color: #377bb5;
+}
+#fc_calendar .day_cell .multi_day {
+	margin-bottom: 2px;
+	background-color: #60c0dc;
+	margin-left: -5px;
+	margin-right: -5px;
+}
+#fc_calendar .day_cell .all_day a, #fc_calendar .day_cell .multi_day a {
+	color: #ffffff;
+	text-decoration: none;
+}
+#fc_calendar .day_cell .all_day a:hover, #fc_calendar .day_cell .multi_day a:hover {
+	color: #ffffff;
+	text-decoration: underline;
+}
+#fc_calendar .first_day {
+	margin-left: 0 !important;
+}
+#fc_calendar .last_day {
+	margin-right: 0 !important;
+}
+#fc_calendar .day_cell .date {
+	width: 100%;
+	text-align: right;
+	margin: 0;
+	padding: 0 0 3px 0;
+}
+#fc_calendar .day_cell .date a {
+	font-weight: normal;
+	color: #000000;
+	text-decoration: none;
+}
+#fc_calendar .day_cell .has_events a {
+	color: #d75452;
+	font-weight: bold;
+}
+#fc_calendar .day_cell .date .num {
+	font-size: 15px;
+}
+#fc_calendar .day_cell .date a:hover {
+	color: #000000;
+	text-decoration: underline;
+}
+#fc_calendar .day_cell .has_events a:hover {
+	color: #d75452;
+}
+#fc_calendar td.day_cell {
+	padding-top: 30px;
+}
+#fc_calendar .out_of_range {
+	background: #fbfbfb;
+}
+#fc_calendar .out_of_range .date {
+	color: #aeaeae;
+}
+#fc_calendar td.today {
+	background-color: #fcf8e4;
+}
+#days_of_week th {
+	padding: 5px 0;
+	text-align: center;
+}
+#month_year th {
+	padding: 5px;
+	color: #000;
+}
+#month_year th.left {
+	text-align: left;
+}
+#month_year th.center {
+	text-align: center;
+}
+#month_year th.right {
+	text-align: right;
+}
+#fc_legend {
+	clear: both;
+}
+#fc_legend .event {
+	font-size: 12px;
+	width: 14%;
+	color: #7f7f7f;
+	margin: 0 0 0 5px;
+	padding: 0 4px;
+	line-height: 20px;
+	float: left;
+}
+#fc_legend .all_day, #fc_legend .multi_day {
+	padding: 0 6px;
+	line-height: 20px;
+	color: #fff;
+	font-size: 12px;
+}
+#fc_legend .all_day {
+	background-color: #377bb5;
+}
+#fc_legend .multi_day {
+	background-color: #60c0dc;
+}
+#fc_legend .all_day a, #fc_legend .multi_day a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+/* WEEK CALENDAR */
+
+#wc_calendar .header div {
+	float: left;
+	width: 20%;
+}
+#wc_calendar .header div.left {
+	padding-left: 10px;
+}
+#wc_calendar .header div.center {
+	width: 55%;
+	text-align: center;
+}
+#wc_calendar .header div.right {
+	text-align: right;
+	padding-right: 10px;
+}
+
+/* DAY CALENDAR */
+
+#dc_calendar .header div {
+	float: left;
+	width: 15%;
+}
+#dc_calendar .header div.left {
+	padding-left: 10px;
+}
+#dc_calendar .header div.center {
+	width: 65%;
+	text-align: center;
+}
+#dc_calendar .header div.right {
+	text-align: right;
+	padding-right: 10px;
+}
+
+/* MINI Calendar */
+
+#mc_calendar {
+	margin: 0;
+	width: 100%;
+}
+#mc_calendar td, #mc_calendar th {
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+#mc_calendar th {
+	border: none;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+#mc_calendar #mc_days th {
+	background: #e5e5e5;
+}
+#mc_calendar th a {
+	color: #000;
+	font-size: 15px;
+}
+#mc_calendar th a.icon {
+	padding: 2px 5px;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 15px;
+}
+#mc_calendar a.left {
+	padding-right: 7px;
+}
+#mc_calendar a.right {
+	padding-left: 8px;
+}
+#mc_calendar td a {
+	display: block;
+	color: #fff;
+}
+#mc_calendar td div, #mc_calendar td.has_events div #mc_calendar td.mc_pad div {
+	vertical-align: middle;
+	text-align: center;
+	padding: 6px;
+}
+#mc_calendar td.has_events div {
+	padding: 0;
+}
+#mc_calendar td.has_events div a {
+	font-weight: bold;
+	color: #000000;
+	display: block;
+	padding: 6px;
+	background-color: #f5f5f5;
+}
+#mc_calendar td.has_events .middot {
+	display: block;
+	padding: 6px;
+}
+#mc_calendar td.has_events div a:hover, #mc_calendar td.selected div.mc_date {
+	background: #dff0d9;
+	text-decoration: none;
+}
+#mc_calendar td.today div, #mc_calendar td.today div a {
+	background-color: #fcf8e4;
+}
+#mc_events {
+	width: 245px;
+	margin: 0 auto;
+	padding-top: 4px;
+	line-height: 1.5;
+}
+#mc_event_details {
+	border: 1px solid #ccc;
+	padding: 7px;
+	clear: both;
+	margin-top: 4px;
+}
+#mc_event_details .event {
+	display: none;
+}
+#mc_event_details .active {
+	display: block;
+}
+#mc_events hr {
+	border: 1px dotted #ccc;
+	border-width: 1px 0 0;
+}
+#mc_events h4 {
+	margin: 0;
+}
+#mc_days th {
+	border: 1px solid #979797;
+	border-width: 1px 0;
+}
+.dl-horizontal dt {
+	text-align: left;
+	line-height: 25px;
+}
+.middot {
+	color: #bcbcbc;
+}
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+} /* end of @media screen */

@@ -1,0 +1,43 @@
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>
+//jsFiles = '<script src="{static_url}/scripts/library/jquery.2.2.4.min.js"><\/script>';
+//
+//window.jQuery || document.write(jsFiles);
+</script>
+
+
+<!--<script src="{static_url}/scripts/library/infinite-scroll.pkgd.js"></script>-->
+
+<!-- Javascript files -->
+{exp:minimee:js queue="js_files" priority="2"}
+<script src="{static_url}/scripts/library/jquery.sticky-kit.min.js"></script>
+<script src="{static_url}/scripts/library/bootstrap/bootstrap.min.js"></script>
+<script src="{static_url}/scripts/library/jquery-livequery-1.0.2.js"></script>
+<script src="{static_url}/scripts/library/superfish/superfish.js"></script>
+<script src="{static_url}/scripts/library/jquery.dlmenu.js"></script>
+<script src="{static_url}/scripts/library/jquery.superslides.js"></script>
+<script src="{static_url}/scripts/library/jquery.touchSwipe.1.6.18.min.js"></script>
+<script src="{static_url}/scripts/library/iv-common.5.0.js?v={general_timestamp}"></script>
+<script src="{static_url}/scripts/main.js?v={general_timestamp}"></script>
+{/exp:minimee:js}
+
+{exp:minimee:display js="js_files"}
+
+<script>
+	console.log('js_files url: {exp:minimee:display js="js_files" display="url"}');
+</script>
+
+<!--
+// Share this optimization code
+<script type="text/javascript">
+	(function(a,b,c,d,e,f,g){
+		a[e]=a[e]||function(){
+			(a[e].q=a[e].q||[]).push(arguments)
+		},a[e].l=1*new Date,f=b.createElement(c),g=b.getElementsByTagName(c)[0],f.async=1,f.src=d,g.parentNode.insertBefore(f,g)
+	})
+	(window,document,"script","https://platform.sharethis.com/sop.js","sop");
+	sop('property', '5840127b7331240012e7c82a');
+</script>
+-->
+

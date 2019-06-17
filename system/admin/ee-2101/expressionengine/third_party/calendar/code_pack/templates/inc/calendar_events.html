@@ -1,0 +1,6 @@
+								{exp:calendar:cal calendar_id="{embed:calendar_id}" event_limit="{embed:event_limit}" date_range_start="today" show_months="6" pad_short_weeks="n" dynamic="off"}
+									<li><a href="{path='%prefix%main/event'}/{event_id}/">{event_title}</a> &nbsp; <small><i>{event_start_date format="%F %j, %Y"}</i></small></li>
+								{if no_results}
+									<li>No events could be found within the specified time range (now until 6 months from now) for this Calendar.</li>
+								{/if}
+								{/exp:calendar:cal}

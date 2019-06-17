@@ -1,0 +1,25 @@
+<div class="share-bar">
+	
+	{if '{embed:fblikebutton}' == 'yes'}
+	<div id="fb-like-container">
+		<div class="fb-like" data-href="{current_page}" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+	</div>
+	{/if}
+	
+	{if '{embed:fblikebuttonpost}' == 'yes'}
+	<div id="fb-like-container">
+		<div class="fb-like" data-href="{this_url}" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+	</div>
+	{/if}
+	
+	<ul>
+		<li>Compartir <span>en:</span></li>
+		<!--li><span class='st_sharethis' st_title="{embed:text}" st_url="{embed:url}" displayText='ShareThis'></span></li-->
+		<li><span class='st_facebook_custom sharethis' st_title="{embed:text}" st_url="{embed:url}" displayText='Facebook'></span></li>
+		<li><span class='st_twitter_custom sharethis' st_title="{embed:text}" st_url="{embed:url}" displayText='Tweet'></span></li>
+		<li><span class='st_googleplus_custom sharethis' st_title="{embed:text}" st_url="{embed:url}" displayText='Google +'></span></li>
+		<li><span class='st_linkedin_custom sharethis' st_title="{embed:text}" st_url="{embed:url}" displayText='LinkedIn'></span></li>
+		<li><span class='st_pinterest_custom sharethis' st_title="{embed:text}" st_url="{embed:url}" displayText='Pinterest'></span></li>
+		<li><span class='st_email_custom sharethis' st_title="{embed:text}" st_url="{embed:url}" displayText='Email'></span></li>
+	</ul>
+</div>

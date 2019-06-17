@@ -1,0 +1,160 @@
+----------------------
+[24/May/2016:14:21:29] CE Lossless is beginning processing of the "/www/panamfragrances/images/categories/cat-air-home-care.jpg" image/jpeg image.
+[24/May/2016:14:21:34] The remote image 'http://static1.resmush.it/output/0989716929140f174fb492c4d51fa83b/cat-air-home-care.jpg' was downloaded successfully.
+[24/May/2016:14:21:34] The image was compressed by Smush.it from 76.25 KiB to 57.52 KiB for a total difference of 18.73 KiB (25% of the original size).
+----------------------
+[24/May/2016:14:24:09] CE Lossless is beginning processing of the "/www/panamfragrances/images/categories/cat-fabric-care.jpg" image/jpeg image.
+[24/May/2016:14:24:18] The remote image 'http://static0.resmush.it/output/97489895b60078a8e9e03121bb76154e/cat-fabric-care.jpg' was downloaded successfully.
+[24/May/2016:14:24:18] The image was compressed by Smush.it from 150.17 KiB to 104.43 KiB for a total difference of 45.74 KiB (30% of the original size).
+----------------------
+[24/May/2016:14:26:22] CE Lossless is beginning processing of the "/www/panamfragrances/images/categories/cat-body-hair-care.jpg" image/jpeg image.
+[24/May/2016:14:26:26] The remote image 'http://static1.resmush.it/output/9fe0aa1819d20fa854f6740a8c7cf8c9/cat-body-hair-care.jpg' was downloaded successfully.
+[24/May/2016:14:26:26] The image was compressed by Smush.it from 88.05 KiB to 72.51 KiB for a total difference of 15.54 KiB (18% of the original size).
+----------------------
+[24/May/2016:14:28:09] CE Lossless is beginning processing of the "/www/panamfragrances/images/categories/cat-fine-perfumes.jpg" image/jpeg image.
+[24/May/2016:14:28:13] The remote image 'http://static1.resmush.it/output/f7e08116f10f1ee6bb9656422d954d90/cat-fine-perfumes.jpg' was downloaded successfully.
+[24/May/2016:14:28:13] The image was compressed by Smush.it from 134.96 KiB to 99.76 KiB for a total difference of 35.2 KiB (26% of the original size).
+----------------------
+[24/May/2016:14:29:23] CE Lossless is beginning processing of the "/www/panamfragrances/images/categories/cat-natural-fragances.jpg" image/jpeg image.
+[24/May/2016:14:29:30] The remote image 'http://static0.resmush.it/output/ee1e3fddce34158b1474f6553a5151b2/cat-natural-fragances.jpg' was downloaded successfully.
+[24/May/2016:14:29:30] The image was compressed by Smush.it from 174.34 KiB to 126.61 KiB for a total difference of 47.73 KiB (27% of the original size).
+----------------------
+[24/May/2016:14:30:44] CE Lossless is beginning processing of the "/www/panamfragrances/images/categories/cat-essential-oils.jpg" image/jpeg image.
+[24/May/2016:14:30:50] The remote image 'http://static1.resmush.it/output/9431d95fb1956fca2a964a7a3c778b9b/cat-essential-oils.jpg' was downloaded successfully.
+[24/May/2016:14:30:50] The image was compressed by Smush.it from 125.08 KiB to 90.73 KiB for a total difference of 34.35 KiB (27% of the original size).
+----------------------
+[06/Jun/2016:13:17:38] CE Lossless is beginning processing of the "/www/panamfragrances/images/categories/cat-air-home-care1.jpg" image/jpeg image.
+[06/Jun/2016:13:17:46] The remote image 'http://static1.resmush.it/output/c160c6d4d020546e4b53bd4d0f64b58a/cat-air-home-care1.jpg' was downloaded successfully.
+[06/Jun/2016:13:17:46] The image was compressed by Smush.it from 585.75 KiB to 430.99 KiB for a total difference of 154.76 KiB (26% of the original size).
+----------------------
+[06/Jun/2016:13:17:58] CE Lossless is beginning processing of the "/www/panamfragrances/images/categories/cat-air-home-care.jpg" image/jpeg image.
+[06/Jun/2016:13:18:10] The remote image 'http://static1.resmush.it/output/02941262e98aaa55846ca9e246fe4f38/cat-air-home-care.jpg' was downloaded successfully.
+[06/Jun/2016:13:18:10] The image was compressed by Smush.it from 430.99 KiB to 429.83 KiB for a total difference of 1.16 KiB (0% of the original size).
+----------------------
+[06/Jun/2016:13:18:36] CE Lossless is beginning processing of the "/www/panamfragrances/images/categories/cat-fabric-care1.jpg" image/jpeg image.
+[06/Jun/2016:13:19:04] The remote image 'http://static1.resmush.it/output/f1b547c2248e61446f05fd4a5582b0f8/cat-fabric-care1.jpg' was downloaded successfully.
+[06/Jun/2016:13:19:04] The image was compressed by Smush.it from 830.5 KiB to 604.07 KiB for a total difference of 226.43 KiB (27% of the original size).
+----------------------
+[06/Jun/2016:13:19:06] CE Lossless is beginning processing of the "/www/panamfragrances/images/categories/cat-fabric-care.jpg" image/jpeg image.
+[06/Jun/2016:13:19:17] The remote image 'http://static0.resmush.it/output/b79839f86a8c6d88d7e9cf6539bad4b1/cat-fabric-care.jpg' was downloaded successfully.
+[06/Jun/2016:13:19:17] The image was compressed by Smush.it from 604.07 KiB to 603.25 KiB for a total difference of 842 b (0% of the original size).
+----------------------
+[06/Jun/2016:13:20:40] CE Lossless is beginning processing of the "/www/panamfragrances/images/categories/cat-body-hair-care1.jpg" image/jpeg image.
+[06/Jun/2016:13:20:49] The remote image 'http://static0.resmush.it/output/3ea5e0ed8f3abe1788a067e966ef135a/cat-body-hair-care1.jpg' was downloaded successfully.
+[06/Jun/2016:13:20:49] The image was compressed by Smush.it from 459.61 KiB to 397.22 KiB for a total difference of 62.39 KiB (14% of the original size).
+----------------------
+[06/Jun/2016:13:20:52] CE Lossless is beginning processing of the "/www/panamfragrances/images/categories/cat-body-hair-care.jpg" image/jpeg image.
+[06/Jun/2016:13:21:09] The remote image 'http://static1.resmush.it/output/5bf33830f7ec0fe8073a709250da55d3/cat-body-hair-care.jpg' was downloaded successfully.
+[06/Jun/2016:13:21:09] The image was compressed by Smush.it from 397.22 KiB to 396.71 KiB for a total difference of 519 b (0% of the original size).
+----------------------
+[06/Jun/2016:13:22:33] CE Lossless is beginning processing of the "/www/panamfragrances/images/categories/cat-fine-perfumes1.jpg" image/jpeg image.
+[06/Jun/2016:13:22:44] The remote image 'http://static0.resmush.it/output/2cf6a330a0774d55e8d15f8324b16836/cat-fine-perfumes1.jpg' was downloaded successfully.
+[06/Jun/2016:13:22:44] The image was compressed by Smush.it from 685.5 KiB to 517.08 KiB for a total difference of 168.42 KiB (25% of the original size).
+----------------------
+[06/Jun/2016:13:22:47] CE Lossless is beginning processing of the "/www/panamfragrances/images/categories/cat-fine-perfumes.jpg" image/jpeg image.
+[06/Jun/2016:13:22:56] The remote image 'http://static0.resmush.it/output/25e0e7b314fee023b1d02eab14221719/cat-fine-perfumes.jpg' was downloaded successfully.
+[06/Jun/2016:13:22:56] The image was compressed by Smush.it from 517.08 KiB to 516.25 KiB for a total difference of 846 b (0% of the original size).
+----------------------
+[06/Jun/2016:13:25:03] CE Lossless is beginning processing of the "/www/panamfragrances/images/categories/cat-natural-fragances1.jpg" image/jpeg image.
+[06/Jun/2016:13:25:31] The remote image 'http://static1.resmush.it/output/f0050b2f16f898f7108726f2046ca548/cat-natural-fragances1.jpg' was downloaded successfully.
+[06/Jun/2016:13:25:31] The image was compressed by Smush.it from 866.04 KiB to 643.97 KiB for a total difference of 222.07 KiB (26% of the original size).
+----------------------
+[06/Jun/2016:13:25:32] CE Lossless is beginning processing of the "/www/panamfragrances/images/categories/cat-natural-fragances.jpg" image/jpeg image.
+[06/Jun/2016:13:25:44] The remote image 'http://static0.resmush.it/output/8bacc52aa5e631eff7fe516d11a8bbb9/cat-natural-fragances.jpg' was downloaded successfully.
+[06/Jun/2016:13:25:44] The image was compressed by Smush.it from 643.97 KiB to 641.49 KiB for a total difference of 2.48 KiB (0% of the original size).
+----------------------
+[06/Jun/2016:13:27:28] CE Lossless is beginning processing of the "/www/panamfragrances/images/categories/cat-essential-oils1.jpg" image/jpeg image.
+[06/Jun/2016:13:27:39] The remote image 'http://static0.resmush.it/output/fbd1d0aef2cd5cef641d195cb859b16f/cat-essential-oils1.jpg' was downloaded successfully.
+[06/Jun/2016:13:27:39] The image was compressed by Smush.it from 604.62 KiB to 462.95 KiB for a total difference of 141.67 KiB (23% of the original size).
+----------------------
+[06/Jun/2016:13:27:58] CE Lossless is beginning processing of the "/www/panamfragrances/images/categories/cat-essential-oils.jpg" image/jpeg image.
+[06/Jun/2016:13:28:08] The remote image 'http://static0.resmush.it/output/4ad5d6cc6298896a2741f32d72da896f/cat-essential-oils.jpg' was downloaded successfully.
+[06/Jun/2016:13:28:08] The image was compressed by Smush.it from 462.95 KiB to 461.64 KiB for a total difference of 1.31 KiB (0% of the original size).
+----------------------
+[06/Jun/2016:18:05:32] CE Lossless is beginning processing of the "/www/panamfragrances/images/made/local/images/categories/cat-fabric-care_100_100_c1.jpg" jpg image.
+[06/Jun/2016:18:05:38] The remote image 'http://static0.resmush.it/output/1ac3965762b87b94473140cee20165eb/cat-fabric-care_100_100_c1.jpg' was downloaded successfully.
+[06/Jun/2016:18:05:38] The image was compressed by Smush.it from 9.63 KiB to 3.53 KiB for a total difference of 6.1 KiB (63% of the original size).
+----------------------
+[06/Jun/2016:18:05:39] CE Lossless is beginning processing of the "/www/panamfragrances/images/made/local/images/categories/cat-fabric-care_1200_630_s_c1.jpg" jpg image.
+[06/Jun/2016:18:05:54] The remote image 'http://static1.resmush.it/output/3a3ded4372b1a026f24d22a5ec0b3542/cat-fabric-care_1200_630_s_c1.jpg' was downloaded successfully.
+[06/Jun/2016:18:05:54] The image was compressed by Smush.it from 576.25 KiB to 194.83 KiB for a total difference of 381.42 KiB (66% of the original size).
+----------------------
+[07/Jun/2016:19:59:54] CE Lossless is beginning processing of the "/www/panamfragrances/images/made/local/images/categories/cat-air-home-care_1200_630_s_c1.jpg" jpg image.
+[07/Jun/2016:20:00:02] The remote image 'http://static1.resmush.it/output/c2bdd012056b62f1be5f95782ca5236d/cat-air-home-care_1200_630_s_c1.jpg' was downloaded successfully.
+[07/Jun/2016:20:00:02] The image was compressed by Smush.it from 445.9 KiB to 137.34 KiB for a total difference of 308.56 KiB (69% of the original size).
+----------------------
+[08/Jun/2016:15:09:39] CE Lossless is beginning processing of the "/www/panamfragrances/images/made/local/images/categories/cat-air-home-care_707_341_s_c1.jpg" jpg image.
+[08/Jun/2016:15:09:44] The remote image 'http://static0.resmush.it/output/57f9fcb76df58750c42191ebcddd23fc/cat-air-home-care_707_341_s_c1.jpg' was downloaded successfully.
+[08/Jun/2016:15:09:44] The image was compressed by Smush.it from 152.16 KiB to 49.14 KiB for a total difference of 103.03 KiB (68% of the original size).
+----------------------
+[08/Jun/2016:15:09:44] CE Lossless is beginning processing of the "/www/panamfragrances/images/made/local/images/categories/cat-fabric-care_707_341_s_c1.jpg" jpg image.
+[08/Jun/2016:15:09:49] The remote image 'http://static1.resmush.it/output/89ab3eb5845155dd3ed179e5ac28d4be/cat-fabric-care_707_341_s_c1.jpg' was downloaded successfully.
+[08/Jun/2016:15:09:49] The image was compressed by Smush.it from 195.82 KiB to 69.63 KiB for a total difference of 126.19 KiB (64% of the original size).
+----------------------
+[08/Jun/2016:15:09:49] CE Lossless is beginning processing of the "/www/panamfragrances/images/made/local/images/categories/cat-body-hair-care_707_341_s_c1.jpg" jpg image.
+[08/Jun/2016:15:09:53] The remote image 'http://static1.resmush.it/output/50f19305dea62f085b1aa9db9955a3b5/cat-body-hair-care_707_341_s_c1.jpg' was downloaded successfully.
+[08/Jun/2016:15:09:53] The image was compressed by Smush.it from 148.91 KiB to 50.43 KiB for a total difference of 98.48 KiB (66% of the original size).
+----------------------
+[08/Jun/2016:15:09:53] CE Lossless is beginning processing of the "/www/panamfragrances/images/made/local/images/categories/cat-fine-perfumes_707_341_s_c1.jpg" jpg image.
+[08/Jun/2016:15:09:58] The remote image 'http://static0.resmush.it/output/25f57ed7d7296ec0df8291be3033b966/cat-fine-perfumes_707_341_s_c1.jpg' was downloaded successfully.
+[08/Jun/2016:15:09:58] The image was compressed by Smush.it from 197.17 KiB to 73.11 KiB for a total difference of 124.07 KiB (63% of the original size).
+----------------------
+[08/Jun/2016:15:09:58] CE Lossless is beginning processing of the "/www/panamfragrances/images/made/local/images/categories/cat-natural-fragances_707_341_s_c1.jpg" jpg image.
+[08/Jun/2016:15:10:03] The remote image 'http://static1.resmush.it/output/e445caf776d2fd1b94f1b1421b4caaf2/cat-natural-fragances_707_341_s_c1.jpg' was downloaded successfully.
+[08/Jun/2016:15:10:03] The image was compressed by Smush.it from 222.92 KiB to 84.74 KiB for a total difference of 138.19 KiB (62% of the original size).
+----------------------
+[08/Jun/2016:15:10:03] CE Lossless is beginning processing of the "/www/panamfragrances/images/made/local/images/categories/cat-essential-oils_707_341_s_c1.jpg" jpg image.
+[08/Jun/2016:15:10:07] The remote image 'http://static1.resmush.it/output/329f11223e7b4510c50087d626692426/cat-essential-oils_707_341_s_c1.jpg' was downloaded successfully.
+[08/Jun/2016:15:10:07] The image was compressed by Smush.it from 171.31 KiB to 61.94 KiB for a total difference of 109.37 KiB (64% of the original size).
+----------------------
+[08/Jun/2016:16:22:44] CE Lossless is beginning processing of the "/www/panamfragrances/images/made/local/images/pages/header-contact_1500_1000_s.jpg" jpg image.
+[08/Jun/2016:16:23:00] The remote image 'http://static1.resmush.it/output/1f131097b0f76e7a217c3375fbdadc01/header-contact_1500_1000_s.jpg' was downloaded successfully.
+[08/Jun/2016:16:23:00] The image was compressed by Smush.it from 900.01 KiB to 315.24 KiB for a total difference of 584.78 KiB (65% of the original size).
+----------------------
+[08/Jun/2016:16:30:51] CE Lossless is beginning processing of the "/www/panamfragrances/images/made/local/images/homepage/slide-01_1500_1000_s.jpg" jpg image.
+[08/Jun/2016:16:32:35] The remote image 'http://static1.resmush.it/output/50a590b3a773b405b6f065eda7786794/slide-01_1500_1000_s.jpg' was downloaded successfully.
+[08/Jun/2016:16:32:35] The image was compressed by Smush.it from 598.11 KiB to 162.27 KiB for a total difference of 435.84 KiB (73% of the original size).
+----------------------
+[08/Jun/2016:16:32:36] CE Lossless is beginning processing of the "/www/panamfragrances/images/made/local/images/homepage/slide-02_1500_1000_s.jpg" jpg image.
+[08/Jun/2016:16:33:56] The remote image 'http://static0.resmush.it/output/e1462f59d9a4adb470c2dc3c9c8635d3/slide-02_1500_1000_s.jpg' was downloaded successfully.
+[08/Jun/2016:16:33:56] The image was compressed by Smush.it from 632.02 KiB to 186.39 KiB for a total difference of 445.62 KiB (71% of the original size).
+----------------------
+[08/Jun/2016:16:33:57] CE Lossless is beginning processing of the "/www/panamfragrances/images/made/local/images/homepage/slide-03_1500_1000_s.jpg" jpg image.
+[08/Jun/2016:16:34:30] The remote image 'http://static0.resmush.it/output/2c45675cfc391addb04e4973c3f9d8fb/slide-03_1500_1000_s.jpg' was downloaded successfully.
+[08/Jun/2016:16:34:30] The image was compressed by Smush.it from 748.92 KiB to 239.74 KiB for a total difference of 509.18 KiB (68% of the original size).
+----------------------
+[08/Jun/2016:19:42:21] CE Lossless is beginning processing of the "/www/panamfragrances/images/made/local/images/pages/header-note_1500_1000_s.jpg" jpg image.
+[08/Jun/2016:19:42:34] The remote image 'http://static0.resmush.it/output/3e956a20f6caae11e7489781bc85a86a/header-note_1500_1000_s.jpg' was downloaded successfully.
+[08/Jun/2016:19:42:34] The image was compressed by Smush.it from 674.64 KiB to 197.28 KiB for a total difference of 477.36 KiB (71% of the original size).
+----------------------
+[08/Jun/2016:19:43:42] CE Lossless is beginning processing of the "/www/panamfragrances/images/made/local/images/pages/header-process_1500_1000_s.jpg" jpg image.
+[08/Jun/2016:19:43:54] The remote image 'http://static1.resmush.it/output/1b2607c26f25d802f00e451d185e438c/header-process_1500_1000_s.jpg' was downloaded successfully.
+[08/Jun/2016:19:43:54] The image was compressed by Smush.it from 747.5 KiB to 231.19 KiB for a total difference of 516.31 KiB (69% of the original size).
+----------------------
+[08/Jun/2016:19:44:31] CE Lossless is beginning processing of the "/www/panamfragrances/images/made/local/images/pages/header-services_1500_1000_s.jpg" jpg image.
+[08/Jun/2016:19:44:40] The remote image 'http://static1.resmush.it/output/6c5c24f5c05da5d15aaa0ed19bf80d1c/header-services_1500_1000_s.jpg' was downloaded successfully.
+[08/Jun/2016:19:44:40] The image was compressed by Smush.it from 652.22 KiB to 187.15 KiB for a total difference of 465.07 KiB (71% of the original size).
+----------------------
+[09/Jun/2016:09:49:13] CE Lossless is beginning processing of the "/www/panamfragrances/images/made/local/images/categories/cat-air-home-care_512_341_s.jpg" jpg image.
+[09/Jun/2016:09:49:16] The remote image 'http://static1.resmush.it/output/e78b7bfd8eedf3fbcda8735117a1fa75/cat-air-home-care_512_341_s.jpg' was downloaded successfully.
+[09/Jun/2016:09:49:16] The image was compressed by Smush.it from 98.59 KiB to 31 KiB for a total difference of 67.59 KiB (69% of the original size).
+----------------------
+[09/Jun/2016:09:49:16] CE Lossless is beginning processing of the "/www/panamfragrances/images/made/local/images/categories/cat-fabric-care_512_341_s.jpg" jpg image.
+[09/Jun/2016:09:49:20] The remote image 'http://static1.resmush.it/output/d63c484111e8326af450ac1785142fcf/cat-fabric-care_512_341_s.jpg' was downloaded successfully.
+[09/Jun/2016:09:49:20] The image was compressed by Smush.it from 131.97 KiB to 45.92 KiB for a total difference of 86.05 KiB (65% of the original size).
+----------------------
+[09/Jun/2016:09:49:20] CE Lossless is beginning processing of the "/www/panamfragrances/images/made/local/images/categories/cat-body-hair-care_512_341_s.jpg" jpg image.
+[09/Jun/2016:09:49:23] The remote image 'http://static0.resmush.it/output/d60767e0b11c7c34adc8ad1df69a1f18/cat-body-hair-care_512_341_s.jpg' was downloaded successfully.
+[09/Jun/2016:09:49:23] The image was compressed by Smush.it from 101.08 KiB to 33.88 KiB for a total difference of 67.2 KiB (66% of the original size).
+----------------------
+[09/Jun/2016:09:49:23] CE Lossless is beginning processing of the "/www/panamfragrances/images/made/local/images/categories/cat-fine-perfumes_512_341_s.jpg" jpg image.
+[09/Jun/2016:09:49:27] The remote image 'http://static0.resmush.it/output/4188985c290dc1fd82ac5ecaa61aa6fd/cat-fine-perfumes_512_341_s.jpg' was downloaded successfully.
+[09/Jun/2016:09:49:27] The image was compressed by Smush.it from 136.76 KiB to 50.6 KiB for a total difference of 86.16 KiB (63% of the original size).
+----------------------
+[09/Jun/2016:09:49:27] CE Lossless is beginning processing of the "/www/panamfragrances/images/made/local/images/categories/cat-natural-fragances_512_341_s.jpg" jpg image.
+[09/Jun/2016:09:49:31] The remote image 'http://static1.resmush.it/output/347fed5717b425455b30d2147e23e57a/cat-natural-fragances_512_341_s.jpg' was downloaded successfully.
+[09/Jun/2016:09:49:31] The image was compressed by Smush.it from 153.67 KiB to 57.43 KiB for a total difference of 96.24 KiB (63% of the original size).
+----------------------
+[09/Jun/2016:09:49:31] CE Lossless is beginning processing of the "/www/panamfragrances/images/made/local/images/categories/cat-essential-oils_512_341_s.jpg" jpg image.
+[09/Jun/2016:09:49:34] The remote image 'http://static1.resmush.it/output/3f3fc1271e2392d342c7196a1e52baba/cat-essential-oils_512_341_s.jpg' was downloaded successfully.
+[09/Jun/2016:09:49:34] The image was compressed by Smush.it from 121.59 KiB to 44.58 KiB for a total difference of 77.01 KiB (63% of the original size).

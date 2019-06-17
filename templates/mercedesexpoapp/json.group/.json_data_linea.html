@@ -1,0 +1,4 @@
+{exp:query sql="SELECT DISTINCT field_id_126 AS vehiculo_linea FROM exp_channel_data cd
+	LEFT JOIN exp_category_posts cp ON cp.entry_id = cd.entry_id WHERE channel_id=19 AND cat_id={embed:category_id}"}
+{embed="json/.json_data_vehiculo" counter_tipo="{embed:counter_tipo}" counter_linea="{count}" total_results_linea="{total_results}" linea="{vehiculo_linea}" category_image="{embed:category_image}" category_id="{embed:category_id}" category_url_title="{embed:category_url_title}" category_name="{embed:category_name}"}
+{/exp:query}

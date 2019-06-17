@@ -1,0 +1,41 @@
+
+
+{if meta_social_image != ''}
+
+{exp:ce_img:pair src="{meta_social_image}" crop="yes" allow_scale_larger="yes" width="1200" height="630"}
+{layout:set name="ogimage"}{site_url}{made}{/layout:set}
+{layout:set name="ogimage_width"}{width}{/layout:set}
+{layout:set name="ogimage_height"}{height}{/layout:set}
+{/exp:ce_img:pair}
+
+{exp:gwcode_fileinfo:single file="{meta_social_image}"}
+{layout:set name="ogimage_type"}{image_mime}{/layout:set}
+{/exp:gwcode_fileinfo:single}
+
+{if:elseif page_image:total_rows > 0 && '{meta_social_image}' == ''}
+
+{page_image limit="1"}
+
+{exp:ce_img:pair src="{page_image:image}" crop="yes" allow_scale_larger="yes" width="1200" height="630"}
+{layout:set name="ogimage"}{site_url}{made}?v=1{/layout:set}
+{layout:set name="ogimage_width"}{width}{/layout:set}
+{layout:set name="ogimage_height"}{height}{/layout:set}
+{/exp:ce_img:pair}
+
+{exp:gwcode_fileinfo:single file="{page_image:image}"}
+{layout:set name="ogimage_type"}{image_mime}{/layout:set}
+{/exp:gwcode_fileinfo:single}
+
+{/page_image}
+
+{if:else}
+
+{layout:set name="ogimage"}{static_url}/images/social-image.jpg?v={general_timestamp}{/layout:set}
+{exp:gwcode_fileinfo:single file="{static_url}/images/social-image.jpg"}
+{layout:set name="ogimage_type"}{image_mime}{/layout:set}
+{layout:set name="ogimage_width"}{image_width}{/layout:set}
+{layout:set name="ogimage_height"}{image_height}{/layout:set}
+{/exp:gwcode_fileinfo:single}
+
+{/if}
+

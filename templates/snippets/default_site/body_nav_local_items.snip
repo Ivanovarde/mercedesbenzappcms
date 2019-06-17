@@ -1,0 +1,20 @@
+{exp:structure_nav:advanced show_depth="1"}
+<!--a href="{!--root:page_url--}">{!--root:page_menu_title--}</a-->
+{if '{root:url_title}' == '{segment_1}'}
+{if root:has_children}
+{root:children}
+<div>
+	
+ 	<h3><a href="{child:page_url}">{child:page_main_title_{country_code}}</a></h3>
+	
+	<div class="rich">
+		{exp:eehive_hacksaw words="2" append="&hellip;" parse="inwards"}{child:page_copy_{country_code}}{/exp:eehive_hacksaw}
+	</div>
+	
+	<div><a href="{child:page_url}">Seguir leyendo <span class="fa fa-chevron-right"></span></a></div>
+	
+</div>
+{/root:children}
+{/if}
+{/if}
+{/exp:structure_nav:advanced}

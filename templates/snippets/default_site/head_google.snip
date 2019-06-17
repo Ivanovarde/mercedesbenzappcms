@@ -1,0 +1,21 @@
+<!-- Google Analytics -->
+
+{exp:minimee:js queue="analytics_js"}
+<script src='https://www.googletagmanager.com/gtag/js?id=UA-1361460-9'></script>
+{/exp:minimee:js}
+
+<script>
+var analyticsCachedSrc = '{exp:minimee:display js="analytics_js" display="url"}';
+
+function gtag(){dataLayer.push(arguments);}
+</script>
+
+
+{if is_live_site}
+
+<script type="text/javascript">
+	// Code to track google adsense in analytics
+	//window.google_analytics_uacct = "UA-1361460-9";
+</script>
+
+{/if}

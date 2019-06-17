@@ -1,0 +1,16 @@
+{page_side_left}
+{if '{page_side_left:side_template}'}{embed="{page_side_left:side_template}" header="{page_side_left:side_header}"}{/if}
+{if '{page_side_left:side_copy}' OR '{page_side_left:side_image}'}
+<div class="side-box">
+	<div class="rich">
+	{if '{page_side_left:side_header}' != ''}<h5>{page_side_left:side_header}</h5>{/if}
+	{if '{page_side_left:side_image}'}
+		<figure>
+		{exp:ce_img:pair src="{page_side_left:side_image}" crop="yes" allow_scale_larger="yes" width="276"}<img src="{made}" alt="{page_side_left:side_header}" width="{width}" height="{height}">{/exp:ce_img:pair}
+		</figure>
+	{/if}
+	{if '{page_side_left:side_copy}'}{page_side_left:side_copy}{/if}
+	</div>
+</div>
+{/if}
+{/page_side_left}

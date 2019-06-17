@@ -1,0 +1,25 @@
+{exp:minimee:js queue="js_files" priority="1"}
+<script src="{static_url}/scripts/library/modernizr-2.6.2.min.js"></script>
+<script src="{static_url}/scripts/library/iv-isMobile.js"></script>
+{/exp:minimee:js}
+
+<!--
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="https://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">
+	stLight.options({publisher: "972843c6-9284-46df-8b2d-b192d9a0ef74", doNotHash: false, doNotCopy: false, hashAddressBar: false});
+</script>-->
+
+{exp:minimee:js queue="secondary_js"}
+<script src="{static_url}/scripts/library/jquery.superslides.js"></script>
+<script src="{static_url}/scripts/library/jquery.easing.1.3.js"></script>
+<script src="{static_url}/scripts/library/jquery-afterresize.js"></script>
+<script src="{static_url}/scripts/library/fancybox/jquery.fancybox.pack.js"></script>
+<script src="{static_url}/scripts/library/superfish/hoverIntent.js"></script>
+<script src="{static_url}/scripts/library/bootstrap-select.min.js"></script>
+<script src="{static_url}/scripts/library/jquery.touchSwipe.1.6.18.min.js"></script>
+{/exp:minimee:js}
+
+<script>
+	var secondaryjsSrc = '{exp:minimee:display js="secondary_js" display="url"}';
+</script>

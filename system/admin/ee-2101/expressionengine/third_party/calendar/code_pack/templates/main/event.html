@@ -1,0 +1,178 @@
+{embed="%prefix%inc/index" page_title="Event View"}
+	</head>
+
+	<body role="document">
+
+{embed="%prefix%inc/header" page="type"}
+
+		<div class="container" style="margin-top:30px;">
+
+			<div class="page-header">
+				<h1>Event View</h1>
+				<p class="lead">Below is an individual event view, which allows you to see full details and occurrences for the given event.</p>
+			</div>
+
+			<div class="row">
+				<div class="col-md-9">
+
+				{if segment_4 == "created" OR segment_4 == "updated"}
+					<div class="alert alert-success" role="alert">
+						<p class="lead">
+							{if segment_4 == "created"}
+                        		Event has been successfully created!
+							{/if}
+							{if segment_4 == "updated"}
+								Event has been successfully updated!
+							{/if}
+						</p>
+					</div>
+				{/if}
+
+					<div id="events_calendar">
+						{exp:calendar:events
+							require_entry="yes"
+							event_id="{segment_3}"
+							date_range_start="99 months ago"
+							show_months="999"
+							dynamic="off"
+						}
+							{if no_results}
+								<div class="alert alert-danger" role="alert">
+									<p class="lead">
+                        				Sorry, no event was found.
+									</p>
+								</div>
+							{/if}
+							<a href="{path='%prefix%main/export/event'}/{segment_3}/" class="btn btn-default btn-sm pull-right" role="button">
+								<span class="glyphicon glyphicon-export" aria-hidden="true"></span>&nbsp;
+								Export Event
+							</a>
+							{if logged_in_group_id == "1"}
+								<a href="{path='%prefix%main/edit'}/{segment_3}/" class="btn btn-warning btn-sm pull-right" style="margin-right:10px;" role="button">
+									<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>&nbsp;
+									Update Event
+								</a>
+							{/if}
+							<h3>{event_title}</h3>
+							<dl class="dl-horizontal">
+								<dt>Calendar</dt>
+								<dd><a href="{path='%prefix%main/calendar'}/{event_calendar_url_title}/">{event_calendar_title}</a></dd>
+								<dt>Location</dt>
+								<dd>{event_location}</dd>
+							{if segment_4 AND segment_5 AND segment_6}
+								<dt>Occurrence Date</dt>
+								<dd>
+									{if event_recurs}
+										{exp:calendar:date base_date="{segment_4}-{segment_5}-{segment_6}" output_date="today"}
+											{date format="%l, %F %j, %Y"} {if event_all_day}(all day){if:else}at {event_start_date format="%g:%i%a"}{/if}
+										{/exp:calendar:date}
+									{if:else}
+										{event_start_date format="%l, %F %j, %Y"} {if event_all_day}(all day){if:else}at {event_start_date format="%g:%i%a"}{/if}
+									{/if}
+								</dd>
+							{/if}
+								<dt class="text-info">Date(s)</dt>
+								<dd><b class="text-info">
+									{event_first_date format="%F %j, %Y"}
+									{if event_all_day}
+										(all day)
+									{if:else}
+										at {event_first_date format="%g:%i%a"}
+										{if "{event_first_date format='%Y%m%d%g%i%a'}" != "{event_last_date format='%Y%m%d%g%i%a'}"}
+											-
+											{if "{event_first_date format='%Y%m%d'}" != "{event_last_date format='%Y%m%d'}"}
+												{event_last_date format="%F %j, %Y at %g:%i%a"}
+											{if:else}
+												{event_last_date format="%g:%i%a"}
+											{/if}
+										{/if}
+										{if event_never_ends}
+											(never ends)
+										{/if}
+									{/if}
+								</b></dd>
+								<dt>Details</dt>
+								<dd>{event_summary}</dd>
+							</dl>
+						{/exp:calendar:events}
+
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">Upcoming Occurrences</h3>
+							</div>
+							<div class="panel-body">
+								{exp:calendar:occurrences
+									event_id="{segment_3}"
+									date_range_start="today"
+									date_range_end="3 months"
+									upcoming_occurrences_limit="5"
+									prior_occurrences_limit="0"
+									dynamic="off"
+								}
+									{if occurrence_count == "1"}<ul class="list-group" style="margin-bottom:0px;">{/if}
+										<li class="list-group-item">
+											<a href="{path='%prefix%main/day'}/{occurrence_start_date format="%Y/%m/%d"}/" class="badge">more events this day</a>
+											{occurrence_start_date format="%l, %F %j, %Y at %g:%i%a"}{if "{occurrence_start_date format='%Y%m%d%g%i%a'}" != "{occurrence_end_date format='%Y%m%d%g%i%a'}"} - {if "{occurrence_start_date format='%Y%m%d'}" != "{occurrence_end_date format='%Y%m%d'}"}{occurrence_end_date format="%l, %F %j, %Y at %g:%i%a"}{if:else}{occurrence_end_date format="%g:%i%a"}{/if}{/if}
+										</li>
+									{if occurrence_count == occurrence_total}</ul>{/if}
+									{if no_results}
+										No upcoming occurrences in the timeframe specified (next 3 months from todays' date) for this event.
+									{/if}
+								{/exp:calendar:occurrences}
+							</div>
+						</div>
+
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">Past Occurrences</h3>
+							</div>
+							<div class="panel-body">
+								{exp:calendar:occurrences
+									event_id="{segment_3}"
+									date_range_start="3 months ago"
+									date_range_end="today"
+									upcoming_occurrences_limit="0"
+									prior_occurrences_limit="5"
+									dynamic="off"
+								}
+									{if occurrence_count == "1"}<ul class="list-group" style="margin-bottom:0px;">{/if}
+										<li class="list-group-item">
+											<a href="{path='%prefix%main/day'}/{occurrence_start_date format="%Y/%m/%d"}/" class="badge">more events this day</a>
+											{occurrence_start_date format="%l, %F %j, %Y at %g:%i%a"}{if "{occurrence_start_date format='%Y%m%d%g%i%a'}" != "{occurrence_end_date format='%Y%m%d%g%i%a'}"} - {if "{occurrence_start_date format='%Y%m%d'}" != "{occurrence_end_date format='%Y%m%d'}"}{occurrence_end_date format="%l, %F %j, %Y at %g:%i%a"}{if:else}{occurrence_end_date format="%g:%i%a"}{/if}{/if}
+										</li>
+									{if occurrence_count == occurrence_total}</ul>{/if}
+									{if no_results}
+										No past occurrences in the timeframe specified (past 3 months from todays' date) for this event.
+									{/if}
+								{/exp:calendar:occurrences}
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="col-md-3">				
+{embed="%prefix%inc/sidebar"}
+				</div>
+
+      		</div>
+
+			<div class="well" style="margin-top:30px;">
+				<h2 style="margin-top:5px;">About This Page</h2>
+				<p>The "Event Detail" page is meant to display more detailed information about the event. All event occurrences that show up throughout these templates point back to this page to display the events details.</p>
+				<p>It makes use of the following tags:</p>
+				<ul>
+					<li><a href="https://solspace.com/docs/calendar/events/">Calendar:Events</a> to display detailed information about the event.</li>
+					<li><a href="https://solspace.com/docs/calendar/occurrences/">Calendar:Occurrences</a> to display a list for both Upcoming and Past occurrences of this event (if it repeats).</li>
+					<li><a href="https://solspace.com/docs/calendar/date/">Calendar:Date</a> tag, used to read date segments and display the occurrence date if the event recurs, and someone is visiting from another page on the site such as the full month calendar.</li>
+					<li>a link to a page with <a href="https://solspace.com/docs/calendar/icalendar/">Calendar:iCalendar</a> tag to allow users to export the selected event.</li>
+				</ul>
+				<p>The global sidebar on the right makes use of the following tags:</p>
+				<ul>
+					<li><a href="https://solspace.com/docs/calendar/mini/">Calendar:Cal in Mini mode</a> to display a Mini Calendar that links to days that have events.</li>
+					<li><a href="https://solspace.com/docs/calendar/calendars/">Calendar:Calendars</a> to display a list of all available Calendars.</li>
+				</ul>
+			</div>
+
+{embed="%prefix%inc/footer"}

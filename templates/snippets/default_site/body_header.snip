@@ -1,0 +1,41 @@
+<!-- BODY HEADER -->
+<header>
+
+	<div class="container">
+
+		<div class="row header-top">
+
+			<a id="menu-icon" href="#" class="btn btn-default red" title="Main Menu"><em class="fa fa-bars"></em></a>
+
+			<div class="logo-holder smooth scaleimg col-sm-7 col-md-6">
+				<a href="{site_url_front}/" title="{site_name}">
+					<img class="" src="{static_url}/images/logo-novecentoweb.png"  alt="{site_name} logo">
+				</a>
+			</div>
+
+			<div id="secondary-nav" class="second-level-nav col-sm-5 col-md-6" role="menubar">
+
+				{exp:iv_navmenu levels="1" refresh="{general_nav_session_refresh}" mode="top"}
+
+			</div>
+
+		</div>
+
+		<div class="row header-bottom hidden">
+
+			<div class="social-icons smooth">
+
+				<span>follow us on</span>
+
+				{body_social_icons}
+
+			</div>
+
+		</div>
+
+	</div>
+
+</header>
+<!-- /BODY HEADER -->
+
+

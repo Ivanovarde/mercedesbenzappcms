@@ -1,0 +1,39 @@
+{if page_side_left:total_rows > 0}
+
+	{page_side_left}
+
+		{if '{page_side_left:contenido strip_tags="true" strip_line_breaks="true"}' != ''}
+
+			{embed="{page_side_left:contenido}" titulo="{page_side_left:titulo}" seccion="{page_side_left:seccion}" cantidad="{page_side_left:cantidad}"}
+
+		{/if}
+
+		{if page_side_left:texto OR page_side_left:imagen}
+
+			<div class="side-box">
+				<div class="panel panel-default banner">
+					<div class="panel-body">
+						{if page_side_left:titulo}<h5>{page_side_left:titulo}</h5>{/if}
+						{if page_side_left:imagen}
+							<figure>
+							{exp:ce_img:pair src="{page_side_left:imagen}" crop="yes" allow_scale_larger="yes" width="276"}<img src="{made}" alt="{page_side_left:titulo}" width="{width}" height="{height}">{/exp:ce_img:pair}
+							</figure>
+						{/if}
+						{if page_side_left:texto}{page_side_left:texto}{/if}
+					</div>
+				</div>
+			</div>
+
+		{/if}
+
+	{/page_side_left}
+
+{if:else}
+
+	{embed="contents/.side_menu_servicios" titulo="{general_default_titulo_menu_servicios}"}
+
+	{embed="contents/.banner_anagrafe"}
+
+	{embed="contents/.banner_traduccion"}
+
+{/if}

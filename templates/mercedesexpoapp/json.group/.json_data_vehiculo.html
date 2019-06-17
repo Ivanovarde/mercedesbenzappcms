@@ -1,0 +1,40 @@
+{!--
+json data file<br>
+counter_tipo: {embed:counter_tipo}<br>
+counter_linea: {embed:counter_linea}<br>
+total_results_linea: {embed:total_results_linea}<br>
+linea: {embed:linea}<br>
+category_id: {embed:category_id}<br>
+category_url_title: {embed:category_url_title}<br>
+category_name: {embed:category_name}<br>
+category_image: {embed:category_image}<br><br>
+--}
+
+{"{embed:counter_linea}": [{exp:channel:entries channel="vehiculos" dynamic="off" status="open" search:linea="={embed:linea}" orderby="title" sort="asc" disable="member_data|pagination"}
+["{exp:streeng allowed='none'}{cuotas}{/exp:streeng}", "{exp:streeng allowed='none'}{linea}{/exp:streeng}", "{exp:streeng allowed='none'}{modelo}{/exp:streeng}", "{precio_publico}", "{precio_publico_plan}", "{derecho_suscripcion}", "{iva}", "{total_suscripcion}", "{cuota_pura}", "{carga_admin_suscripcion}", "{iva_21}", "{cuota_mensual}", "{pago_adjudicacion_30}", "{exp:streeng allowed='none'}{plan}{/exp:streeng}","{embed:category_name}",
+
+{if '{imagen}' != ''}
+"{exp:ce_img:pair src="{imagen}" quality="60" width="380" height="284"}{base64}{/exp:ce_img:pair}",
+{if:else}
+"{exp:ce_img:pair src="{imagen_lector}" quality="70" width="380" height="284"}{base64}{/exp:ce_img:pair}",
+{/if}
+
+"{producto}",
+
+{if '{imagen}' != ''}
+"{imagen}",
+{if:else}
+"{imagen_lector}",
+{/if}
+
+"{embed:category_name}", "{embed:category_url_title}"]
+{if total_results != count},{/if}
+
+{!-- Thumbnail para EE cpanel (no devuelve valor)--}
+{exp:ce_img:single src="{imagen_lector}" cache_dir="/www/images/vehicles/_thumbs/" hide_relative_path="yes" max_width="50" max_height="50" quality="100" unique="none" output="none"}
+
+{/exp:channel:entries}]}{if "{embed:counter_linea}" != "{embed:total_results_linea}"},{/if}
+
+
+
+

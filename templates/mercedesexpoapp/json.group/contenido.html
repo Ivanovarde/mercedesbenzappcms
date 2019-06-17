@@ -1,0 +1,23 @@
+{exp:http_header access_control_allow_origin="*"}
+{exp:http_header content_type="application/json" charset="{charset}"}
+
+{"contenido":
+	{exp:channel:entries status="open" channel="page" dynamic="off" limit="1" disable="categories|category_fields|member_data|pagination"}
+	{
+	"general_header_texto_izquierda": "{exp:streeng allowed='none'}{general_header_texto_izquierda}{/exp:streeng}",
+"general_header_texto_derecha": "{if {general_header_texto_derecha_url}}<a href='{general_header_texto_derecha_url}' target='_blank'>{/if}{exp:streeng allowed='none'}{general_header_texto_derecha}{/exp:streeng}{if {general_header_texto_derecha_url}}</a>{/if}",
+	"general_header_image": "{exp:ce_img:pair src="{general_header_image}" width="1284" height="548" allow_scale_larger="yes"}{base64}{/exp:ce_img:pair}",
+	"general_header_linea_1": "{exp:streeng allowed='none'}{general_header_linea_1}{/exp:streeng}",
+	"general_header_linea_2": "{exp:streeng allowed='none'}{general_header_linea_2}{/exp:streeng}",
+	"general_legales": {exp:json_encode}{general_legales}{/exp:json_encode}
+	}
+	{/exp:channel:entries}
+}
+
+
+
+{!--
+{"contenido": [{exp:channel:entries status="open" channel="page" dynamic="off" limit="1" disable="categories|category_fields|member_data|pagination"}
+	{"{category_url_title}": [{embed="json/.json_linea_data" counter_tipo="{count}" category_image="{category_image}" category_id="{category_id}" category_url_title="{category_url_title}" category_name="{category_name}"}]}
+{if total_results != count},{/if}{/exp:channel:entries}]}
+--}
