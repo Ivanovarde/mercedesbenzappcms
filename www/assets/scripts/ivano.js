@@ -108,7 +108,7 @@ $(document).on('click', '#change-data-url', function (e) {
 });
 
 // SINCRONIZAR CONTACTOS ======================================================
-$(document).off().on('click', '#btn-pending-records', function (e) {
+$('#btn-pending-records').off().on('click', function (e) {
 
 	var counter = 0;
 	var btn = $('#btn-pending-records');
