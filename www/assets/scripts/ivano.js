@@ -40,12 +40,14 @@ $(document).on('click', '.caption .budget > a', function (e) {
 	});
 });
 
+
 // SET SERVER URL  ============================================================
 $(document).on('click', '#change-server-url', function (e) {
 
 	var current_server_url = window.localStorage.getItem("server_url");
 	var settings_server_url = $("#settings-server-url").val();
-	var status = $('.modal-status');
+	var msg = 'URL de servidor actualizada';
+	var statusClass = 'text-success';
 
 	//console.log(settings_server_url + ' == ' + current_server_url);
 
@@ -55,18 +57,24 @@ $(document).on('click', '#change-server-url', function (e) {
 			return;
 		}
 
-		// Guardo los datos
-		window.localStorage.setItem("server_url", settings_server_url);
-		server_url = settings_server_url;
+		if(urlCheck(settings_server_url)){
 
-		status.addClass('text-success').text('URL Actualizada');
+			// Guardo los datos
+			window.localStorage.setItem("server_url", settings_server_url);
+			server_url = settings_server_url;
+
+		}else{
+			msg = 'Ingresar una URL válida';
+			statusClass = 'text-danger';
+
+		}
+
 	} else {
-		status.addClass('text-danger').text('Ingresar una URL válida');
+		msg = 'Error. Intentar nuevamente.';
+		statusClass = 'text-danger';
 	}
 
-	window.setTimeout(function () {
-		status.removeClass('text-danger text-success').text('');
-	}, 4000);
+	showCpanelStatus({msg: msg, statusClass: statusClass});
 
 });
 
@@ -75,9 +83,10 @@ $(document).on('click', '#change-data-url', function (e) {
 
 	var current_data_url = window.localStorage.getItem("data_url");
 	var settings_data_url = $("#settings-data-url").val();
-	var status = $('.modal-status');
+	var msg = 'URL de datos actualizada';
+	var statusClass = 'text-success';
 
-	console.log(settings_data_url + ' == ' + current_data_url);
+	//console.log(settings_data_url + ' == ' + current_data_url);
 
 	if (settings_data_url !== '' && settings_data_url !== undefined) {
 
@@ -89,14 +98,12 @@ $(document).on('click', '#change-data-url', function (e) {
 		window.localStorage.setItem("data_url", settings_data_url);
 		data_url = settings_data_url;
 
-		status.addClass('text-success').text('URL Actualizada');
 	} else {
-		status.addClass('text-danger').text('El cambio no se ha podido guardar');
+		msg = 'Error. Intentar nuevamente.';
+		statusClass = 'text-danger';
 	}
 
-	window.setTimeout(function () {
-		status.removeClass('text-danger text-success').text('');
-	}, 4000);
+	showCpanelStatus({msg: msg, statusClass: statusClass});
 
 });
 
@@ -1180,4 +1187,21 @@ function showAlert(data) {
 
 	//el = '';
 	//el.modal('toggle');
+}
+
+function showCpanelStatus(data){
+	var statusClass = data.class === undefined ? 'text-success' : data.class;
+	var msg = data.msg === undefined ? false : data.msg;
+	var status = $('#modal-status').removeAttr('class').text('');
+
+	if(!msg){
+		console.log('showCpanelStatus -> No hay mensaje para mostrar en status');
+		return;
+	}
+
+	status.addClass(statusClass).text(msg);
+
+	window.setTimeout(function () {
+		status.removeClass(statusClass).text('');
+	}, 4000);
 }

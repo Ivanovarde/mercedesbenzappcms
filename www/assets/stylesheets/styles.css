@@ -898,7 +898,7 @@ footer.on #cpanel-open i {
 #cpanel .input-group{
 	margin: 10px 0;
 }
-#cpanel .modal-status {
+#cpanel #modal-status {
 	 text-align: left;
 	 padding: 0px 10px;
 	 line-height: 35px;
