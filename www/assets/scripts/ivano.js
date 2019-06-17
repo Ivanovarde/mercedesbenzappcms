@@ -167,7 +167,14 @@ $(document).on('click', '#btn-update-content', function (e) {
 				}
 
 				getMainData({
-					btn: $('#btn-update-content')
+					btn: $('#btn-update-content'),
+					cb: function(){
+						showAlert({
+							body: 'Los contenidos se acutalizaron correctamente',
+							action: 'show'
+						});
+
+					}
 				});
 			}
 		});
