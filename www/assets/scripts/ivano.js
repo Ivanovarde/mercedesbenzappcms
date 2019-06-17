@@ -762,65 +762,89 @@ function sendRecord(){
 
 	$('#btn-pending-records').addClass('loading').attr('disabled');
 
-	$.ajax({
-		url: server_url + '/system/php/actions.php?action=store&time=' + currentDate.ivTimeStamp(),
-		type: 'POST',
-		headers: {
-			//"Content-Type": "application/json; charset=UTF-8"
-			//,"Access-Control-Allow-Origin": "*"
-		},
-		data: {'stored_leads': stored_leads},
-		dataType: 'json',
-		charset: 'UTF-8',
-		timeout: 10000
-	})
-	.done(function (response, status, xhr) {
+	/*$.post(
+	//	server_url + '/system/php/actions.php?action=store&time=' + currentDate.ivTimeStamp(),
+	//	{'stored_leads': stored_leads},
+	//	//function( data ) {
+	// //
+	//	//},
+	//	"json"
+	//)*/
 
-		// Si no hubo error
-		if (response.status) {
-
-			// Vacio los registros locales
-			window.localStorage.removeItem("stored_leads");
-
-			//Inicializo el Formulario
-			$('#form-quote').trigger("reset");
-			$("#provincia").val('default');
-			$("#provincia").selectpicker("refresh");
-
-		} // Si HUBO error y vienen registros devueltos
-		else if(!response.status && response.failed_records.length){
-
-			// Vacio los registros locales
-			window.localStorage.removeItem("stored_leads");
-
-			// Guardo los registros devueltos
-			window.localStorage.setItem("stored_leads", JSON.stringify(response.failed_records));
-		}
-
-		// Actualizo el contador
-		updateStoredLeadsCounter();
-
-		alert(response.msg);
-		console.log(response.msg);
-
-	})
-	.fail(function (jqXHR, status, errorThrown) {
-		console.log('sendRecord: Fail: ');
-		console.log(jqXHR);
-		console.log(status);
-		console.log(errorThrown);
-
-		//aRecordTemp.push(lead);
-		console.log('Fallo sendRecord(): lead: (ver siguiente)');
+	//$(stored_leads).each(function(i, lead){
 		//console.log(lead);
 
-	})
-	.always(function (response, status, xhr) {
+		$.ajax({
+			//url: server_url + '/system/php/actions.php?action=store&time=' + currentDate.ivTimeStamp() + '&stored_leads='+ JSON.stringify(lead[0]),
+			url: server_url + '/system/php/actions.php?action=store&time=' + currentDate.ivTimeStamp(),
+			type: 'POST', //'POST', //PUT
+			//crossDomain: false,
+			//headers: {
+			//	//"Content-Type": "application/json; charset=UTF-8"
+			//	//,"Access-Control-Allow-Origin": "*"
+			//},
+			//contentType: 'application/json',
+			//data: {'stored_leads': lead[0]},
+			data: {'stored_leads': stored_leads},
+			dataType: 'json', //jsonp
+			//jsonpCallback: 'processJSONPResponse',
+			charset: 'UTF-8',
+			timeout: 10000
+		})
+		.done(function (response, status, xhr) {
 
-		$('#btn-pending-records').removeClass('loading').removeAttr('disabled');
-		$("#btn-send-quote").html("Enviar cotización");
+			// Si no hubo error
+			if (response.status) {
 
-	});
+				// Vacio los registros locales
+				window.localStorage.removeItem("stored_leads");
+
+				//Inicializo el Formulario
+				$('#form-quote').trigger("reset");
+				$("#provincia").val('default');
+				$("#provincia").selectpicker("refresh");
+
+			} // Si HUBO error y vienen registros devueltos
+			else if(!response.status && response.failed_records.length){
+
+				// Vacio los registros locales
+				window.localStorage.removeItem("stored_leads");
+
+				// Guardo los registros devueltos
+				window.localStorage.setItem("stored_leads", JSON.stringify(response.failed_records));
+			}
+
+			// Actualizo el contador
+			updateStoredLeadsCounter();
+
+			alert(response.msg);
+			console.log(response.msg);
+
+		})
+		.fail(function (jqXHR, status, errorThrown) {
+			console.log('sendRecord: Fail: ');
+			console.log(jqXHR);
+			console.log(status);
+			console.log(errorThrown);
+
+			//aRecordTemp.push(lead);
+			console.log('Fallo sendRecord(): lead: (ver siguiente)');
+			//console.log(lead);
+
+		})
+		.always(function (response, status, xhr) {
+
+			$('#btn-pending-records').removeClass('loading').removeAttr('disabled');
+			$("#btn-send-quote").html("Enviar cotización");
+
+		});
+
+	//});
+
+}
+
+function processJSONPResponse(data) {
+	console.log(data);
 }
 
 
