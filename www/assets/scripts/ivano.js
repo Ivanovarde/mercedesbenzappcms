@@ -167,7 +167,7 @@ $(document).on('click', '#btn-update-content', function (e) {
 				}
 
 				getMainData({
-					btn: $(this)
+					btn: $('#btn-update-content')
 				});
 			}
 		});
@@ -331,6 +331,9 @@ function getMainData(data) {
 	var cb = d.cb || function () {
 		console.log('getMainData: empty callback')
 	};
+
+	console.log(data);
+	console.log(btn);
 
 	if (localStorage.getItem('appJsonData')) {
 		appMainData = JSON.parse(window.localStorage.getItem('appJsonData'));
