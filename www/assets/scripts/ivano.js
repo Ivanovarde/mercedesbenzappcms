@@ -19,10 +19,10 @@ $(window).on('scroll', function (e) {
 jQuery(document).ready(function () {
 	console.log('ready start');
 
-	$.support.cors                 = true;
+	$.support.cors = true;
 	//$.mobile.allowCrossDomainPages = true;
 
-	if($('.home').length){
+	if ($('.home').length) {
 		isHome = true;
 	}
 
@@ -34,9 +34,13 @@ jQuery(document).ready(function () {
 });
 
 
-$(document).on('click', '.caption .budget > a', function(e){ makeQuote({e: e}); });
+$(document).on('click', '.caption .budget > a', function (e) {
+	makeQuote({
+		e: e
+	});
+});
 
-// SET SERVER URL  ======================================================
+// SET SERVER URL  ============================================================
 $(document).on('click', '#change-server-url', function (e) {
 
 	var current_server_url = window.localStorage.getItem("server_url");
@@ -47,7 +51,7 @@ $(document).on('click', '#change-server-url', function (e) {
 
 	if (settings_server_url !== '' && settings_server_url !== undefined && urlCheck(settings_server_url)) {
 
-		if(settings_server_url == current_server_url){
+		if (settings_server_url == current_server_url) {
 			return;
 		}
 
@@ -56,18 +60,18 @@ $(document).on('click', '#change-server-url', function (e) {
 		server_url = settings_server_url;
 
 		status.addClass('text-success').text('URL Actualizada');
-	}else{
+	} else {
 		status.addClass('text-danger').text('Ingresar una URL válida');
 	}
 
-	window.setTimeout(function(){
+	window.setTimeout(function () {
 		status.removeClass('text-danger text-success').text('');
 	}, 4000);
 
 });
 
-// SET DATA URL  ======================================================
-$(document).on('click', '#change-data-url', function (e){
+// SET DATA URL  ==============================================================
+$(document).on('click', '#change-data-url', function (e) {
 
 	var current_data_url = window.localStorage.getItem("data_url");
 	var settings_data_url = $("#settings-data-url").val();
@@ -77,7 +81,7 @@ $(document).on('click', '#change-data-url', function (e){
 
 	if (settings_data_url !== '' && settings_data_url !== undefined) {
 
-		if(settings_data_url == current_data_url){
+		if (settings_data_url == current_data_url) {
 			return;
 		}
 
@@ -86,18 +90,18 @@ $(document).on('click', '#change-data-url', function (e){
 		data_url = settings_data_url;
 
 		status.addClass('text-success').text('URL Actualizada');
-	}else{
+	} else {
 		status.addClass('text-danger').text('El cambio no se ha podido guardar');
 	}
 
-	window.setTimeout(function(){
+	window.setTimeout(function () {
 		status.removeClass('text-danger text-success').text('');
 	}, 4000);
 
 });
 
 // SINCRONIZAR CONTACTOS ======================================================
-$(document).on('click', '#btn-pending-records', function (e){
+$(document).on('click', '#btn-pending-records', function (e) {
 
 	var counter = 0;
 
@@ -111,46 +115,111 @@ $(document).on('click', '#btn-pending-records', function (e){
 		if (stored_leads !== null && stored_leads.length > 0) {
 			counter = stored_leads.length;
 
-			if (confirm('¿Desea exportar los contactos guardados?')) {
-				syncStoredLeads();
-			}
+			showConfirm({
+				body: '¿Desea exportar los contactos guardados?',
+				action: 'show',
+				fn: function () {
+					syncStoredLeads();
+				}
+			});
 
 		} else {
-			alert('No hay contactos para exportar.');
+			showAlert({
+				body: 'No hay contactos para exportar.',
+				class: 'danger',
+				icon: 'exclamation-circle',
+				action: 'show'
+			});
+
+			return false;
 		}
 	} else {
-		alert('Esta acción requiere conexión a Internet.');
+
+		showAlert({
+			body: 'Esta acción requiere conexión a internet.',
+			class: 'danger',
+			icon: 'exclamation-circle',
+			action: 'show'
+		});
+
+		return false;
 	}
 
 });
 
-// ACTUALIZAR CONTENIDO ======================================================
-$(document).on('click', '#btn-update-content', function (e){
+// ACTUALIZAR CONTENIDO =======================================================
+$(document).on('click', '#btn-update-content', function (e) {
 
 	// Si no estoy conectado a Internet, cancelo
 	if (app.isConnected) {
 
-		if (confirm('Esta acción descargará y reemplazará todo el contenido de la aplicación. El proceso podría demorar unos minutos. ¿Desea continuar?')) {
+		showConfirm({
+			body: 'Esta acción descargará y reemplazará todo el contenido de la aplicación. El proceso podría demorar unos minutos. ¿Desea continuar?',
+			action: 'show',
+			fn: function () {
 
-			if (window.localStorage.getItem("appJsonData")) {
+				if (window.localStorage.getItem("appJsonData")) {
 
-				// Hago backup del contenido actual;
-				appCurrentMainData = window.localStorage.getItem("appJsonData");
+					// Hago backup del contenido actual;
+					appCurrentMainData = window.localStorage.getItem("appJsonData");
 
-				window.localStorage.removeItem("appJsonData");
+					window.localStorage.removeItem("appJsonData");
+				}
+
+				getMainData({
+					btn: $(this)
+				});
 			}
-
-			getMainData({btn: $(this)});
-		}
+		});
 
 	} else {
-		alert('Esta acción requiere conexión a Internet.');
+		showAlert({
+			body: 'Esta acción requiere conexión a internet.',
+			class: 'danger',
+			icon: 'exclamation-circle',
+			action: 'show'
+		});
+
+		return false;
 	}
 
 });
 
-// ENVIAR_COTIZACION ======================================================
-$(document).on('click', '#btn-send-quote', function (e){
+// PREPARAR_COTIZACION ========================================================
+$(document).on('click', '#btn-prepare-quote', function (e) {
+	e.preventDefault();
+
+	var aCurrentRecord = filterVehicleArrayFromURL();
+
+	//console.log(aCurrentRecord);
+	var linea = getParameters("linea");
+	var modelo = aCurrentRecord[0]["modelo"];
+	var plan = aCurrentRecord[0]["plan"];
+	var cuotas = aCurrentRecord[0]["cuotas"];
+
+	// Armo la URL del Formulario Cotizador
+	var urlParameter = '';
+
+	if (linea != '' && modelo != '' && plan != '' && cuotas != '') {
+		urlParameter = 'vehicletype=' + escape(getParameters("vehicletype")) + '&linea=' + escape(linea) + '&modelo=' + escape(modelo) + '&plan=' + escape(plan) + '&cuotas=' + escape(cuotas);
+
+		window.location.href = "formulario.html?" + urlParameter;
+	} else {
+
+		showAlert({
+			body: 'Faltan elegir opciones para completar la cotización',
+			class: 'danger',
+			icon: 'exclamation-circle',
+			action: 'show'
+		});
+
+		return;
+	}
+
+});
+
+// ENVIAR_COTIZACION ==========================================================
+$(document).on('click', '#btn-send-quote', function (e) {
 	e.preventDefault();
 
 	var isValid = false;
@@ -166,13 +235,13 @@ $(document).on('click', '#btn-send-quote', function (e){
 		'debug': false
 	});
 
-	if(!isValid){
-		return false;
-	}
-
-	// Valido que el formulario no este vacio
-	if ($("#nombre").val() === "" || $("#apellido").val() === "" || $("#email").val() === "" || $("#telefono").val() === "" || $("#provincia").val() === "" || $("#ciudad").val() === "") {
-		alert('Por favor, completar todos los campos');
+	if (!isValid) {
+		showAlert({
+			body: 'Por favor, completar todos los campos',
+			class: 'danger',
+			icon: 'exclamation-circle',
+			action: 'show'
+		});
 
 		return false;
 	}
@@ -181,7 +250,7 @@ $(document).on('click', '#btn-send-quote', function (e){
 	aCurrentRecord = filterVehicleArrayFromURL();
 
 	// Agrego los campos del formularo al registro
-	$('#form-quote').find(':input').not(':button').each(function(i, o){
+	$('#form-quote').find(':input').not(':button').each(function (i, o) {
 		var attr = $(o).attr('name');
 
 		console.log('#btn-send-quote -> Agrego input name: ' + $(o).attr('name') + ' - valor: ' + $(o).val());
@@ -207,38 +276,11 @@ $(document).on('click', '#btn-send-quote', function (e){
 	// Si estoy conectado a Internet hago el envío
 	//if (app.isConnected) {
 
-		//sendRecord();
+	//sendRecord();
 
 	//}
 
 	$("#btn-send-quote").html("Enviar cotización");
-
-});
-
-// PREPARAR_COTIZACION ======================================================
-$(document).on('click', '#btn-prepare-quote', function (e){
-	e.preventDefault();
-
-	var aCurrentRecord = filterVehicleArrayFromURL();
-
-	//console.log(aCurrentRecord);
-	var linea = getParameters("linea");
-	var modelo = aCurrentRecord[0]["modelo"];
-	var plan = aCurrentRecord[0]["plan"];
-	var cuotas = aCurrentRecord[0]["cuotas"];
-
-	// Armo la URL del Formulario Cotizador
-	var urlParameter = '';
-
-	if (linea != '' && modelo != '' && plan != '' && cuotas != '') {
-		urlParameter = 'vehicletype=' + escape(getParameters("vehicletype")) + '&linea=' + escape(linea) + '&modelo=' + escape(modelo) + '&plan=' + escape(plan) + '&cuotas=' + escape(cuotas);
-
-		window.location.href = "formulario.html?" + urlParameter;
-	} else {
-		alert('Faltan elegir opciones para la cotización');
-
-		return;
-	}
 
 });
 
@@ -248,7 +290,19 @@ $('#cpanel').on('show.bs.modal', function () {
 	$('#settings-data-url').val(data_url);
 });
 
-//// VEHICLES SELECTORS LISTENER ======================================================
+// DETERMINO SI HAY O NO HAY DIALOGOS ABIERTOS ================================
+$(document).on('hidden.bs.modal', function () {
+
+	if ($('.modal:visible').length > 0) {
+		// restore the modal-open class to the body element, so that scrolling works
+		// properly after de-stacking a modal.
+		setTimeout(function () {
+			$(document.body).addClass('modal-open');
+		}, 0);
+	}
+});
+
+//// VEHICLES SELECTORS LISTENER ==============================================
 // Paso a setVehiclePanels
 
 
@@ -268,31 +322,33 @@ var appcampos = [];
 
 // FUNCTIONS
 
-function getMainData(data){
-	console.log( "getMainData start" );
+function getMainData(data) {
+	console.log("getMainData start");
 
 	var d = data || {};
 	var mainDataRequest;
 	var btn = $(d.btn) || '';
-	var cb = d.cb || function(){console.log('getMainData: empty callback')};
+	var cb = d.cb || function () {
+		console.log('getMainData: empty callback')
+	};
 
-	if(localStorage.getItem('appJsonData')){
+	if (localStorage.getItem('appJsonData')) {
 		appMainData = JSON.parse(window.localStorage.getItem('appJsonData'));
 
 		console.log('getMainData from localstorage');
 		//console.log(appMainData);
 
 		setApp();
-	}else{
+	} else {
 
 		console.log('getMainData from server');
 
-		if(!json_data_url){
+		if (!json_data_url) {
 
-			if(window.localStorage.getItem('server_url') && window.localStorage.getItem('data_url') ){
+			if (window.localStorage.getItem('server_url') && window.localStorage.getItem('data_url')) {
 				server_url = window.localStorage.getItem('server_url');
 				data_url = window.localStorage.getItem('data_url');
-				json_data_url = server_url +data_url + "?date=" + currentDate.ivTimeStamp();
+				json_data_url = server_url + data_url + "?date=" + currentDate.ivTimeStamp();
 			}
 
 			$('footer').addClass('on');
@@ -300,47 +356,47 @@ function getMainData(data){
 
 		btn.addClass('loading').attr('disabled');
 
-		mainDataRequest = $.getJSON( json_data_url, function(response, textStatus, jqXHR) {
-			console.log( "getMainData done" );
-			//console.log( response );
-			console.log('getMainData: ' + textStatus );
+		mainDataRequest = $.getJSON(json_data_url, function (response, textStatus, jqXHR) {
+				console.log("getMainData done");
+				//console.log( response );
+				console.log('getMainData: ' + textStatus);
 
-			if(textStatus == 'success'){
-				appMainData = response;
-				window.localStorage.setItem("appJsonData", JSON.stringify(appMainData));
-				appCurrentMainData = '';
+				if (textStatus == 'success') {
+					appMainData = response;
+					window.localStorage.setItem("appJsonData", JSON.stringify(appMainData));
+					appCurrentMainData = '';
 
-				cb();
-			}
+					cb();
+				}
 
-			//console.log(appMainData);
+				//console.log(appMainData);
 
-			setApp();
+				setApp();
 
-		})
-		.fail(function() {
-			console.log( "getMainData fail" );
+			})
+			.fail(function () {
+				console.log("getMainData fail");
 
-			//Fallo la actualizacion, vuelvo a guardar la data backapeada
-			if(appCurrentMainData){
-				appMainData = appCurrentMainData;
-				window.localStorage.setItem("appJsonData", JSON.stringify(appCurrentMainData));
-				appCurrentMainData = '';
-			}
-		})
-		.always(function() {
-			console.log( "getMainData always" );
+				//Fallo la actualizacion, vuelvo a guardar la data backapeada
+				if (appCurrentMainData) {
+					appMainData = appCurrentMainData;
+					window.localStorage.setItem("appJsonData", JSON.stringify(appCurrentMainData));
+					appCurrentMainData = '';
+				}
+			})
+			.always(function () {
+				console.log("getMainData always");
 
-			btn.removeAttr('disabled').removeClass('loading');
+				btn.removeAttr('disabled').removeClass('loading');
 
-			console.log( "getMainData end" );
-		});
+				console.log("getMainData end");
+			});
 
 	}
 
 }
 
-function setApp(){
+function setApp() {
 	console.log('setApp: start ');
 
 	var vehiculos = appMainData.vehiculos;
@@ -349,8 +405,8 @@ function setApp(){
 	appcontenido = appMainData.contenido;
 	appcampos = appMainData.campos;
 
-	if(vehiculos.length > 0){
-		$(vehiculos).each(function(i, o){
+	if (vehiculos.length > 0) {
+		$(vehiculos).each(function (i, o) {
 			var k = Object.keys(o);
 
 			appvehiculos[k] = o[k];
@@ -364,11 +420,11 @@ function setApp(){
 
 		setContent();
 
-		if(isHome){
+		if (isHome) {
 
 			setVehiclePanels();
 
-		}else{
+		} else {
 			// Analizo los parametros del Cotizador
 			if (window.location.pathname.search("/cotizacion.html") != -1) {
 
@@ -394,14 +450,14 @@ function setApp(){
 			}
 		}
 
-	}else{
+	} else {
 		console.log('No vehicles data');
 	}
 
-	if(appcontenido.general_server_url !== undefined){
+	if (appcontenido.general_server_url !== undefined) {
 		server_url = appcontenido.general_server_url;
 	}
-	if(appcontenido.general_data_url !== undefined){
+	if (appcontenido.general_data_url !== undefined) {
 		data_url = appcontenido.general_data_url;
 	}
 
@@ -411,9 +467,9 @@ function setApp(){
 
 }
 
-function setVehiclePanels(){
+function setVehiclePanels() {
 
-	if(! $('body.home').length){
+	if (!$('body.home').length) {
 		return;
 	}
 
@@ -427,7 +483,7 @@ function setVehiclePanels(){
 
 	panels.empty();
 
-	for(var cat in appcategorias){
+	for (var cat in appcategorias) {
 
 		//console.log(cat);
 		//console.log(appcategorias[cat]);
@@ -446,7 +502,7 @@ function setVehiclePanels(){
 
 		//console.log(vehicleLines);
 
-		$(vehicleLines).each(function(j, e){
+		$(vehicleLines).each(function (j, e) {
 			var k = Object.keys(e);
 			var opcion_nombre = e[k][0][1]; // Saco el nombre de la linea desde el primer vehiculo, elemento 2
 
@@ -469,14 +525,14 @@ function setVehiclePanels(){
 
 	// VEHICLES SELECTORS ======================================================
 	$('.selector').on('changed.bs.select', function (e) {
-		refreshSelector( $(this).data('selector'), $(this).data('vehicletype'), $(this).val() );
+		refreshSelector($(this).data('selector'), $(this).data('vehicletype'), $(this).val());
 	});
 
 	console.log('setVehiclePanels: end ');
 
 }
 
-function setContent(){
+function setContent() {
 	console.log('setContent: start ');
 	var elements = $('.content-add');
 
@@ -484,15 +540,15 @@ function setContent(){
 		//console.log(key, jsonData[key]);
 		var el = $('#' + key);
 
-		if(el.length){
+		if (el.length) {
 			var htmltag = el.get(0).nodeName.toLowerCase();
 
-			if(key == el.attr('id')){
+			if (key == el.attr('id')) {
 
-				switch(htmltag){
+				switch (htmltag) {
 					case 'img':
 						el.attr('src', appcontenido[key]);
-					break;
+						break;
 
 					default:
 						el.html(appcontenido[key]);
@@ -505,7 +561,9 @@ function setContent(){
 	$('#preloader').addClass('off');
 	window.setTimeout(function () {
 		//$('#preloader').remove();
-		$('#preloader').css({'z-index': -1});
+		$('#preloader').css({
+			'z-index': -1
+		});
 		console.log('setContent: end ');
 	}, 1500);
 
@@ -533,8 +591,8 @@ function refreshSelector(selector, vehicleType, value) {
 	//console.log(selectorsLength);
 	//console.log(selectorIndex);
 
-	for(var s = 0; s < selectorsLength; s++){
-		if(s > selectorIndex){
+	for (var s = 0; s < selectorsLength; s++) {
+		if (s > selectorIndex) {
 			resetSelector(selectors.eq(s));
 		}
 	}
@@ -560,19 +618,22 @@ function refreshSelector(selector, vehicleType, value) {
 
 	var selectorOptions = getSelectorData(params);
 
-	fillSelector({el: targetElement, options: selectorOptions});
+	fillSelector({
+		el: targetElement,
+		options: selectorOptions
+	});
 }
 
 function getSelectorData(data) {
 	console.log('getSelectorData');
 	console.log(data);
 
-	if(data.vehicle === undefined ){
+	if (data.vehicle === undefined) {
 		console.log('ERROR: getSelectorData: No vehicle type');
 		return;
 	}
 
-	if(data.value === undefined ){
+	if (data.value === undefined) {
 		console.log('ERROR: getSelectorData: No value selected');
 		return;
 	}
@@ -595,27 +656,27 @@ function getSelectorData(data) {
 	var aElements = [];
 
 
-	if(aMain === undefined){
+	if (aMain === undefined) {
 		console.log('aMain is not defined');
 		return;
 	}
 
-	if(aMain[linea] !== undefined){
+	if (aMain[linea] !== undefined) {
 
 		aMatrix = loadMatrix(aMain[linea], appcampos);
 
-		for(var i = 0; i < Object.keys(aMatrix).length; i++){
+		for (var i = 0; i < Object.keys(aMatrix).length; i++) {
 			var el = aMatrix[i];
 
 			for (var prop in el) {
 
 				// skip loop if the property is from prototype
-				if(!el.hasOwnProperty(prop)) continue;
+				if (!el.hasOwnProperty(prop)) continue;
 
 				//console.log('selectedvalue: ' + selectedValue + ' | value: ' + el[prop] + ' | prop: ' + prop + ' | target: ' + target + ' | Selector: ' + selector);
 
-				if(selectedValue != 1 && (el[selector] == selectedValue)){
-					if(el[target] !== undefined){
+				if (selectedValue != 1 && (el[selector] == selectedValue)) {
+					if (el[target] !== undefined) {
 						//console.log('coincide');
 						//console.log(el);
 						//console.log(el.modelo);
@@ -626,7 +687,7 @@ function getSelectorData(data) {
 					}
 				}
 
-				if( prop == target && selectedValue == linea ){
+				if (prop == target && selectedValue == linea) {
 					aElements.push(el[prop]);
 				}
 			}
@@ -636,16 +697,16 @@ function getSelectorData(data) {
 	}
 }
 
-function fillSelector(data){
+function fillSelector(data) {
 	//console.log(data);
 	var el = data.el;
 	var options = data.options;
 	var aUniqueValues = [];
 	var selectorOption = '';
 
-	$.each(options, function(i, option){
+	$.each(options, function (i, option) {
 
-		if($.inArray(option, aUniqueValues) === -1) {
+		if ($.inArray(option, aUniqueValues) === -1) {
 			aUniqueValues.push(option);
 
 			selectorOption = '<option value="' + option + '" >' + option + '</option>';
@@ -658,13 +719,13 @@ function fillSelector(data){
 	el.selectpicker("refresh");
 }
 
-function resetSelector(el){
+function resetSelector(el) {
 	el.empty().append('<option value="" selected="">' + el.data('default') + '</option>');
 	el.selectpicker("refresh");
 }
 
 
-function loadMatrix(matrix, appcampos){
+function loadMatrix(matrix, appcampos) {
 	console.log('loadMatrix: start');
 
 	//console.log(appcampos);
@@ -674,7 +735,7 @@ function loadMatrix(matrix, appcampos){
 
 	var data = {};
 
-	for(var i = 0; i < matrix.length; i++){
+	for (var i = 0; i < matrix.length; i++) {
 		var filavalores = matrix[i];
 		var row = {};
 
@@ -684,7 +745,7 @@ function loadMatrix(matrix, appcampos){
 		//console.log('Recorro los campos: filavalores #' + i);
 		//console.log('filavalores #' + i + ' | campos de filavalores: ' + filavalores.length + ' - campos totales: ' + appcampos.length);
 
-		$(filavalores).each(function(j, val){
+		$(filavalores).each(function (j, val) {
 			//console.log(j + ': ' + appcampos[j] + ': ' + val);
 			row[appcampos[j]] = val;
 
@@ -698,7 +759,7 @@ function loadMatrix(matrix, appcampos){
 	return data;
 }
 
-function filterVehicleArrayFromURL(){
+function filterVehicleArrayFromURL() {
 	console.log('filterVehicleArrayFromURL: start');
 
 	var vehicleType = unescape(getParameters("vehicletype"));
@@ -714,30 +775,32 @@ function filterVehicleArrayFromURL(){
 	var aMatrix = [];
 	var aCurrentRecord = [];
 
-	if(aMain === undefined){
+	if (aMain === undefined) {
 		console.log('aMain is not defined');
 		return;
 	}
 
-	if(aMain[linea] === undefined){
+	if (aMain[linea] === undefined) {
 		console.log('aMain[linea] is not defined');
 		return;
 	}
 
 	aMatrix = loadMatrix(aMain[linea], appcampos);
 
-	for(var i = 0; i < Object.keys(aMatrix).length; i++){
+	for (var i = 0; i < Object.keys(aMatrix).length; i++) {
 
 		var el = aMatrix[i];
 
 		for (var prop in el) {
 
 			// skip loop if the property is from prototype
-			if(!el.hasOwnProperty(prop)){ continue;}
+			if (!el.hasOwnProperty(prop)) {
+				continue;
+			}
 
 			//console.log('vehicleType: ' + el[vehicleType] + ' == ' + unescape(getParameters("vehicletype")) + ', modelo: ' + el[modelo] + ' == ' + el[modelo] + ', plan: ' + el[plan] + ' == '+ plan + ', cuotas: ' + el[cuotas] + '== ' + cuotas);
 
-			if(el.modelo == modelo && el.plan == plan && el.cuotas == cuotas){
+			if (el.modelo == modelo && el.plan == plan && el.cuotas == cuotas) {
 				aCurrentRecord.push(el);
 				break;
 			}
@@ -752,7 +815,7 @@ function filterVehicleArrayFromURL(){
 
 }
 
-function sendRecord(){
+function sendRecord() {
 	console.log('sendRecord start');
 
 	//Levanto todos los registros guardados y los mando via post al server
@@ -762,84 +825,79 @@ function sendRecord(){
 
 	$('#btn-pending-records').addClass('loading').attr('disabled');
 
-	/*$.post(
-	//	server_url + '/system/php/actions.php?action=store&time=' + currentDate.ivTimeStamp(),
-	//	{'stored_leads': stored_leads},
-	//	//function( data ) {
-	// //
-	//	//},
-	//	"json"
-	//)*/
+	$.ajax({
+		//url: server_url + '/system/php/actions.php?action=store&time=' + currentDate.ivTimeStamp() + '&stored_leads='+ JSON.stringify(lead[0]),
+		url: server_url + '/system/php/actions.php?action=store&time=' + currentDate.ivTimeStamp(),
+		type: 'POST', //'POST', //PUT
+		//crossDomain: false,
+		//headers: {
+		//	//"Content-Type": "application/json; charset=UTF-8"
+		//	//,"Access-Control-Allow-Origin": "*"
+		//},
+		//contentType: 'application/json',
+		//data: {'stored_leads': lead[0]},
+		data: {
+			'stored_leads': stored_leads
+		},
+		dataType: 'json', //jsonp
+		//jsonpCallback: 'processJSONPResponse',
+		charset: 'UTF-8',
+		timeout: 10000
+	})
+	.done(function (response, status, xhr) {
 
-	//$(stored_leads).each(function(i, lead){
+		// Si no hubo error
+		if (response.status) {
+
+			// Vacio los registros locales
+			window.localStorage.removeItem("stored_leads");
+
+			//Inicializo el Formulario
+			$('#form-quote').trigger("reset");
+			$("#provincia").val('default');
+			$("#provincia").selectpicker("refresh");
+
+		} // Si HUBO error y vienen registros devueltos
+		else if (!response.status && response.failed_records.length) {
+
+			// Vacio los registros locales
+			window.localStorage.removeItem("stored_leads");
+
+			// Guardo los registros devueltos
+			window.localStorage.setItem("stored_leads", JSON.stringify(response.failed_records));
+		}
+
+		// Actualizo el contador
+		updateStoredLeadsCounter();
+
+		window.setTimeout(function () {
+			showAlert({
+				body: response.msg,
+				class: 'success',
+				icon: 'check-circle',
+				action: 'show'
+			});
+			console.log(response.msg);
+		}, 1000);
+
+	})
+	.fail(function (jqXHR, status, errorThrown) {
+		console.log('sendRecord: Fail: ');
+		console.log(jqXHR);
+		console.log(status);
+		console.log(errorThrown);
+
+		//aRecordTemp.push(lead);
+		console.log('Fallo sendRecord(): lead: (ver siguiente)');
 		//console.log(lead);
 
-		$.ajax({
-			//url: server_url + '/system/php/actions.php?action=store&time=' + currentDate.ivTimeStamp() + '&stored_leads='+ JSON.stringify(lead[0]),
-			url: server_url + '/system/php/actions.php?action=store&time=' + currentDate.ivTimeStamp(),
-			type: 'POST', //'POST', //PUT
-			//crossDomain: false,
-			//headers: {
-			//	//"Content-Type": "application/json; charset=UTF-8"
-			//	//,"Access-Control-Allow-Origin": "*"
-			//},
-			//contentType: 'application/json',
-			//data: {'stored_leads': lead[0]},
-			data: {'stored_leads': stored_leads},
-			dataType: 'json', //jsonp
-			//jsonpCallback: 'processJSONPResponse',
-			charset: 'UTF-8',
-			timeout: 10000
-		})
-		.done(function (response, status, xhr) {
+	})
+	.always(function (response, status, xhr) {
 
-			// Si no hubo error
-			if (response.status) {
+		$('#btn-pending-records').removeClass('loading').removeAttr('disabled');
+		$("#btn-send-quote").html("Enviar cotización");
 
-				// Vacio los registros locales
-				window.localStorage.removeItem("stored_leads");
-
-				//Inicializo el Formulario
-				$('#form-quote').trigger("reset");
-				$("#provincia").val('default');
-				$("#provincia").selectpicker("refresh");
-
-			} // Si HUBO error y vienen registros devueltos
-			else if(!response.status && response.failed_records.length){
-
-				// Vacio los registros locales
-				window.localStorage.removeItem("stored_leads");
-
-				// Guardo los registros devueltos
-				window.localStorage.setItem("stored_leads", JSON.stringify(response.failed_records));
-			}
-
-			// Actualizo el contador
-			updateStoredLeadsCounter();
-
-			alert(response.msg);
-			console.log(response.msg);
-
-		})
-		.fail(function (jqXHR, status, errorThrown) {
-			console.log('sendRecord: Fail: ');
-			console.log(jqXHR);
-			console.log(status);
-			console.log(errorThrown);
-
-			//aRecordTemp.push(lead);
-			console.log('Fallo sendRecord(): lead: (ver siguiente)');
-			//console.log(lead);
-
-		})
-		.always(function (response, status, xhr) {
-
-			$('#btn-pending-records').removeClass('loading').removeAttr('disabled');
-			$("#btn-send-quote").html("Enviar cotización");
-
-		});
-
-	//});
+	});
 
 }
 
@@ -860,10 +918,10 @@ function makeQuote(data) {
 	var cuotas = $('#' + vehicleType + '-cuotas').val();
 	var aMain = appvehiculos[vehicleType][(linea - 1)];
 
-	console.log(el);
-	console.log(vehicleType);
-	console.log(linea);
-	console.log(aMain);
+	//console.log(el);
+	//console.log(vehicleType);
+	//console.log(linea);
+	//console.log(aMain);
 
 	// Armo la URL del Cotizador
 	var urlParameter = '';
@@ -873,7 +931,14 @@ function makeQuote(data) {
 
 		window.location.href = "cotizacion.html?" + urlParameter;
 	} else {
-		alert('Faltan elegir opciones para completar la cotización');
+
+		showAlert({
+			body: 'Faltan elegir opciones para completar la cotización',
+			class: 'danger',
+			icon: 'exclamation-circle',
+			action: 'show'
+		});
+
 		return;
 	}
 }
@@ -899,9 +964,6 @@ function showQuoteData(mode) {
 	$("#" + mode + "_alicuota").html((aCurrentRecord[0]["pago_adjudicacion_30"] || '0'));
 	$("#" + mode + "_modelo_cotizador").html(aCurrentRecord[0]["modelo"]);
 	$("#" + mode + "_nombre_plan_cotizador").html(aCurrentRecord[0]["plan"]);
-
-	// Actualizacion de la imagen de la linea del vehiculo en la cotizacion
-	//$("#" + mode + "_img_ppal").attr("src", "images/vehicles/" + getParameters('vehicletype') + "-linea" + getParameters('linea_nombre') + ".jpg");
 
 	//$("#" + mode + "_img_ppal").attr("src", appcategorias[getParameters('vehicletype')].imagen);
 	$("#" + mode + "_img_ppal").attr("src", aCurrentRecord[0]["imagen"]);
@@ -951,7 +1013,7 @@ function storeLeadsLocal(lead) {
 	updateStoredLeadsCounter();
 
 	counter.addClass('new');
-	window.setTimeout(function(){
+	window.setTimeout(function () {
 		counter.removeClass('new');
 	}, 3000);
 
@@ -988,7 +1050,7 @@ function getParameters(k) {
 	return k ? p[k] : p;
 }
 
-function urlCheck(url){
+function urlCheck(url) {
 	var expression = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gi;
 	var regex = new RegExp(expression);
 
@@ -1021,3 +1083,91 @@ function doScroll(event) {
 	}, 800);
 }
 
+
+function showConfirm(data) {
+	var options = {
+		mode: 'confirm',
+		action: data.action || 'close',
+		title: data.title,
+		body: data.body,
+		btn1text: "Cancelar",
+		btn2text: "Aceptar",
+		fn: data.fn || function (e) {}
+	};
+
+	showAlert(options);
+}
+
+function showAlert(data) {
+	//console.log(data);
+	var el = data.el || $('#page-alert');
+	var alertMode = data.mode || 'alert';
+	var action = data.action || 'close';
+	var alertTitle = data.title || 'Atención';
+	var alertBody = data.body || '';
+	var alertClass = data.class || 'warning';
+	var alertIcon = data.icon || 'info';
+	var alertButton1Text = data.btn1text || 'Cerrar';
+	var alertButton2Text = data.btn2text || '';
+	var btn2fn = data.fn || function (e) {};
+	var button1 = $('.alert-btn-1');
+	var button2 = $('.alert-btn-2');
+
+	if (!alertTitle) {
+		console.log('showAlert: No Title');
+		return;
+	}
+	if (!alertBody) {
+		console.log('showAlert: No body');
+		return;
+	}
+
+	//el.removeAttr('class');
+	//el.addClass('alert alert-dismissible fade show');
+
+	$('#modal-alert-title').html(alertTitle);
+	$('#alert-body').html(alertBody);
+	el.addClass(alertClass);
+
+	switch (alertClass) {
+		case 'danger':
+			alertIcon = 'exclamation';
+			break;
+		case 'success':
+			alertIcon = 'check';
+			break;
+	}
+
+	button1.html(alertButton1Text);
+	button2.addClass('hidden').html(alertButton2Text);
+
+	alertIcon = 'fa fa-' + alertIcon;
+	$('#alert-icon').removeAttr('class').addClass(alertIcon + ' ' + 'bg-' + alertClass);
+
+	button2.on('click', function (e) {
+
+		if (alertMode == 'confirm') {
+			el.modal('hide');
+			window.setTimeout(function () {
+				btn2fn(e);
+			}, 1000);
+
+			return;
+		}
+
+	});
+
+	if (alertMode == 'confirm') {
+		button2.removeClass('hidden').removeAttr('data-dismiss');
+		el.modal('hide');
+	}
+
+	if(action == 'show'){
+		el.modal('show');
+	}else if(action == 'close'){
+		el.modal('hide');
+	}
+
+	//el = '';
+	//el.modal('toggle');
+}

@@ -854,6 +854,47 @@ footer.on #cpanel-open i {
 	 font-size: 30px;
 }
 
+.modal-body,
+.modal-body .form-control,
+.modal-body button {
+	 font-size: 18px;
+	 font-size: 1.8rem;
+	line-height: 26px;
+	height: auto;
+}
+.modal-footer button {
+	 font-size: 18px;
+	 font-size: 1.8rem;
+}
+.modal-body #alert-icon {
+	border-radius: 50%;
+	padding: 10px;
+	text-align: center;
+	/* background: red; */
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	padding: 0;
+	position: relative;
+	/*
+	-webkit-transform: translate(-50%, -50%);
+			  transform: translate(-50%, -50%);
+	top: 1rem;
+	*/
+}
+.modal-body #alert-icon-container {
+	 width: 60px;
+	 text-align: left;
+}
+.modal-body #alert-body-container {
+	 width: calc(100% - 60px);
+}
+.modal-header button span {
+	 font-size: 40px;
+	 padding: 0 5px;
+}
+
 #cpanel .input-group{
 	margin: 10px 0;
 }
@@ -861,12 +902,6 @@ footer.on #cpanel-open i {
 	 text-align: left;
 	 padding: 0px 10px;
 	 line-height: 35px;
-}
-#cpanel .modal-body .form-control, #cpanel .modal-body button {
-	 font-size: 18px;
-	 font-size: 1.8rem;
-	line-height: 26px;
-	height: auto;
 }
 #cpanel span.form-control {
 	 border-color: transparent transparent #ccc transparent;
@@ -876,10 +911,6 @@ footer.on #cpanel-open i {
 }
 #cpanel #warning {
 	 margin: 15px 0;
-	 font-size: 18px;
-	 font-size: 1.8rem;
-}
-#cpanel .modal-footer button {
 	 font-size: 18px;
 	 font-size: 1.8rem;
 }
@@ -920,6 +951,19 @@ footer.on #cpanel-open i {
 #cpanel .modal-body .form-field-group:not(:first-child) label {
 	 margin-top: 15px;
 }
+
+.vertical-align-middle {
+	-webkit-transform: translateY(-50%);
+			  transform: translateY(-50%);
+	top: 50%;
+}
+.vertical-align-bottom {
+	-webkit-transform: translateY(-100%);
+			  transform: translateY(-100%);
+	top: 100%;
+}
+
+
 
 
 @media  only screen and ( max-width: 768px ){

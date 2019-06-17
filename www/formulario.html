@@ -142,9 +142,13 @@
 				<div class="row">
 					<div class="month-detail-min col-sm-5">
 						<span>Cantidad de Cuotas</span>
-						<strong><li id="form_cant_cuotas">-</li></strong>
+						<strong>
+							<li id="form_cant_cuotas">-</li>
+						</strong>
 						<span>Total cuota mensual</span>
-						<strong><li id="form_total_cuota_mensual">$ -</li></strong>
+						<strong>
+							<li id="form_total_cuota_mensual">$ -</li>
+						</strong>
 					</div>
 					<div class="plan-detail col-sm-7">
 						<p>
@@ -159,7 +163,7 @@
 				</div>
 				<div class="row">
 					<div class="col-sm-12">
-						<div id="general_legales" >
+						<div id="general_legales">
 							{general_legales}
 						</div>
 					</div>
@@ -333,6 +337,39 @@
 								<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
 								<!--<button type="button" class="btn btn-primary">Save changes</button>-->
 							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!--Modal mensages-->
+	<div class="modal fade" id="page-alert" tabindex="-1" role="dialog" aria-labelledby="modal-alert-title" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h2 class="modal-title" id="modal-alert-title"></h2>
+				</div>
+				<div class="modal-body">
+					<div class="container">
+						<div class="row vertical-align">
+							<div id="alert-icon-container" class="col-xs-1">
+								<i id="alert-icon" class=""></i>
+							</div>
+							<div id="alert-body-container" class="col-xs-11">
+								<div id="alert-body"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<div class="container">
+						<div class="row text-right">
+							<button type="button" class="alert-btn-1 btn btn-primary" data-dismiss="modal"></button>
+							<button type="button" class="alert-btn-2 hidden btn btn-primary"></button>
 						</div>
 					</div>
 				</div>
