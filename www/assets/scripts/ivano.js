@@ -1051,7 +1051,7 @@ function sendToServer(data) {
 
 	}
 
-	el.unbind('click');
+	//el.unbind('click');
 	//$('#btn-pending-records').unbind('click');
 
 	console.log('sendToServer: end');
