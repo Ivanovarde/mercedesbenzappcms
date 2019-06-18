@@ -376,6 +376,8 @@ function getMainData(data) {
 				window.localStorage.setItem("appJsonData", JSON.stringify(appMainData));
 				appCurrentMainData = '';
 
+				setApp();
+
 			}
 
 			cb(response);
@@ -570,7 +572,8 @@ function setContent() {
 		//$('#preloader').remove();
 		$('#preloader').css({
 			'z-index': -1
-		});
+		})
+		$('html').removeClass('locked');
 		console.log('setContent: end ');
 	}, 1500);
 
@@ -1040,7 +1043,10 @@ function sendRecord(btn) {
 	}
 	loadingData = true;
 
+
 	btn.addClass('loading').attr('disabled', 'disabled');
+
+	//console.log(btn);
 
 	$.ajax({
 		url: server_url + '/system/php/actions.php?action=store&time=' + currentDate.ivTimeStamp(),

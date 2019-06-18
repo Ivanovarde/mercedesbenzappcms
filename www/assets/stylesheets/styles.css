@@ -49,6 +49,12 @@
 	font-style: normal;
 }
 
+html, body, #wrapper {
+	 min-height: 100vh;
+	overflow-x: hidden;
+
+}
+
 html {
 	font-size: 62.5%;
 	-webkit-font-smoothing: antialiased;
@@ -57,7 +63,7 @@ html {
 body {
 	background: #fff;
 	/*background: #777;*/
-	overflow-x: hidden;
+	/*overflow-x: hidden;*/
 	-ms-overflow-style: scrollbar;
 	color: #5d5b59;
 	font-family: "corporate-a", sans-serif;
@@ -65,6 +71,10 @@ body {
 	font-size: 1.6rem;
 	font-weight: 300;
 	line-height: 1.5;
+}
+
+html.locked, html.locked body, html.locked #wrapper{
+	overflow: hidden;
 }
 
 .relative{position: relative;}
@@ -623,6 +633,7 @@ form .bootstrap-select > .dropdown-toggle {
 	bottom: 0;
 	background-color: #000;
 	z-index: 990;
+	overflow: hidden;
 
 	/*
 	-webkit-transition: all .7s ease-in-out .5s;
@@ -634,13 +645,13 @@ form .bootstrap-select > .dropdown-toggle {
 	background-image: url(../images/logo-mercedes-benz.png);
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: 10%;
-	z-index: 100001;
+	background-size: 18%;
+	/*z-index: 100001;*/
 }
 #preloader.off {
 	opacity: 0;
-	-webkit-transition: all .8s ease-in-out .3s;
-	transition: all .8s ease-in-out .3s;
+	-webkit-transition: opacity .8s ease-in-out .3s;
+	transition: opacity .8s ease-in-out .3s;
 }
 #preloader.off #preloader-inner{
 	opacity: 0;
@@ -1006,21 +1017,39 @@ footer.on #cpanel-open i {
 		float: left;
 		width: 50%;
 	}
+
 	header .row > div > div {
-		line-height: 70px;
+		 font-size: 12px;
+		 font-size: 1.2rem;
+		line-height: inherit;
 	}
+
+	header #general_header_texto_izquierda span {
+		 -webkit-transform: translateY(calc(100% - 3px));
+					transform: translateY(calc(100% - 3px));
+		 line-height: normal;
+	}
+	header #general_header_texto_derecha span, header #general_header_texto_derecha a{
+		padding: 2px 3px;
+		-webkit-transform: translateY(calc(50% _ 1px));
+		transform: translateY(calc(50% + 1px));
+		position: relative;
+	}
+
 	header .logo-holder {
 		height: 100%;
 		width: 45px;
-		margin-right: 15px;
+		margin-right: 10px;
 	}
 	header .logo-holder img{
 		margin-top: -5px;
 	}
+	/*
 	header .logo-holder + div {
 		font-size: 14px;
 		font-size: 1.4rem;
 	}
+	*/
 	header button.btn {
 		font-weight: 400;
 		border: none;
@@ -1126,9 +1155,72 @@ footer.on #cpanel-open i {
 	}
 }
 
+@media only screen and ( max-width: 500px ){
+	.logo-holder img {
+		 height: 44px;
+	}
+
+	section.copy .table-full {
+		 max-width: 100%;
+		 width: auto;
+		 display: block !important;
+	}
+	section.copy .table-cell {
+		 font-size: 1.7rem;
+		 font-size: 17px;
+		 padding-top: 50px;
+		 padding-bottom: 30px;
+		 display: block;
+		 width: 100%;
+		margin: 0;
+	}
+	img#cotizador_img_ppal {
+		 max-width: 100%;
+		 width: auto;
+	}
+	.month-detail strong, .month-detail-min strong {
+		 font-size: 40px;
+		 font-size: 4.0rem;
+	}
+	.month-detail span, .month-detail-min span {
+		 font-size: 26px;
+		 font-size: 2.6rem;
+	}
+
+	.open>.dropdown-menu {
+		 display: block;
+		 left: -1px;
+		 right: -1px;
+	}
+
+	.shortcuts .btn,
+	#form-quote .btn:not(:dropdown-toggle){
+		 width: 70%;
+		 line-height: 32px;
+		 margin: 10px auto 0;
+		 max-width: 250px;
+	}
+	.shortcuts figure{
+		text-align: center;
+	}
+	#general_legales {
+		 font-size: 12px;
+		  font-size: 1.2rem;
+	}
+
+	#form-quote .form-group {
+		 margin-bottom: 25px;
+		 width: auto;
+		 max-width: 300px;
+		 margin-left: auto;
+		 margin-right: auto;
+	}
+
+}
 
 @media  only screen and ( max-width: 320px ){
 
+	/*
 	header .logo-holder {
 		width: 35px;
 		margin-right: 5px;
@@ -1138,6 +1230,7 @@ footer.on #cpanel-open i {
 	}
 	header .logo-holder + div {
 	}
+	*/
 
 
 }
