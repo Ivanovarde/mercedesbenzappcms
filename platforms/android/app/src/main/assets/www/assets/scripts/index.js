@@ -152,7 +152,7 @@ var app = {
 
 		app.showConnectionStatus();
 
-		app.connectionTimer = window.setTimeout(app.checkConnection, 10000);
+		app.connectionTimer = window.setTimeout(app.checkConnection, 600000); //10 min
 
 		return app.isConnected;
 

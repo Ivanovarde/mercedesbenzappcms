@@ -18,7 +18,7 @@
  */
 var app = {
 
-	debug: true,
+	debug: false,
 	isConnected: false,
 	connectionTimer: null,
 	imgUrl: 'https://ssl.gstatic.com/gb/images/v1_76783e20.png?',
@@ -152,7 +152,7 @@ var app = {
 
 		app.showConnectionStatus();
 
-		app.connectionTimer = window.setTimeout(app.checkConnection, 10000);
+		app.connectionTimer = window.setTimeout(app.checkConnection, 600000); //10 min
 
 		return app.isConnected;
 

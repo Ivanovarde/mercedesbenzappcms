@@ -35,14 +35,18 @@ jQuery(document).ready(function () {
 
 
 $(document).on('click', '.caption .budget > a', function (e) {
-	makeQuote({
-		e: e
-	});
+
+	e.preventDefault();
+
+	makeQuote({e: e});
+
 });
 
 
 // SET SERVER URL  ============================================================
 $(document).on('click', '#change-server-url', function (e) {
+
+	e.preventDefault();
 
 	var current_server_url = window.localStorage.getItem("server_url");
 	var settings_server_url = $("#settings-server-url").val();
@@ -81,6 +85,8 @@ $(document).on('click', '#change-server-url', function (e) {
 // SET DATA URL  ==============================================================
 $(document).on('click', '#change-data-url', function (e) {
 
+	e.preventDefault();
+
 	var current_data_url = window.localStorage.getItem("data_url");
 	var settings_data_url = $("#settings-data-url").val();
 	var msg = 'URL de datos actualizada';
@@ -108,11 +114,16 @@ $(document).on('click', '#change-data-url', function (e) {
 });
 
 // SINCRONIZAR CONTACTOS ======================================================
-//$('#btn-pending-records').off().on('click', function (e) {
-$('#btn-pending-records').livequery('click', function (e) {sendToServer({e: e, el: $(this)}); });
+$('#btn-pending-records').one('click', function (e) {
+	//console.log('click 1');
+	e.preventDefault();
+	sendToServer({e: e, el: $(this)});
+});
 
 // ACTUALIZAR CONTENIDO =======================================================
 $(document).on('click', '#btn-update-content', function (e) {
+
+	e.preventDefault();
 
 	// Si no estoy conectado a Internet, cancelo
 	if (app.isConnected) {
@@ -132,12 +143,25 @@ $(document).on('click', '#btn-update-content', function (e) {
 
 				getMainData({
 					btn: $('#btn-update-content'),
-					cb: function(){
+					cb: function(response){
+						var dataBody = 'Los contenidos se acutalizaron correctamente';
+						var dataClass = 'success';
+						var dataIcon = 'check';
+
+						if(response == null || response == '' || response === undefined){
+							dataBody = 'No se pudo acceder a los contenidos. Intentar más tarde';
+							dataClass = 'danger';
+							dataIcon = 'exclamation';
+						}
+
 						showAlert({
-							body: 'Los contenidos se acutalizaron correctamente',
-							action: 'show'
+							body: dataBody,
+							action: 'show',
+							class: dataClass,
+							icon: dataIcon,
 						});
 
+						$('footer').removeClass('on');
 					}
 				});
 			}
@@ -147,7 +171,7 @@ $(document).on('click', '#btn-update-content', function (e) {
 		showAlert({
 			body: 'Esta acción requiere conexión a internet.',
 			class: 'danger',
-			icon: 'exclamation-circle',
+			icon: 'exclamation',
 			action: 'show'
 		});
 
@@ -158,6 +182,7 @@ $(document).on('click', '#btn-update-content', function (e) {
 
 // PREPARAR_COTIZACION ========================================================
 $(document).on('click', '#btn-prepare-quote', function (e) {
+
 	e.preventDefault();
 
 	var aCurrentRecord = filterVehicleArrayFromURL();
@@ -180,7 +205,7 @@ $(document).on('click', '#btn-prepare-quote', function (e) {
 		showAlert({
 			body: 'Faltan elegir opciones para completar la cotización',
 			class: 'danger',
-			icon: 'exclamation-circle',
+			icon: 'exclamation',
 			action: 'show'
 		});
 
@@ -191,6 +216,7 @@ $(document).on('click', '#btn-prepare-quote', function (e) {
 
 // ENVIAR_COTIZACION ==========================================================
 $(document).on('click', '#btn-send-quote', function (e) {
+
 	e.preventDefault();
 
 	var isValid = false;
@@ -210,7 +236,7 @@ $(document).on('click', '#btn-send-quote', function (e) {
 		showAlert({
 			body: 'Por favor, completar todos los campos',
 			class: 'danger',
-			icon: 'exclamation-circle',
+			icon: 'exclamation',
 			action: 'show'
 		});
 
@@ -224,7 +250,7 @@ $(document).on('click', '#btn-send-quote', function (e) {
 	$('#form-quote').find(':input').not(':button').each(function (i, o) {
 		var attr = $(o).attr('name');
 
-		console.log('#btn-send-quote -> Agrego input name: ' + $(o).attr('name') + ' - valor: ' + $(o).val());
+		//console.log('#btn-send-quote -> Agrego input name: ' + $(o).attr('name') + ' - valor: ' + $(o).val());
 
 		aCurrentRecord[0][attr] = $(o).val();
 	});
@@ -232,14 +258,14 @@ $(document).on('click', '#btn-send-quote', function (e) {
 	// Cargo Loading...
 	$("#btn-send-quote").html("Enviando...").attr('disabled', 'disabled');
 
-	console.log('#btn-send-quote -> aCurrentRecord reemplazo imagen base64 por nombre de archivo');
+	//console.log('#btn-send-quote -> aCurrentRecord reemplazo imagen base64 por nombre de archivo');
 
 	// Asigno el valor de imagen_lector (el archivo de la imagen) al campo imagen,
 	// sobrescribiendo el valor base64 y elimino el campo imagen_lector.
 	aCurrentRecord[0].imagen = aCurrentRecord[0].imagen_lector;
 	delete aCurrentRecord[0].imagen_lector;
 
-	console.log(aCurrentRecord);
+	//console.log(aCurrentRecord);
 
 	// Antes de enviar guardo el registro actual
 	storeLeadsLocal(aCurrentRecord);
@@ -282,6 +308,8 @@ var currentDate = new Date();
 var server_url = ""; //"http://mercedesappcms.nmd";
 var data_url = ""; //"/json/json_data/";
 var json_data_url = '';
+var loadingData = false;
+var currentAjaxProcess = '';
 var isHome = false;
 var appMainData;
 var appCurrentMainData;
@@ -303,8 +331,8 @@ function getMainData(data) {
 		console.log('getMainData: empty callback')
 	};
 
-	console.log(data);
-	console.log(btn);
+	//console.log(data);
+	//console.log(btn);
 
 	if (localStorage.getItem('appJsonData')) {
 		appMainData = JSON.parse(window.localStorage.getItem('appJsonData'));
@@ -313,6 +341,7 @@ function getMainData(data) {
 		//console.log(appMainData);
 
 		setApp();
+
 	} else {
 
 		console.log('getMainData from server');
@@ -328,46 +357,51 @@ function getMainData(data) {
 			$('footer').addClass('on');
 		}
 
+		if(!ajaxReadyCheck('getMainData')){
+			return false;
+		}
+		loadingData = true;
+
 		btn.addClass('loading').attr('disabled');
 
 		mainDataRequest = $.getJSON(json_data_url, function (response, textStatus, jqXHR) {
-				console.log("getMainData done");
-				//console.log( response );
-				console.log('getMainData: ' + textStatus);
+			console.log("getMainData done");
+			//console.log( response );
+			//console.log('getMainData: ' + textStatus);
 
-				if (textStatus == 'success') {
-					appMainData = response;
-					window.localStorage.setItem("appJsonData", JSON.stringify(appMainData));
-					appCurrentMainData = '';
+			loadingData = false;
 
-					cb();
-				}
+			if (textStatus == 'success') {
+				appMainData = response;
+				window.localStorage.setItem("appJsonData", JSON.stringify(appMainData));
+				appCurrentMainData = '';
 
-				//console.log(appMainData);
+			}
 
-				setApp();
+			cb(response);
 
-			})
-			.fail(function () {
-				console.log("getMainData fail");
+		})
+		.fail(function () {
+			console.log("getMainData fail");
 
-				//Fallo la actualizacion, vuelvo a guardar la data backapeada
-				if (appCurrentMainData) {
-					appMainData = appCurrentMainData;
-					window.localStorage.setItem("appJsonData", JSON.stringify(appCurrentMainData));
-					appCurrentMainData = '';
-				}
-			})
-			.always(function () {
-				console.log("getMainData always");
+			//Fallo la actualizacion, vuelvo a guardar la data backapeada
+			if (appCurrentMainData) {
+				appMainData = appCurrentMainData;
+				window.localStorage.setItem("appJsonData", JSON.stringify(appCurrentMainData));
+				appCurrentMainData = '';
+			}
 
-				btn.removeAttr('disabled').removeClass('loading');
+			loadingData = false;
 
-				console.log("getMainData end");
-			});
+		})
+		.always(function () {
+			console.log("getMainData always");
 
+			btn.removeAttr('disabled').removeClass('loading');
+
+			console.log("getMainData end");
+		});
 	}
-
 }
 
 function setApp() {
@@ -380,6 +414,7 @@ function setApp() {
 	appcampos = appMainData.campos;
 
 	if (vehiculos.length > 0) {
+
 		$(vehiculos).each(function (i, o) {
 			var k = Object.keys(o);
 
@@ -404,9 +439,6 @@ function setApp() {
 
 				showQuoteData('cotizador');
 
-				// Actulizacion de las imagenes del Pie
-				//$("#cotizador_img1_cotizador").attr("src", "images/vehicles/450x270-" + getParameters("vehicletype") + "1.jpg");
-				//$("#cotizador_img2_cotizador").attr("src", "images/vehicles/450x270-" + getParameters("vehicletype") + "2.jpg");
 			}
 
 			// Analizo los parametros del Formulario de Cotizador
@@ -533,6 +565,7 @@ function setContent() {
 	}
 
 	$('#preloader').addClass('off');
+
 	window.setTimeout(function () {
 		//$('#preloader').remove();
 		$('#preloader').css({
@@ -599,8 +632,9 @@ function refreshSelector(selector, vehicleType, value) {
 }
 
 function getSelectorData(data) {
+
 	console.log('getSelectorData');
-	console.log(data);
+	//console.log(data);
 
 	if (data.vehicle === undefined) {
 		console.log('ERROR: getSelectorData: No vehicle type');
@@ -618,8 +652,8 @@ function getSelectorData(data) {
 	var target = data.target || '';
 	var linea = data.linea || '';
 
-	console.log('vehicleType: ' + vehicleType);
-	console.log('linea: ' + linea);
+	//console.log('vehicleType: ' + vehicleType);
+	//console.log('linea: ' + linea);
 
 	var modelo = data.modelo || '';
 	var plan = data.plan || '';
@@ -672,7 +706,9 @@ function getSelectorData(data) {
 }
 
 function fillSelector(data) {
+
 	//console.log(data);
+
 	var el = data.el;
 	var options = data.options;
 	var aUniqueValues = [];
@@ -694,12 +730,15 @@ function fillSelector(data) {
 }
 
 function resetSelector(el) {
+
 	el.empty().append('<option value="" selected="">' + el.data('default') + '</option>');
 	el.selectpicker("refresh");
+
 }
 
 
 function loadMatrix(matrix, appcampos) {
+
 	console.log('loadMatrix: start');
 
 	//console.log(appcampos);
@@ -730,10 +769,13 @@ function loadMatrix(matrix, appcampos) {
 	//console.log('loadMatrix');
 	//console.log(data);
 	console.log('loadMatrix: end');
+
 	return data;
+
 }
 
 function filterVehicleArrayFromURL() {
+
 	console.log('filterVehicleArrayFromURL: start');
 
 	var vehicleType = unescape(getParameters("vehicletype"));
@@ -782,103 +824,17 @@ function filterVehicleArrayFromURL() {
 		}
 	}
 
-	console.log('aCurrentRecord: filtro y devuelvo el registro desde la coleccion de vehiculos');
-	console.log(aCurrentRecord);
+	//console.log('aCurrentRecord: filtro y devuelvo el registro desde la coleccion de vehiculos');
+	//console.log(aCurrentRecord);
 	console.log('filterVehicleArrayFromURL: end');
+
 	return aCurrentRecord;
 
 }
 
-function sendRecord() {
-	console.log('sendRecord start');
-
-	//Levanto todos los registros guardados y los mando via post al server
-	var stored_leads = JSON.parse(window.localStorage.getItem("stored_leads"));
-	var btn = $('#btn-pending-records');
-	console.log(stored_leads);
-
-	$.ajax({
-		//url: server_url + '/system/php/actions.php?action=store&time=' + currentDate.ivTimeStamp() + '&stored_leads='+ JSON.stringify(lead[0]),
-		url: server_url + '/system/php/actions.php?action=store&time=' + currentDate.ivTimeStamp(),
-		type: 'POST', //'POST', //PUT
-		//crossDomain: false,
-		//headers: {
-		//	//"Content-Type": "application/json; charset=UTF-8"
-		//	//,"Access-Control-Allow-Origin": "*"
-		//},
-		//contentType: 'application/json',
-		//data: {'stored_leads': lead[0]},
-		data: {
-			'stored_leads': stored_leads
-		},
-		dataType: 'json', //jsonp
-		//jsonpCallback: 'processJSONPResponse',
-		charset: 'UTF-8',
-		timeout: 10000
-	})
-	.done(function (response, status, xhr) {
-
-		// Si no hubo error
-		if (response.status) {
-
-			// Vacio los registros locales
-			window.localStorage.removeItem("stored_leads");
-
-			//Inicializo el Formulario
-			$('#form-quote').trigger("reset");
-			$("#provincia").val('default');
-			$("#provincia").selectpicker("refresh");
-
-		} // Si HUBO error y vienen registros devueltos
-		else if (!response.status && response.failed_records.length) {
-
-			// Vacio los registros locales
-			window.localStorage.removeItem("stored_leads");
-
-			// Guardo los registros devueltos
-			window.localStorage.setItem("stored_leads", JSON.stringify(response.failed_records));
-		}
-
-		// Actualizo el contador
-		updateStoredLeadsCounter();
-
-		window.setTimeout(function () {
-			showAlert({
-				body: response.msg,
-				class: 'success',
-				icon: 'check-circle',
-				action: 'show'
-			});
-			console.log(response.msg);
-		}, 1000);
-
-	})
-	.fail(function (jqXHR, status, errorThrown) {
-		console.log('sendRecord: Fail: ');
-		console.log(jqXHR);
-		console.log(status);
-		console.log(errorThrown);
-
-		btn.removeClass('loading').removeAttr('disabled');
-		console.log('Fallo sendRecord(): lead: (ver siguiente)');
-		//console.log(lead);
-
-	})
-	.always(function (response, status, xhr) {
-
-		btn.removeClass('loading').removeAttr('disabled');
-		$("#btn-send-quote").html("Enviar cotización");
-
-	});
-
-}
-
-function processJSONPResponse(data) {
-	console.log(data);
-}
-
 
 function makeQuote(data) {
+
 	console.log('makeQuote: start');
 
 	var el = $(data.e.currentTarget);
@@ -907,7 +863,7 @@ function makeQuote(data) {
 		showAlert({
 			body: 'Faltan elegir opciones para completar la cotización',
 			class: 'danger',
-			icon: 'exclamation-circle',
+			icon: 'exclamation',
 			action: 'show'
 		});
 
@@ -997,16 +953,18 @@ function storeLeadsLocal(lead) {
 	console.log('storeLeadsLocal: end');
 }
 
+
 function sendToServer(data) {
+
 	console.log('sendToServer: start');
 
 	var e = data.e;
 	var el = data.el;
-	var el = $(e.currentTarget);
 	var counter = 0;
 
 	e.preventDefault();
 	e.stopPropagation();
+	e.stopImmediatePropagation();
 
 	//Si tengo datos guardados localmente, los consulto directamente desde ahi
 	var stored_leads = JSON.parse(window.localStorage.getItem("stored_leads"));
@@ -1016,25 +974,39 @@ function sendToServer(data) {
 
 		counter = stored_leads.length;
 
+		// Muestro confirmación para el envío de los contactos al servidor
 		showConfirm({
-			body: 'Eportar ' + counter +' ' + (counter > 1 ? 'registros' : 'registro') + ' al servidor.<br>Esta acción podría demorar unos minutos.<br>¿Desea continuar?',
+			body: 'Exportar ' + counter +' ' + (counter > 1 ? 'registros' : 'registro') + ' al servidor.<br>Esta acción podría demorar unos minutos.<br>¿Desea continuar?',
 			action: 'show',
 			fn: function () {
 
-				el.addClass('loading').attr('disabled', 'disabled');
+				sendRecord(el);
 
-				sendRecord();
 			}
 		});
 
+		// Si cancelo el envío, vuelvo a "bindear" el click del boton, sino, quedaría sin evento de click
+		el.off().one('click', function(e){
+			//console.log('click 4');
+			e.preventDefault();
+			sendToServer( {"e": e, "el": $(this)} );
+		});
+
+
 	} else {
+
+		el.off().one('click', function(e){
+			//console.log('click 3');
+			e.preventDefault();
+			sendToServer( {"e": e, "el": $(this)} );
+		});
 
 		if(!app.isConnected){
 
 			showAlert({
 				body: 'Esta acción requiere conexión a internet.',
 				class: 'danger',
-				icon: 'exclamation-circle',
+				icon: 'exclamation',
 				action: 'show'
 			});
 
@@ -1044,17 +1016,115 @@ function sendToServer(data) {
 			showAlert({
 				body: 'No hay registros para exportar.',
 				class: 'danger',
-				icon: 'exclamation-circle',
+				icon: 'exclamation',
 				action: 'show'
 			});
+
 		}
 
 	}
 
-	//el.unbind('click');
-	//$('#btn-pending-records').unbind('click');
+}
 
-	console.log('sendToServer: end');
+function sendRecord(btn) {
+
+	console.log('sendRecord start');
+
+	//Levanto todos los registros guardados y los mando via post al server
+	var stored_leads = JSON.parse(window.localStorage.getItem("stored_leads"));
+
+	//console.log(stored_leads);
+
+	if(!ajaxReadyCheck('sendRecord')){
+		return false;
+	}
+	loadingData = true;
+
+	btn.addClass('loading').attr('disabled', 'disabled');
+
+	$.ajax({
+		url: server_url + '/system/php/actions.php?action=store&time=' + currentDate.ivTimeStamp(),
+		async: false,
+		type: 'POST',
+		data: {'stored_leads': stored_leads},
+		dataType: 'json',
+		charset: 'UTF-8',
+		timeout: 10000
+	})
+	.done(function (response, status, xhr) {
+
+		loadingData = false;
+
+		// Si NO hubo respuesta del servidor
+		if(response === null || response === undefined){
+			console.log(status);
+		}
+
+		// si HAY respuesta del servidor
+		if(response != null && response != ''){
+
+			// Si no hubo error
+			if (response.status) {
+
+				// Vacio los registros locales
+				window.localStorage.removeItem("stored_leads");
+
+				//Inicializo el Formulario
+				$('#form-quote').trigger("reset");
+				$("#provincia").val('default');
+				$("#provincia").selectpicker("refresh");
+
+			} // Si HUBO error y vienen registros devueltos
+			else if (!response.status && response.failed_records.length) {
+
+				// Vacio los registros locales
+				window.localStorage.removeItem("stored_leads");
+
+				// Guardo los registros devueltos
+				window.localStorage.setItem("stored_leads", JSON.stringify(response.failed_records));
+			}
+
+			// Actualizo el contador
+			updateStoredLeadsCounter();
+
+			window.setTimeout(function () {
+				showAlert({
+					body: response.msg,
+					class: 'success',
+					icon: 'check',
+					action: 'show'
+				});
+				console.log(response.msg);
+			}, 1000);
+
+		}
+
+	})
+	.fail(function (jqXHR, status, errorThrown) {
+		console.log('sendRecord: Fail: ');
+		console.log(jqXHR);
+		console.log(status);
+		console.log(errorThrown);
+
+		loadingData = false;
+
+		//console.log('Fallo sendRecord(): lead: (ver siguiente)');
+		//console.log(lead);
+
+	})
+	.always(function (response, status, xhr) {
+		console.log('sendRecord always');
+
+		//$('#btn-pending-records').removeClass('loading').removeAttr('disabled');
+		btn.removeClass('loading').removeAttr('disabled');
+
+		btn.off().one('click', function(e){
+		//$('#btn-pending-records').off().one('click', function(e){
+			//console.log('click 2');
+			sendToServer( {"e": e, "el": $(this)} );
+		});
+
+	});
 
 }
 
@@ -1079,6 +1149,7 @@ function urlCheck(url) {
 }
 
 function doScroll(event) {
+
 	var el = $(event.currentTarget);
 	var fullUrl = el.attr('href') !== undefined ? el.attr('href') : '';
 	var parts, targetEl, trgt, targetOffset, targetTop;
@@ -1122,7 +1193,7 @@ function showAlert(data) {
 	var action = data.action || 'close';
 	var alertTitle = data.title || 'Atención';
 	var alertBody = data.body || '';
-	var alertClass = data.class || 'warning';
+	var alertClass = data.class || 'primary';
 	var alertIcon = data.icon || 'info';
 	var alertButton1Text = data.btn1text || 'Cerrar';
 	var alertButton2Text = data.btn2text || '';
@@ -1204,4 +1275,17 @@ function showCpanelStatus(data){
 	window.setTimeout(function () {
 		status.removeClass(statusClass).text('');
 	}, 4000);
+}
+
+function ajaxReadyCheck(request){
+	var r = true;
+
+	console.log('ajaxReadyCHeck -> loadingData value: ' + loadingData + ' (about to call ' + request + ')');
+
+	if(loadingData){
+		console.log('Can\'t perform the action ' + request + '. The erver is busy loading data' + (currentAjaxProcess ? ' for: ' + currentAjaxProcess : '.'));
+		r = false;
+	}
+	currentAjaxProcess = request;
+	return r;
 }

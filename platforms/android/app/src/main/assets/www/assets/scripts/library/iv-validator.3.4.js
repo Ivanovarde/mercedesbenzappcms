@@ -200,10 +200,12 @@ function validator(data){
 					var elementHighlighted = (isRadio || useBootstrapError) ? elementContainer : element;
 					var elementProcessed = isRadio ? $("input[name='" + element.attr('name') + "']") : element;
 
-					console.log(elementHighlighted);
-					console.log(elementProcessed);
-					console.log(isRadio);
-					console.log('useBootstrapError: ' + useBootstrapError);
+					if(debug){
+						console.log(elementHighlighted);
+						console.log(elementProcessed);
+						console.log(isRadio);
+						console.log('useBootstrapError: ' + useBootstrapError);
+					}
 
 					elementHighlighted.addClass(errorClass);
 

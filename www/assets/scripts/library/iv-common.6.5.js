@@ -6,6 +6,8 @@ Ivano vardé
 //VARIABLES
 var ajaxSubmitResponse = new Array();
 var ajaxRequestResponse = new Array();
+var loadingData = false;
+var currentAjaxProcess = '';
 
 
 /* FUNCTIONS */
@@ -278,7 +280,7 @@ function submitForm(data){
 function ajaxReadyCheck(request){
 	var r = true;
 	if(loadingData){
-		console.log('Cant perform the action ' + request + '. Server is busy loading data' + (currentAjaxProcess ? ' for: ' + currentAjaxProcess : '.'));
+		console.log('Can\/t perform the action ' + request + '. Server is busy loading data' + (currentAjaxProcess ? ' for: ' + currentAjaxProcess : '.'));
 		r = false;
 	}
 	currentAjaxProcess = request;
