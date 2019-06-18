@@ -317,8 +317,8 @@ section.copy .lead > span{
 }
 section.copy .max h1{
 	font-family: 'corporate-a';
-	font-size: 57px;
-	font-size: 5.7rem;
+	font-size: 50px;
+	font-size: 5.0rem;
 	margin-bottom: 0;
 }
 section.copy h1 {
@@ -342,6 +342,11 @@ section.copy #cotizador_img_ppal_container {
 	background-size: 25%;
 
 }
+section.copy #cotizador_img_ppal,
+#cotizador_img_ppal_container #form_img_ppal{
+		 max-width: 100%;
+		 width: auto;
+	}
 
 section.thumbs {
 	text-align: center;
@@ -1002,90 +1007,6 @@ footer.on #cpanel-open i {
 		background-size: 20%;
 	}
 
-	#wrapper {
-		padding-top: 70px;
-	}
-
-	header {
-		padding: 0px;
-		line-height: 70px;
-		height: 70px;
-		overflow: hidden;
-		position: fixed;
-		width: 100%;
-		left: 0;
-		top: 0;
-		z-index: 100;
-		background: rgba(0, 0, 0,.8) !important;
-		-webkit-box-shadow: 0px 1px 3px 1px rgba(0,0,0,.5);
-				box-shadow: 0px 1px 3px 1px rgba(0,0,0,.5);
-	}
-	header > .container > .row > div {
-		float: left;
-		width: 50%;
-	}
-
-	header .row > div > div {
-		 font-size: 12px;
-		 font-size: 1.2rem;
-		line-height: inherit;
-	}
-
-	header #general_header_texto_izquierda span {
-		 -webkit-transform: translateY(calc(100% - 3px));
-					transform: translateY(calc(100% - 3px));
-		 line-height: normal;
-	}
-	header #general_header_texto_derecha span, header #general_header_texto_derecha a{
-		padding: 2px 3px;
-		-webkit-transform: translateY(calc(50% _ 1px));
-		transform: translateY(calc(50% + 1px));
-		position: relative;
-	}
-
-	header .logo-holder {
-		height: 100%;
-		width: 45px;
-		margin-right: 10px;
-	}
-	header .logo-holder img{
-		margin-top: -5px;
-	}
-	/*
-	header .logo-holder + div {
-		font-size: 14px;
-		font-size: 1.4rem;
-	}
-	*/
-	header button.btn {
-		font-weight: 400;
-		border: none;
-		background: none;
-		padding: 0;
-		width: 100%;
-		color: transparent;
-		cursor: default;
-	}
-	header button.btn:hover {
-		background: transparent;
-		color: transparent;
-		opacity: 1;
-	}
-	header button.btn::after {
-		content: 'Plan de Ahorro';
-		position: absolute;
-		top: -1px;
-		right: 0;
-		z-index: 2;
-		background: transparent;
-		width: 100%;
-		text-align: right;
-		font-size: 14px;
-		font-size: 1.4rem;
-		font-family: 'corporate-a', sans-serif;
-		color: #fff;
-	}
-
 	.hero .image-container, .hero img {
 		margin-top: 0px;
 	}
@@ -1125,8 +1046,8 @@ footer.on #cpanel-open i {
 		height: auto;
 	}
 	section.copy h1, section.copy .max h1 {
-		font-size: 30px;
-		font-size: 3.0rem;
+		font-size: 40px;
+		font-size: 4.0rem;
 	}
 	.month-detail span, .month-detail-min span {
 		font-size: 30px;
@@ -1157,14 +1078,88 @@ footer.on #cpanel-open i {
 
 @media only screen and ( max-width: 650px ){
 
+	#wrapper {
+		padding-top: 70px;
+	}
+	header {
+		padding: 0px;
+		line-height: 70px;
+		height: 70px;
+		overflow: hidden;
+		position: fixed;
+		width: 100%;
+		left: 0;
+		top: 0;
+		z-index: 100;
+		background: rgba(0, 0, 0,.8) !important;
+		-webkit-box-shadow: 0px 1px 3px 1px rgba(0,0,0,.5);
+				box-shadow: 0px 1px 3px 1px rgba(0,0,0,.5);
+	}
+	header > .container > .row > div {
+		float: left;
+		width: 50%;
+	}
+	header .row > div > div {
+		 font-size: 11px;
+		 font-size: 1.1rem;
+		line-height: inherit;
+	}
+	header #general_header_texto_izquierda span {
+		 -webkit-transform: translateY(calc(100% - 3px));
+					transform: translateY(calc(100% - 3px));
+		 line-height: normal;
+	}
+	header #general_header_texto_derecha span,
+	header #general_header_texto_derecha a{
+		padding: 2px 3px;
+		-webkit-transform: translateY(calc(50% _ 1px));
+		transform: translateY(calc(50% + 1px));
+		position: relative;
+	}
+	header .logo-holder {
+		height: 100%;
+		width: 45px;
+		margin-right: 10px;
+	}
+	header .logo-holder img{
+		margin-top: -5px;
+		 height: 44px;
+	}
+	header button.btn {
+		font-weight: 400;
+		border: none;
+		background: none;
+		padding: 0;
+		width: 100%;
+		color: transparent;
+		cursor: default;
+	}
+	header button.btn:hover {
+		background: transparent;
+		color: transparent;
+		opacity: 1;
+	}
+	header button.btn::after {
+		content: 'Plan de Ahorro';
+		position: absolute;
+		top: -1px;
+		right: 0;
+		z-index: 2;
+		background: transparent;
+		width: 100%;
+		text-align: right;
+		font-size: 14px;
+		font-size: 1.4rem;
+		font-family: 'corporate-a', sans-serif;
+		color: #fff;
+	}
+
+	#cotizador_img_ppal_container {
+		 padding: 0;
+	}
+
 	section.no-info {
 		padding: 0;
-	}
-}
-
-@media only screen and ( max-width: 500px ){
-	.logo-holder img {
-		 height: 44px;
 	}
 
 	section.copy .table-full {
@@ -1181,10 +1176,18 @@ footer.on #cpanel-open i {
 		 width: 100%;
 		margin: 0;
 	}
-	img#cotizador_img_ppal {
-		 max-width: 100%;
-		 width: auto;
+}
+
+@media only screen and ( max-width: 6200px ){
+
+	section.copy h1, section.copy .max h1 {
+		 font-size: 32px;
+		 font-size: 3.2rem;
 	}
+}
+
+@media only screen and ( max-width: 500px ){
+
 	.month-detail strong, .month-detail-min strong {
 		 font-size: 40px;
 		 font-size: 4.0rem;
@@ -1194,14 +1197,13 @@ footer.on #cpanel-open i {
 		 font-size: 2.6rem;
 	}
 
-	.open>.dropdown-menu {
-		 display: block;
+	.open.dropdown-menu {
 		 left: -1px;
 		 right: -1px;
 	}
 
 	.shortcuts .btn,
-	#form-quote .btn:not(:dropdown-toggle){
+	#form-quote .btn:not(.dropdown-toggle){
 		 width: 70%;
 		 line-height: 32px;
 		 margin: 10px auto 0;
@@ -1225,19 +1227,28 @@ footer.on #cpanel-open i {
 
 }
 
-@media  only screen and ( max-width: 320px ){
+@media  only screen and ( max-width: 450px ){
 
-	/*
-	header .logo-holder {
-		width: 35px;
-		margin-right: 5px;
+	.month-detail-min {
+		 width: 100%;
+		 display: block;
 	}
-	header > .container > .row > div:first-child{
-		padding-right: 0;
+	.plan-detail {
+		 width: 100%;
+		 display: block;
 	}
-	header .logo-holder + div {
+}
+@media  only screen and ( max-width: 375px ){
+
+	header .logo-holder img {
+		 margin-top: -5px;
+		 height: 35px;
 	}
-	*/
+	header .row > div > div{
+		 font-size: 10px;
+		 font-size: 1.0rem;
+		 line-height: inherit;
+	}
 
 
 }
