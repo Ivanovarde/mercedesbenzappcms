@@ -917,6 +917,13 @@ footer.on #cpanel-open i {
 	 text-align: left;
 	 padding: 0px 10px;
 	 line-height: 35px;
+	 /* line-height: 1.3; */
+	 font-size: 14px;
+	 padding: 2px;
+	 text-align: center;
+	 border-radius: 3px;
+	 max-width: 280px;
+	font-family: sans-serif;
 }
 #cpanel span.form-control {
 	 border-color: transparent transparent #ccc transparent;

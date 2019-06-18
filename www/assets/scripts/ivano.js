@@ -69,13 +69,13 @@ $(document).on('click', '#change-server-url', function (e) {
 
 		}else{
 			msg = 'Ingresar una URL válida';
-			statusClass = 'text-danger';
+			statusClass = 'bg-danger';
 
 		}
 
 	} else {
 		msg = 'Error. Intentar nuevamente.';
-		statusClass = 'text-danger';
+		statusClass = 'bg-danger';
 	}
 
 	showCpanelStatus({msg: msg, statusClass: statusClass});
@@ -90,7 +90,7 @@ $(document).on('click', '#change-data-url', function (e) {
 	var current_data_url = window.localStorage.getItem("data_url");
 	var settings_data_url = $("#settings-data-url").val();
 	var msg = 'URL de datos actualizada';
-	var statusClass = 'text-success';
+	var statusClass = 'bg-success';
 
 	//console.log(settings_data_url + ' == ' + current_data_url);
 
@@ -106,7 +106,7 @@ $(document).on('click', '#change-data-url', function (e) {
 
 	} else {
 		msg = 'Error. Intentar nuevamente.';
-		statusClass = 'text-danger';
+		statusClass = 'bg-danger';
 	}
 
 	showCpanelStatus({msg: msg, statusClass: statusClass});
@@ -1199,7 +1199,7 @@ function showAlert(data) {
 	var action = data.action || 'close';
 	var alertTitle = data.title || 'Atención';
 	var alertBody = data.body || '';
-	var alertClass = data.class || 'primary';
+	var alertClass = data.class || 'info';
 	var alertIcon = data.icon || 'info';
 	var alertButton1Text = data.btn1text || 'Cerrar';
 	var alertButton2Text = data.btn2text || '';
@@ -1267,7 +1267,7 @@ function showAlert(data) {
 }
 
 function showCpanelStatus(data){
-	var statusClass = data.class === undefined ? 'text-success' : data.class;
+	var statusClass = data.class === undefined ? 'bg-success' : data.class;
 	var msg = data.msg === undefined ? false : data.msg;
 	var status = $('#modal-status').removeAttr('class').text('');
 
