@@ -355,6 +355,7 @@ section.thumbs {
 	display: inline-block;
 	float: none;
 	margin-left: -4px;
+	text-align: center;
 }
 .thumbnail {
 	padding: 20px 0 0;
@@ -629,6 +630,12 @@ form .bootstrap-select > .dropdown-toggle {
 	font-family: 'corporate-s';
 }
 
+.open>.dropdown-menu {
+	 display: block;
+	left: -1px;
+	right: -1px;
+}
+
 
 #preloader, #preloader-inner {
 	position: fixed;
@@ -752,7 +759,11 @@ img.scale-img, .scale-img img{
 	vertical-align: middle;
 }
 
-#settings{}
+#settings {
+	 -webkit-box-shadow: 0px -1px 8px 0px rgba(0,0,0,.1);
+				box-shadow: 0px -1px 8px 0px rgba(0,0,0,.1);
+	 padding-top: 5px;
+}
 #settings i, #settings .badge{
 	-webkit-transition: all .5s ease-in-out 0s;
 	transition: all .5s ease-in-out 0s;
@@ -906,11 +917,6 @@ footer.on #cpanel-open i {
 .modal-body #alert-body-container {
 	 width: calc(100% - 60px);
 }
-.modal-header button span {
-	 font-size: 40px;
-	 padding: 0 5px;
-}
-
 .modal-body button[disabled].loading {
 	color: transparent !important;
 }
@@ -979,6 +985,74 @@ footer.on #cpanel-open i {
 	 margin-top: 15px;
 }
 
+.leads-holder {
+	 overflow-x: auto;
+	 overflow-y: auto;
+	 position: fixed;
+	 bottom: 0;
+	 z-index: -1;
+	 background: rgba(255,255,255,.75);
+	 height: 100%;
+	 -webkit-transition: all .3s ease-in-out 0s;
+	 transition: all .3s ease-in-out 0s;
+	 width: 100%;
+	 padding: 15px 0 30px;
+	 background: rgba(0,0,0,.5);
+	 opacity: 0;
+}
+.leads-holder.on {
+	 height: 100vh;
+	 bottom: 0;
+	 height: 100%;
+	 z-index: 850;
+	 opacity: 1;
+}
+.leads-holder > div {
+	 max-width: 750px;
+	max-height: 50%;
+	 margin-left: auto;
+	 margin-right: auto;
+	position: absolute;
+	bottom: -100vh;
+	-webkit-transform: translateX(-50%);
+			  transform: translateX(-50%);
+	left: 50%;
+	-webkit-transition: all .2s ease-in-out 0s;
+	transition: all .2s ease-in-out 0s;
+}
+.leads-holder.on > div {
+	bottom: 25px;
+	overflow: hidden;
+	height: 100%;
+}
+.leads-holder h2{margin: 0;}
+.leads-holder th, .leads-holder td {
+	 padding: 2px 15px 2px 0 !important;
+	 white-space: nowrap;
+}
+.leads-holder .panel-footer {
+	 overflow: hidden;
+	 background: #fff;
+	 padding: 15px;
+	height: 100%;
+}
+.leads-holder .table-responsive {
+	 min-height: .01%;
+	 overflow-x: auto;
+	 overflow-y: auto;
+	 height: calc(100% - 132px);
+}
+
+
+button.close span {
+	 font-size: 40px;
+	 padding: 0 5px;
+}
+.leads-contacts-trigger{
+	cursor: pointer;
+}
+
+
 .vertical-align-middle {
 	-webkit-transform: translateY(-50%);
 			  transform: translateY(-50%);
@@ -989,8 +1063,6 @@ footer.on #cpanel-open i {
 			  transform: translateY(-100%);
 	top: 100%;
 }
-
-
 
 
 @media  only screen and ( max-width: 768px ){
@@ -1238,6 +1310,7 @@ footer.on #cpanel-open i {
 		 display: block;
 	}
 }
+
 @media  only screen and ( max-width: 375px ){
 
 	header .logo-holder img {

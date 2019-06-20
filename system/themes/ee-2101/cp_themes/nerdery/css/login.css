@@ -39,7 +39,8 @@ orange: #ba560d
 /*LOGIN PAGE LOGO*/
 
 #custom-logo {
-	 background-image: url(/system/themes/ee-2101/cp_themes/nerdery/images/cms_login_bg.png);
+	 /*background-image: url(/system/themes/ee-2101/cp_themes/nerdery/images/cms_login_bg.png);*/
+	 background-image: url(/system/themes/ee-2101/cp_themes/nerdery/images/cms_login_bg.svg);
 	 background-position: center;
 	 background-repeat: no-repeat;
 	 background-size: 100%;

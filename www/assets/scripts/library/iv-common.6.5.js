@@ -1854,6 +1854,10 @@ String.prototype.trimChar = function (charToRemove) {
 	return string;
 }
 
+String.prototype.capitalize = function() {
+	return this.charAt(0).toUpperCase() + this.slice(1);
+}
+
 /**
  * @param object obj
  * @author Ivano

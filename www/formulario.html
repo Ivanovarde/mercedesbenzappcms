@@ -189,6 +189,12 @@
 								<input type="text" class="form-control validate:{'required': true}" placeholder="Teléfono" id="telefono" name="telefono">
 							</div>
 							<div class="form-group">
+								<input type="text" class="form-control validate:{'required': true}" placeholder="Ciudad" id="ciudad" name="ciudad">
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control validate:{'required': true}" placeholder="Código postal" id="codigo_postal" name="codigo_postal">
+							</div>
+							<div class="form-group">
 								<select class="selectpicker form-control validate:{'required': true}" id="provincia" name="provincia" data-size="8">
 									<option value="">Provincia</option>
 									<option value="Buenos Aires">Buenos Aires</option>
@@ -218,9 +224,6 @@
 								</select>
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control validate:{'required': true}" placeholder="Ciudad" id="ciudad" name="ciudad">
-							</div>
-							<div class="form-group">
 								<button type="submit" class="btn btn-primary" id="btn-send-quote" name="submit">Enviar cotización</button>
 							</div>
 						</form>
@@ -241,7 +244,7 @@
 					</button>
 
 					<div id="icons-container">
-						<span class="icon-container">
+						<span class="icon-container leads-contacts-trigger">
 							<i class="fa fa-user"></i> <span id="pending-records-total" class="badge">0</span>
 						</span>
 						<span class="icon-container">
@@ -372,6 +375,32 @@
 							<button type="button" class="alert-btn-2 hidden btn btn-primary"></button>
 						</div>
 					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!--Panel leads-->
+	<div class="leads-holder">
+		<div class="panel panel-default">
+			<!-- Default panel contents -->
+
+			<div class="panel-heading">
+				<button type="button" class="close leads-contacts-trigger" aria-label="Close"><span aria-hidden="true">×</span></button>
+				<h2>Contactos en este dispositivo</h2>
+			</div>
+
+			<div class="panel-body">
+				<p>Los siguientes contactos se encuentran almacenados en este dispositivo y aún no han sido exportados al servidor. Para exportarlos entrar al panel de control y presionar en "Exportar contactos"</p>
+			</div>
+
+			<div class="panel-footer">
+				<div class="table-responsive">
+					<!-- Table -->
+					<table id="leads-list" class="table">
+
+					</table>
 				</div>
 			</div>
 		</div>
