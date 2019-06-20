@@ -306,7 +306,6 @@ section.copy {
 section.copy .lead {
 	font-size: 1.7rem;
 	font-size: 17px;
-	padding-top: 50px;
 	/*padding-bottom: 50px;*/
 }
 section.copy .lead > span{
@@ -342,10 +341,14 @@ section.copy #cotizador_img_ppal_container {
 	background-size: 25%;
 
 }
+section.copy .lead,
+section.copy #cotizador_img_ppal_container {
+	padding: 30px 0;
+}
 section.copy #cotizador_img_ppal,
 #cotizador_img_ppal_container #form_img_ppal{
 		 max-width: 100%;
-		 width: auto;
+		 width: 400px;
 	}
 
 section.thumbs {
