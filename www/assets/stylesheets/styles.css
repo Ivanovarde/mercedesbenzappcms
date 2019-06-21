@@ -1011,14 +1011,14 @@ footer.on #cpanel-open i {
 	 opacity: 1;
 }
 .leads-holder > div {
-	 max-width: 750px;
+	max-width: calc(100% - 30px);
 	max-height: 50%;
-	 margin-left: auto;
-	 margin-right: auto;
+	margin-left: auto;
+	margin-right: auto;
 	position: absolute;
 	bottom: -100vh;
 	-webkit-transform: translateX(-50%);
-			  transform: translateX(-50%);
+	transform: translateX(-50%);
 	left: 50%;
 	-webkit-transition: all .2s ease-in-out 0s;
 	transition: all .2s ease-in-out 0s;
@@ -1253,11 +1253,15 @@ button.close span {
 	}
 }
 
-@media only screen and ( max-width: 6200px ){
+@media only screen and ( max-width: 620px ){
 
 	section.copy h1, section.copy .max h1 {
 		 font-size: 32px;
 		 font-size: 3.2rem;
+	}
+
+	.leads-holder > div{
+		max-height: calc(100% - 150px);
 	}
 }
 

@@ -1208,6 +1208,17 @@ function showleads(){
 	var leads = JSON.parse(window.localStorage.getItem("stored_leads"));
 	var wanted_fields = ['nombre', 'apellido', 'email', 'telefono', 'ciudad', 'codigo_postal', 'provincia', 'categoria', 'producto', 'modelo', 'plan'];
 
+	if(leads.length < 1){
+		showAlert({
+			 body: 'En este momento no hay contactos guardados',
+			 action: 'show',
+			 class: 'info',
+			 icon: 'info',
+		});
+
+		return;
+	}
+
 	for (var i in leads) {
 
 		var row = leads[i];
@@ -1239,6 +1250,25 @@ function showleads(){
 
 	thead.html(headers).appendTo(table);
 	tbody.html(data).appendTo(table);
+
+	var panelBody = leadsHolder.find('.panel-body');
+	var panelHeading = leadsHolder.find('.panel-heading');
+	var tableResponsive = leadsHolder.find('.table-responsive');
+
+	var panelHeadingHeight = panelHeading.height() + parseInt(panelHeading.css('padding-top').replace('px', '')) + parseInt(panelHeading.css('padding-bottom').replace('px', ''));
+	var panelBodyHeight = panelBody.height() + parseInt(panelBody.css('padding-top').replace('px', '')) + parseInt(panelBody.css('padding-bottom').replace('px', ''));
+
+	var tableResponsiveHeight = parseInt( panelBodyHeight) + parseInt(panelHeadingHeight);
+
+	//console.log(panelBodyHeight);
+	//console.log(panelHeadingHeight);
+	//console.log(tableResponsiveHeight);
+
+
+	//tableResponsive.get(0).style.height = 'calc(100% - ' + tableResponsiveHeight +')';
+
+	tableResponsive.attr('style','height: calc(100% - ' + tableResponsiveHeight + 'px)' );
+	//tableResponsive.css('height', 'calc(100% - ' + tableResponsiveHeight + ')' );
 
 	leadsHolder.addClass('on');
 
