@@ -1074,6 +1074,11 @@ button.close span {
 		background-size: 15%;
 	}
 
+	section.copy .lead,
+	section.copy #cotizador_img_ppal_container {
+		padding: 30px 15px;
+	}
+
 }
 
 @media  only screen and ( max-width: 767px ){
