@@ -2,10 +2,10 @@
 class Session extends ABM{
 
 	public static $inactiveTime;
-	public static $sessionExists = 				false;
+	public static $session_exists = 				false;
 
 	public function __construct($id=''){
-		$this->readDBFields(Tables::SESSIONS);
+		$this->read_db_table_fields(Tables::SESSIONS);
 		$this->read($id);
 
 	}
@@ -21,21 +21,21 @@ class Session extends ABM{
 			}
 		}else{
 			session_start();
-			self::$sessionExists = true;
+			self::$session_exists = true;
 		}
 		$_SESSION['start'] = time();
 	}
 
 	public static function end(){
-		self::$sessionExists = false;
+		self::$session_exists = false;
 		unset($_SESSION['u']);
 		unset($_SESSION);
 		session_unset();
 		session_destroy();
 	}
 
-	public static function checkUserSession($id=''){
-		Log::l('Session::checkUserSession', $id, false);
+	public static function check_user_session($id=''){
+		//Log::l('Session::check_user_session', $id, false);
 
 		$idU = $id;
 
@@ -43,9 +43,9 @@ class Session extends ABM{
 			$idU = $_SESSION['u']->id;
 		}
 
-		//Log::l('',ini_get("session.gc_maxlifetime"));
-		Log::l('Session checkUserSession $idU', $idU, false);
-		Log::l('Session checkUserSession $_SESSION["u"]', (isset($_SESSION['u']) ? $_SESSION['u'] : ''), false);
+		////Log::l('',ini_get("session.gc_maxlifetime"));
+		//Log::l('Session check_user_session $idU', $idU, false);
+		//Log::l('Session check_user_session $_SESSION["u"]', (isset($_SESSION['u']) ? $_SESSION['u'] : ''), false);
 
 		if($idU != ''){
 
@@ -63,11 +63,11 @@ class Session extends ABM{
 
 	}
 
-	public static function checkSessionActive(){
+	public static function check_session_active(){
 
-		Log::l('Session::checkSessionActive', self::$sessionExists, false);
+		//Log::l('Session::check_session_active', self::$session_exists, false);
 
-		if(self::$sessionExists){
+		if(self::$session_exists){
 			return true;
 		}else{
 			return false;

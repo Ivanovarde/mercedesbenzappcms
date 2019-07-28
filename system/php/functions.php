@@ -215,12 +215,12 @@ function sep($string, $location='l'){
 	return $result;
 }
 
-function replaceZones($html, $last_call=false){
+function swap_all_vars($html, $last_call=false){
 	global $config, $global_vars;
 
 	$replaces = '';
 
-	if($config['debug']){echo 'fn replaceZones: Start global vars swap<br>=========================<br><br>';}
+	if($config['debug']){echo 'fn swap_all_vars: Start global vars swap<br>=========================<br><br>';}
 
 	foreach($global_vars as $tag => $content){
 
@@ -249,16 +249,16 @@ function replaceZones($html, $last_call=false){
 	return $html;
 }
 
-function swapLangVars($html){
+function swap_lang_vars($html){
 	global $lang, $config;
 
 	$replaces = '';
 
 	if($config['debug']){
 		if(count($lang) > 0){
-			echo 'fn swapLangVars: Start lang vars swap<br>=========================<br>';
+			echo 'fn swap_lang_vars: Start lang vars swap<br>=========================<br>';
 		}else{
-			echo 'fn swapLangVars: lang is empty<br>=========================<br>';
+			echo 'fn swap_lang_vars: lang is empty<br>=========================<br>';
 		}
 	}
 
@@ -533,7 +533,7 @@ function ob_html_compress($buf){
 	return preg_replace(array('/<!--(.*)-->/Uis', "/[[:blank:]]+/"), array('', ' '), str_replace(array("\n","\r","\t"), '', $buf));
 }
 //
-//function arraySanitize($array){
+//function array_sanitize($array){
 //	if(is_array($array)){
 //		$a = arrayStripTags($array);
 //		$a = arrayTrim($array);

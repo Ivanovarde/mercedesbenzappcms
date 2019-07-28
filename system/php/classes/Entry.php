@@ -10,15 +10,15 @@ class Entry extends ABM{
 		Log::l($this->db_table_name, 'Entry constructor $this->db_table_name', false);
 		Log::l(self::$db_static_table_name, 'Entry constructor self::$db_static_table_name', false);
 
-		$this->readDBFields($this->db_table_name);
+		$this->read_db_table_fields($this->db_table_name);
 		$this->read($id);
 	}
 
 	/*
 	public function save(){
 		if(parent::save()){
-			Log::loguear('Entry save', $this->getInsertId(), false);
-			$this->entryData->entry_id = (!$this->getInsertId()) ? $this->entry_id : $this->getInsertId();
+			Log::loguear('Entry save', $this->get_insert_id(), false);
+			$this->entryData->entry_id = (!$this->get_insert_id()) ? $this->entry_id : $this->get_insert_id();
 			return $this->entryData->save();
 		}else{
 			return false;
@@ -28,14 +28,14 @@ class Entry extends ABM{
 
 	private static function get_entry($sql){
 		$db = new DB();
-		$db->setQuery($sql);
-		$record = new Entry(self::$db_static_table_name, $db->executeValue());
+		$db->set_query($sql);
+		$record = new Entry(self::$db_static_table_name, $db->execute_value());
 		return $record;
 	}
 
 	private static function get_entries($sql){
 		$db = new DB();
-		$db->setQuery($sql);
+		$db->set_query($sql);
 		$record_set = $db->execute();
 		$a_elements = array();
 		foreach($record_set as $record) {
@@ -44,7 +44,7 @@ class Entry extends ABM{
 		return $a_elements;
 	}
 
-	public static function set_db_Table_name($table){
+	public static function set_db_table_name($table){
 		self::$db_static_table_name = $table;
 	}
 
@@ -64,7 +64,7 @@ class Entry extends ABM{
 		" WHERE " . $this->table_name . ".weblog_id = 1 AND " .
 		$this->table_name . ".site_id = 1 AND status = 'open' AND author_id = " . $uid . " ";
 		//Log::loguear('Entry check_entry_status',$sql);
-		$value = $db->executeValue($sql);
+		$value = $db->execute_value($sql);
 		//Log::loguear('Entry check_entry_status',$value);
 		return (is_null($value))?'':$value;
 	}
@@ -122,10 +122,10 @@ class Entry extends ABM{
 
 		$db = new DB();
 		$sql = "DELETE FROM " . Tables::PROSPECTS . " WHERE id = " . $id . '; ';
-		$db->setQuery($sql);
+		$db->set_query($sql);
 		Log::l('Entry delete_entry', $sql, false);
 
-		return $db->executeNonQuery();
+		return $db->execute_non_query();
 	}
 
 

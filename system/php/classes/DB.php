@@ -72,9 +72,9 @@ class DB {
 		//mysql_close($this->connection);
 	}
 
-	public function setQuery($sql){
+	public function set_query($sql){
 		$this->query = $sql;
-		Log::l('DB setQuery', $this->query, false);
+		Log::l('DB set_query', $this->query, false);
 	}
 
 	public function execute() {
@@ -115,15 +115,15 @@ class DB {
 	 * @param $sql Sql Sentence
 	 * @return true / false
 	 */
-	public function executeNonQuery() {
+	public function execute_non_query() {
 		$this->openDB();
 
-		Log::l('DB::executeNonQuery query', $this->query, false);
+		Log::l('DB::execute_non_query query', $this->query, false);
 
 		try{
 			$result = $this->connection->exec($this->query);
 			if($result === false){
-				//Log::l('DB->executeNonQuery errorInfo: ', $this->connection->errorInfo(), false);
+				//Log::l('DB->execute_non_query errorInfo: ', $this->connection->errorInfo(), false);
 				throw new NMDDBException($this->databaseName, $this->connection->errorInfo(), $this->query);
 			}
 		}
@@ -136,19 +136,19 @@ class DB {
 		$this->affectedRows = $result;
 		$this->insert_id = $this->connection->lastInsertId();
 
-		Log::l('DB::executeNonQuery result', $result, false);
+		Log::l('DB::execute_non_query result', $result, false);
 
 		return $result;
 	}
 
-	public function executeValue() {
+	public function execute_value() {
 		$records = $this->execute($this->query);
-		Log::l('DB::executeValue SQL',$this->query, false);
-		Log::l('DB::executeValue $records', $records, false);
-		Log::l('DB::executeValue $records count', count($records), false);
+		Log::l('DB::execute_value SQL',$this->query, false);
+		Log::l('DB::execute_value $records', $records, false);
+		Log::l('DB::execute_value $records count', count($records), false);
 		if(count($records) > 0){
-			Log::l('DB::executeValue $records[0]',$records[0], false);
-			Log::l('DB::executeValue $records[0][0]',reset($records[0]), false);
+			Log::l('DB::execute_value $records[0]',$records[0], false);
+			Log::l('DB::execute_value $records[0][0]',reset($records[0]), false);
 			return reset($records[0]);
 		}
 		return;
@@ -156,10 +156,10 @@ class DB {
 
 	public function executeCount($table, $field='*', $where='') {
 		$sql = "SELECT COUNT(" . $field . ") FROM " . $table . " " . $where;
-		$this->setQuery($sql);
+		$this->set_query($sql);
 		Log::l('DB->executeCount: ', $this->query, false);
 
-		return $this->executeValue();
+		return $this->execute_value();
 	}
 
 	public function executeTable($table) {
@@ -167,14 +167,14 @@ class DB {
 		return $this->execute();
 	}
 
-	public function executeRecord() {
-		Log::l('DB executeRecord query', $this->query, false);
+	public function execute_record() {
+		Log::l('DB execute_record query', $this->query, false);
 		$records = $this->execute($this->query);
-		Log::l('DB executeRecord', $records, false);
+		Log::l('DB execute_record', $records, false);
 		return $records[0];
 	}
 
-	public function getInsertID(){
+	public function get_insert_id(){
 		return $this->insert_id;
 	}
 

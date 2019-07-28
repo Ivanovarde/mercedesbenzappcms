@@ -484,3 +484,18 @@
 ----------------------
 [16/Jun/2019:23:16:15] CE Lossless is beginning processing of the "/www/mercedesbenzappcms/www/mercedesbenzappcms/images/made/local/www/images/vehicles/sprinter-chasis_380_284_70.jpg" jpg image.
 [16/Jun/2019:23:16:18] Smush.it error: 301
+----------------------
+[28/Jun/2019:11:28:21] CE Lossless is beginning processing of the "/www/mercedesbenzappcms/www/mercedesbenzappcms/images/made/local/www/images/categories/actros_380_285_s.png" png image.
+[28/Jun/2019:11:28:23] Smush.it error: 301
+----------------------
+[28/Jun/2019:11:28:23] CE Lossless is beginning processing of the "/www/mercedesbenzappcms/www/mercedesbenzappcms/images/made/local/www/images/categories/sprinter-furgon_380_285_s.png" png image.
+[28/Jun/2019:11:28:27] Smush.it error: 301
+----------------------
+[28/Jun/2019:11:28:27] CE Lossless is beginning processing of the "/www/mercedesbenzappcms/www/mercedesbenzappcms/images/made/local/www/images/categories/vito-furgon_380_285_s.png" png image.
+[28/Jun/2019:11:28:29] Smush.it error: 301
+----------------------
+[28/Jun/2019:11:32:09] CE Lossless is beginning processing of the "/www/mercedesbenzappcms/www/mercedesbenzappcms/images/made/local/www/images/vehicles/actros-2048_380_284_70.jpg" jpg image.
+[28/Jun/2019:11:32:11] Smush.it error: 301
+----------------------
+[28/Jun/2019:11:32:11] CE Lossless is beginning processing of the "/www/mercedesbenzappcms/www/images/vehicles/_thumbs/actros-2048.jpg" jpg image.
+[28/Jun/2019:11:32:12] Smush.it error: 301

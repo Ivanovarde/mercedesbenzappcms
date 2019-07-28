@@ -19,7 +19,7 @@ class Template {
 
 			$tmp = $template_record;
 
-			foreach($element->tableFields as $var){
+			foreach($element->table_fields as $var){
 
 				switch($var){
 					case 'status':

@@ -1,13 +1,13 @@
 <?php
 abstract class ABM {
-	protected $tableName;
-	protected $priKeyField = 								'';
-	protected $queryType = 									'';
-	protected $tableFields = 								array();
-	protected $fieldValues = 								array();
-	protected $isNullAllowedField = 						array();
-	protected $isAutoIncrementField = 					array();
-	protected $fieldDefaultValue = 						array();
+	protected $table_name;
+	protected $primary_key_field = 								'';
+	protected $query_type = 									'';
+	protected $table_fields = 								array();
+	protected $field_values = 								array();
+	protected $null_allowed_fields = 						array();
+	protected $auto_increment_fields = 					array();
+	protected $field_default_values = 						array();
 	protected $insert_id;
 
 	protected static $searchByDataParameters = 		'';
@@ -19,7 +19,7 @@ abstract class ABM {
 
 	public function __get($field) {
 		Log::l('ABM __get ($field)', $field, false);
-		Log::l('ABM __get (this->fieldVaues)', $this->fieldValues, false);
+		Log::l('ABM __get (this->fieldVaues)', $this->field_values, false);
 
 		if (isset($this->$field)) {
 
@@ -31,17 +31,17 @@ abstract class ABM {
 				return $this->$field;
 			}
 		}
-		//if (isset($this->fieldValues[$field])) {
-		//	if (is_null($this->fieldValues[$field])) {
+		//if (isset($this->field_values[$field])) {
+		//	if (is_null($this->field_values[$field])) {
 		//		return NULL;
 		//	} else {
-		//		return $this->fieldValues[$field];
+		//		return $this->field_values[$field];
 		//	}
 		//}
 	}
 
 	public function __set($field, $value) {
-		//$this->fieldValues[$field] = $value;
+		//$this->field_values[$field] = $value;
 		//Log::l('ABM __set ($field) | $value', $field . ' | ' . $value, false);
 		if(!empty($field)){
 			$this->{$field} = $value;
@@ -63,107 +63,107 @@ abstract class ABM {
 		Log::l('ABM read var $id', $id, false);
 
 		if ((!is_null($id)) && ($id != null) && ($id != "") && !is_object($id)) {
-			$this->__set($this->priKeyField, $id);
+			$this->__set($this->primary_key_field, $id);
 			$db = new DB();
 
 			$b = ($idB != '') ? " AND blog_id = " . $idB : "";
 			$f = ($idF != '') ? " AND frontend_id = " . $idF : "";
 			$i = ($idL != '') ? " AND language_id = " . $idL : "";
 
-			Log::l('ABM read var $this->priKeyField', $this->priKeyField, false);
+			Log::l('ABM read var $this->primary_key_field', $this->primary_key_field, false);
 
-			$sql = "SELECT * FROM " . $this->tableName . " WHERE " .
-					$this->priKeyField . " = " . $this->getValueDB($this->priKeyField) .
+			$sql = "SELECT * FROM " . $this->table_name . " WHERE " .
+					$this->primary_key_field . " = " . $this->get_db_value($this->primary_key_field) .
 					$b . $f . $i . ";";
 
 			Log::l('ABM read var $sql', $sql, false);
 
-			$db->setQuery($sql);
+			$db->set_query($sql);
 
-			$record = $db->executeRecord();
+			$record = $db->execute_record();
 
-			for($i = 0 ; $i < count($this->tableFields); $i++){
-				if(isset($this->tableFields[$i])){
-					$this->__set($this->tableFields[$i], $record->{$this->tableFields[$i]});
-					Log::l('ABM read ','i = ' . $i . ', campo = ' . $this->tableFields[$i] . ', value = ' . $record->{$this->tableFields[$i]}, false);
+			for($i = 0 ; $i < count($this->table_fields); $i++){
+				if(isset($this->table_fields[$i])){
+					$this->__set($this->table_fields[$i], $record->{$this->table_fields[$i]});
+					Log::l('ABM read ','i = ' . $i . ', campo = ' . $this->table_fields[$i] . ', value = ' . $record->{$this->table_fields[$i]}, false);
 				}
 			}
 		}
 	}
 
-	protected function readDBFields($table) {
-		$this->tableName = $table;
+	protected function read_db_table_fields($table) {
+		$this->table_name = $table;
 
-		Log::l('ABM readDBFields this->tableName', $this->tableName, false);
+		Log::l('ABM read_db_table_fields this->table_name', $this->table_name, false);
 
 		if(!isset(self::$cache[$table])){
 
 			$db = new DB();
-			$db->setQuery("SHOW FULL COLUMNS FROM " . $table);
+			$db->set_query("SHOW FULL COLUMNS FROM " . $table);
 
 			$fields = $db->execute();
-			Log::l('ABM readDBFields', $fields, false);
+			Log::l('ABM read_db_table_fields', $fields, false);
 
 			foreach ($fields as $field) {
 
 				if($field->Key == "PRI"){
-					$this->priKeyField = $field->Field;
+					$this->primary_key_field = $field->Field;
 				}
 
 				// Set NULL fields
 				if ($field->Null == "NO" || $field->Null == "") {
-					$this->isNullAllowedField[$field->Field] = false;
+					$this->null_allowed_fields[$field->Field] = false;
 				}else{
-					$this->isNullAllowedField[$field->Field] = true;
+					$this->null_allowed_fields[$field->Field] = true;
 				}
 
 				// Set Auto Increment fields
 				if ($field->Extra == "auto_increment") {
-					$this->isAutoIncrementField[$field->Field] = true;
+					$this->auto_increment_fields[$field->Field] = true;
 				}else{
-					$this->isAutoIncrementField[$field->Field] = false;
+					$this->auto_increment_fields[$field->Field] = false;
 				}
 
 				// Set Default field value
 				if ($field->Default != "") {
-					$this->fieldDefaultValue[$field->Field] = $field->Default;
+					$this->field_default_values[$field->Field] = $field->Default;
 				}else{
-					$this->fieldDefaultValue[$field->Field] = '';
+					$this->field_default_values[$field->Field] = '';
 				}
 
 				// Set an array with the table fields
-				$this->tableFields[] = $field->Field;
+				$this->table_fields[] = $field->Field;
 			}
 
 			self::$cache[$table] = array();
-			self::$cache[$table]["priKeyField"] = $this->priKeyField;
-			self::$cache[$table]["tableFields"] = $this->tableFields;
-			self::$cache[$table]["isNullAllowedField"] = $this->isNullAllowedField;
-			self::$cache[$table]["isAutoIncrementField"] = $this->isAutoIncrementField;
-			self::$cache[$table]["fieldDefaultValue"] = $this->fieldDefaultValue;
+			self::$cache[$table]["primary_key_field"] = $this->primary_key_field;
+			self::$cache[$table]["table_fields"] = $this->table_fields;
+			self::$cache[$table]["null_allowed_fields"] = $this->null_allowed_fields;
+			self::$cache[$table]["auto_increment_fields"] = $this->auto_increment_fields;
+			self::$cache[$table]["field_default_values"] = $this->field_default_values;
 
 		}else{
-			$this->priKeyField = self::$cache[$table]["priKeyField"];
-			$this->tableFields = self::$cache[$table]["tableFields"];
-			$this->isNullAllowedField = self::$cache[$table]["isNullAllowedField"];
-			$this->isAutoIncrementField = self::$cache[$table]["isAutoIncrementField"];
-			$this->fieldDefaultValue = self::$cache[$table]["fieldDefaultValue"];
+			$this->primary_key_field = self::$cache[$table]["primary_key_field"];
+			$this->table_fields = self::$cache[$table]["table_fields"];
+			$this->null_allowed_fields = self::$cache[$table]["null_allowed_fields"];
+			$this->auto_increment_fields = self::$cache[$table]["auto_increment_fields"];
+			$this->field_default_values = self::$cache[$table]["field_default_values"];
 		}
 
-		Log::l('ABM readDBFields $this->priKeyField', $this->priKeyField, false);
-		Log::l('ABM readDBFields $this->tableFields', $this->tableFields, false);
-		Log::l('ABM readDBFields $this->isNullAllowedField', $this->isNullAllowedField, false);
-		Log::l('ABM readDBFields $this->isAutoIncrementField', $this->isAutoIncrementField, false);
-		Log::l('ABM readDBFields $this->fieldDefaultValue', $this->fieldDefaultValue, false);
+		Log::l('ABM read_db_table_fields $this->primary_key_field', $this->primary_key_field, false);
+		Log::l('ABM read_db_table_fields $this->table_fields', $this->table_fields, false);
+		Log::l('ABM read_db_table_fields $this->null_allowed_fields', $this->null_allowed_fields, false);
+		Log::l('ABM read_db_table_fields $this->auto_increment_fields', $this->auto_increment_fields, false);
+		Log::l('ABM read_db_table_fields $this->field_default_values', $this->field_default_values, false);
 	}
 
-	protected function generateInsert() {
-		$sql = "INSERT INTO " . $this->tableName . " (";
+	protected function generate_insert_sql() {
+		$sql = "INSERT INTO " . $this->table_name . " (";
 
-		Log::l('ABM generateInsert ', $this->tableFields, false);
+		Log::l('ABM generate_insert_sql ', $this->table_fields, false);
 
 		// inser query: fields section
-		foreach($this->tableFields as $field) {
+		foreach($this->table_fields as $field) {
 			$sql .= $field . ", ";
 		}
 
@@ -171,34 +171,34 @@ abstract class ABM {
 		$sql .= ") VALUES (";
 
 		// inser query: values section
-		foreach($this->tableFields as $field) {
-			if($field == $this->priKeyField || $this->isAutoIncrementField[$field]){
+		foreach($this->table_fields as $field) {
+			if($field == $this->primary_key_field || $this->auto_increment_fields[$field]){
 				$sql .= "NULL, ";
 			}else{
-				$sql .= $this->getvalueDB($field) . ", ";
+				$sql .= $this->get_db_value($field) . ", ";
 			}
 		}
 
 		$sql = substr($sql, 0, strlen($sql)-2);
 		$sql .= ");";
 
-		$this->queryType = 'INSERT';
+		$this->query_type = 'INSERT';
 
 		return $sql;
 	}
 
-	protected function generateUpdate() {
-		$sql = "UPDATE " . $this->tableName . " SET ";
+	protected function generate_update_sql() {
+		$sql = "UPDATE " . $this->table_name . " SET ";
 
-		foreach($this->tableFields as $field) {
-			$sql .= $field . " = " . $this->getvalueDB($field) . ", ";
+		foreach($this->table_fields as $field) {
+			$sql .= $field . " = " . $this->get_db_value($field) . ", ";
 		}
 
 		$sql = substr($sql, 0, strlen($sql)-2);
 
-		$sql .= " WHERE " . $this->priKeyField . ' = ' . $this->getvalueDB($this->priKeyField) . ';';
+		$sql .= " WHERE " . $this->primary_key_field . ' = ' . $this->get_db_value($this->primary_key_field) . ';';
 
-		$this->queryType = '';
+		$this->query_type = '';
 
 		return $sql;
 	}
@@ -206,39 +206,39 @@ abstract class ABM {
 	public function save() {
 		$db = new DB();
 
-		Log::l("ABM->save", $this->getKeyValue(), true);
+		Log::l("ABM->save", $this->get_primary_key_value(), true);
 
-		if (is_null($this->getKeyValue()) || $this->getKeyValue() == "") {
-			$sql = $this->generateInsert();
+		if (is_null($this->get_primary_key_value()) || $this->get_primary_key_value() == "") {
+			$sql = $this->generate_insert_sql();
 		} else {
-			$sql = $this->generateUpdate();
+			$sql = $this->generate_update_sql();
 		}
 		Log::l('ABM->save', $sql, true);
 
-		$db->setQuery($sql);
+		$db->set_query($sql);
 
-		$result = $db->executeNonQuery($this->queryType);
-		$this->queryType = '';
+		$result = $db->execute_non_query($this->query_type);
+		$this->query_type = '';
 
-		$this->insert_id = $db->getInsertID();
+		$this->insert_id = $db->get_insert_id();
 
 		return ($result === false ? false : true);
 	}
 
-	public function isNew() {
-		return (is_null($this->__get($this->priKeyField)) == true);
+	public function is_new() {
+		return (is_null($this->__get($this->primary_key_field)) == true);
 	}
 
-	public function getValueDB($field) {
+	public function get_db_value($field) {
 
 		$value = $this->__get($field);
 
-		Log::l('ABM getValueDB var $value', $value, false);
-		Log::l('ABM getValueDB var $field', $field, false);
-		Log::l('ABM getValueDB $this->priKeyField', $this->priKeyField, false);
+		Log::l('ABM get_db_value var $value', $value, false);
+		Log::l('ABM get_db_value var $field', $field, false);
+		Log::l('ABM get_db_value $this->primary_key_field', $this->primary_key_field, false);
 
-		//if($field == $this->priKeyField || $this->isAutoIncrementField[$field]){
-		//	Log::l('ABM getValueDB: field is pryKey or autoincrement', true, false);
+		//if($field == $this->primary_key_field || $this->auto_increment_fields[$field]){
+		//	Log::l('ABM get_db_value: field is pryKey or autoincrement', true, false);
 		//	return 'NULL';
 		//}
 
@@ -248,44 +248,44 @@ abstract class ABM {
 			return $value;
 		} else if (is_null($value)) {
 
-			if ($this->isNullAllowedField[$field]){
+			if ($this->null_allowed_fields[$field]){
 				return "NULL";
 			}else{
-				if($this->fieldDefaultValue[$field] != ''){
-					return "'" . $this->fieldDefaultValue[$field]. "'";
+				if($this->field_default_values[$field] != ''){
+					return "'" . $this->field_default_values[$field]. "'";
 				}else{
 					return "''";
 				}
 			}
 
 		} else if (is_object($value)) {
-			Log::l('ABM getValueDB var $value', $value, false);
-			return $value->getValue($field);
+			Log::l('ABM get_db_value var $value', $value, false);
+			return $value->get_value($field);
 		}
 	}
 
-	public function getValue($field) {
+	public function get_value($field) {
 		return $this->__get($field);
 	}
 
-	public function getInsertId(){
+	public function get_insert_id(){
 		return $this->insert_id;
 	}
 
-	public function getPriKey(){
-		return $this->priKeyField;
+	public function get_primary_key_field(){
+		return $this->primary_key_field;
 	}
 
-	public function getTableName(){
-		return $this->tableName;
+	public function get_table_name(){
+		return $this->table_name;
 	}
 
-	public function getFields() {
-		return $this->tableFields;
+	public function get_table_fields() {
+		return $this->table_fields;
 	}
 
-	public function getKeyValue() {
-		return $this->__get($this->priKeyField);
+	public function get_primary_key_value() {
+		return $this->__get($this->primary_key_field);
 	}
 
 	public function byData($data){

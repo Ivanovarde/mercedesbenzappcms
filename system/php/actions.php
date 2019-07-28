@@ -7,8 +7,8 @@ header('Access-Control-Allow-Origin: *'); //for all
 include('actions_config.php');
 
 
-$_GET = Functions::arraySanitize($_GET);
-$_POST = Functions::arraySanitize($_POST);
+$_GET = Functions::array_sanitize($_GET);
+$_POST = Functions::array_sanitize($_POST);
 $datetime = date('Y-m-d H:i:s');
 $hour = date('H');
 $relative_path = Server::getRelativeRootPath();
@@ -72,32 +72,6 @@ switch($action){
 
 			$record_data = json_decode(json_encode($lead[0]));
 			Log::l('actions.php r->nombre ', $record_data->nombre, false);
-
-			// Solo para testing
-			//if($c > 1){
-			//	array_push($a_failed_records, array($record_data));
-			//	$errors = true;
-			//}
-
-			//$c++;
-
-		//}
-
-		//$r['status'] = false;
-		//$r['html'] = '';
-		//$r['msg'] = 'Fallo en la Sincronización.\nRegistros exportados correctamente: {e}\nRegistros remanentes en memoria: {m}.\nRecuerde volver a exportar en otro momento.';
-		//$r['error'] = '';
-		//$r['class'] = 'danger';
-		//$r['failed_records'] = $a_failed_records;
-
-		//if($errors){
-		//	$r['msg'] = str_replace('{e}', ($total_records - count($a_failed_records)), $r['msg']);
-		//	$r['msg'] = str_replace('{m}', count($a_failed_records), $r['msg']);
-		//}
-
-		//echo json_encode($r);
-		//exit;
-
 
 			$m = new Member();
 

@@ -18,7 +18,7 @@
  */
 var app = {
 
-	debug: false,
+	debug: true,
 	isConnected: false,
 	connectionTimer: null,
 	imgUrl: 'https://ssl.gstatic.com/gb/images/v1_76783e20.png?',
@@ -198,6 +198,29 @@ var isConnected = false;
 //		  isConnected = true;
 //	 }
 //}
+
+/**
+ * Devuelve Formatea un numero utilizando cantidad de decimales, separador de mil, separador de decimales. Ejemplo de uso: (123456789.12345).ivFormatMoney(2, '.', ',')
+ * @param c: Posiciones decimales
+ * @param d: Separador de mil
+ * @param t: Separador de decimales
+ * @return String formateado
+ */
+Number.prototype.ivFormatMoney = function (c, d, t) {
+
+	var n = this;
+	var c = isNaN(c = Math.abs(c)) ? 2 : c;
+	var d = d === undefined ? "," : d;
+	var t = t === undefined ? "." : t;
+	var s = n < 0 ? "-" : "";
+	var i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "";
+	var j = (j = i.length) > 3 ? j % 3 : 0;
+
+	//var multiplier = Math.pow(10, c);
+ //	r = (Math.round(n * multiplier) / multiplier);
+
+	return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+};
 
 
 Date.prototype.dateFront = function() {

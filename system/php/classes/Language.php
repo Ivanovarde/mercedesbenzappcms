@@ -3,21 +3,21 @@ class Language extends ABM {
 
 
 	function __construct($id=""){
-		$this->readDBFields(Tables::LANGUAGES);
+		$this->read_db_table_fields(Tables::LANGUAGES);
 		$this->read($id);
 	}
 
 
 	private static function getLanguage($sql){
 		$db = new DB();
-		$db->setQuery($sql);
-		$record = new Language($db->executeValue());
+		$db->set_query($sql);
+		$record = new Language($db->execute_value());
 		return $record;
 	}
 
 	private static function getLanguages($sql) {
 		$db = new DB();
-		$db->setQuery($sql);
+		$db->set_query($sql);
 		$rsAll = $db->execute();
 		$vAll = array();
 		foreach($rsAll as $record) {

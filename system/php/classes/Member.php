@@ -10,7 +10,7 @@ class Member extends ABM{
 		//Log::l($this->db_table_name, 'Member constructor $this->db_table_name', false);
 		//Log::l(self::$db_static_table_name, 'Member constructor self::$db_static_table_name', false);
 
-		$this->readDBFields($this->db_table_name);
+		$this->read_db_table_fields($this->db_table_name);
 		$this->read($id);
 		$this->member_fields = MemberField::all();
 		$this->member_data = new MemberData($id);
@@ -20,8 +20,8 @@ class Member extends ABM{
 	/*
 	public function save(){
 		if(parent::save()){
-			Log::loguear('Member save', $this->getInsertId(), false);
-			$this->memberData->member_id = (!$this->getInsertId()) ? $this->member_id : $this->getInsertId();
+			Log::loguear('Member save', $this->get_insert_id(), false);
+			$this->memberData->member_id = (!$this->get_insert_id()) ? $this->member_id : $this->get_insert_id();
 			return $this->memberData->save();
 		}else{
 			return false;
@@ -31,18 +31,18 @@ class Member extends ABM{
 
 	private static function get_member($sql){
 		$db = new DB();
-		$db->setQuery($sql);
-		$record = new Member($db->executeValue());
+		$db->set_query($sql);
+		$record = new Member($db->execute_value());
 		return $record;
 	}
 
 	private static function get_members($sql){
 		$db = new DB();
-		$db->setQuery($sql);
+		$db->set_query($sql);
 		$record_set = $db->execute();
 		$a_elements = array();
 		foreach($record_set as $record) {
-			 array_push($a_elements, new Member($record->id));
+			 array_push($a_elements, new Member($record->member_id));
 		}
 		return $a_elements;
 	}
@@ -51,7 +51,7 @@ class Member extends ABM{
 		$result = parent::save();
 
 		if($result){
-			$this->member_data->member_id = !$this->getInsertId() ? $this->member_id : $this->getInsertId();
+			$this->member_data->member_id = !$this->get_insert_id() ? $this->member_id : $this->get_insert_id();
 
 			$member_data_result = $this->member_data->save();
 			return $member_data_result;
@@ -64,7 +64,7 @@ class Member extends ABM{
 		return self::delete_member($this->id, $path='');
 	}
 
-	public static function set_db_Table_name($table){
+	public static function set_db_table_name($table){
 		self::$db_static_table_name = $table;
 	}
 
@@ -87,7 +87,7 @@ class Member extends ABM{
 		" OR " . $this->table_name . ".authcode = ''; ";
 
 		//Log::loguear('Member check_member_status',$sql);
-		$value = $db->executeValue($sql);
+		$value = $db->execute_value($sql);
 		//Log::loguear('Member check_member_status',$value);
 		return (is_null($value) || $value == '' || $value == false) ? false : true;
 	}
@@ -132,10 +132,10 @@ class Member extends ABM{
 
 		$db = new DB();
 		$sql = "DELETE FROM " . Tables::MEMBERS . " WHERE member_id = " . $id . '; ';
-		$db->setQuery($sql);
+		$db->set_query($sql);
 		Log::l('Member delete_member', $sql, false);
 
-		return $db->executeNonQuery();
+		return $db->execute_non_query();
 	}
 
 }

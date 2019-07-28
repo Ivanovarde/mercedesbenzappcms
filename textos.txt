@@ -1,4 +1,44 @@
+POSIBIIDADES PARA EMVIOS PMASIVOS DESDE EE
 
+POSTMASTER
+https://expressionengine.stackexchange.com/questions/19256/automated-newsletter-from-expressionengine-with-native-or-external-mailing-servi
+
+FIREMAIL
+https://putyourlightson.com/expressionengine-addons/firemail
+
+EMAIL FROM TEMPLATE
+https://rog.ee/email_from_template/
+https://devot-ee.com/add-ons/email-from-template
+
+EMAIL TEMPLATE
+https://docs.reinos.nl/email-template/#how-it-works
+
+NOTIFY CONTROL
+https://devot-ee.com/add-ons/mx-notify-control
+
+EXPORTIT
+https://devot-ee.com/add-ons/export-it
+
+SENDEMAIL
+https://devot-ee.com/add-ons/send-email
+
+POSTMAN
+https://devot-ee.com/add-ons/postman
+
+SUBSCRIBER
+https://devot-ee.com/add-ons/subscriber
+
+PARSEMAIL
+https://devot-ee.com/add-ons/parsemail
+
+CAMPAIGNER
+https://devot-ee.com/add-ons/campaigner
+
+https://expressionengine.stackexchange.com/questions/18067/expressionengine-send-custom-field-in-new-member-registration-email
+
+https://expressionengine.stackexchange.com/questions/32341/freeform-and-dynamic-email-recipients
+
+https://expressionengine.stackexchange.com/questions/17882/custom-member-variables-in-admin-notification-email
 
 
 Proxy error for url: http://mercedesappcms.nmd/system/php/actions.php?action=store&time=1560722782

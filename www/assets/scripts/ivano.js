@@ -845,8 +845,8 @@ function filterVehicleArrayFromURL() {
 		  }
 	 }
 
-	 //console.log('aCurrentRecord: filtro y devuelvo el registro desde la coleccion de vehiculos');
-	 //console.log(aCurrentRecord);
+	 console.log('aCurrentRecord: filtro y devuelvo el registro desde la coleccion de vehiculos');
+	 console.log(aCurrentRecord);
 	 console.log('filterVehicleArrayFromURL: end');
 
 	 return aCurrentRecord;
@@ -873,8 +873,8 @@ function roundNumber(num, pos){
 	 //console.log(r);
 	 //console.log(tmp[tmp.length - 1].length);
 
-	 if(tmp[tmp.length - 1].length < appcontenido.general_decimales && tmp[0] > 0){
-		  dif = appcontenido.general_decimales - tmp[tmp.length - 1];
+	 if(tmp[tmp.length - 1].length < pos && tmp[0] > 0){
+		  dif = pos - tmp[tmp.length - 1];
 
 		  $(dif).each(function(i, o){
 				tmp[tmp.length - 1] += '0';
@@ -883,7 +883,7 @@ function roundNumber(num, pos){
 		  r = tmp.join(',');
 	 }
 
-	 //console.log('roundNumber: ' + num + ': ' + n + ' = ' + r);
+	 console.log('roundNumber: original: ' + num + ': parseFloat: ' + n + ' = Devolucion: ' + r);
 	 return r;
 }
 
@@ -926,36 +926,41 @@ function makeQuote(data) {
 }
 
 function showQuoteData(mode) {
-	 console.log('showQuoteData: start');
+	console.log('showQuoteData: start');
 
-	 var aCurrentRecord = filterVehicleArrayFromURL();
+	var pos = appcontenido.general_decimales;
+	var aCurrentRecord = filterVehicleArrayFromURL();
 
-	 //var carga_admin_suscripcion = aCurrentRecord[0]["carga_admin_suscripcion"].replace('\.', '').replace('\,', '.');
-	 //var iva_21 = aCurrentRecord[0]["iva_21"].replace('\.', '').replace('\,', '.');
+	var carga_admin_suscripcion = parseFloat( aCurrentRecord[0]["carga_admin_suscripcion"] );
+	var iva_21 = parseFloat( aCurrentRecord[0]["iva_21"] );
+	var gastos_adm_suscrip = parseFloat(carga_admin_suscripcion) + parseFloat(iva_21);
 
-	 var carga_admin_suscripcion = roundNumber( aCurrentRecord[0]["carga_admin_suscripcion"] );
-	 var iva_21 = roundNumber( aCurrentRecord[0]["iva_21"] );
+	// Cargo el resultado del Cotizador
+	$("#" + mode + "_cant_cuotas").html(getParameters("cuotas"));
+	$("#" + mode + "_total_cuota_mensual").html('$' + parseFloat(aCurrentRecord[0]["cuota_mensual"]).ivFormatMoney(pos, ',', '.') );
+	$("#" + mode + "_precio_vehiculo_iva").html( parseFloat( aCurrentRecord[0]["precio_publico"]).ivFormatMoney(pos, ',', '.') );
+	$("#" + mode + "_tipo_plan").html(aCurrentRecord[0]["plan"]);
+	$("#" + mode + "_cuota_pura").html(parseFloat( aCurrentRecord[0]["cuota_pura"] ).ivFormatMoney(pos, ',', '.') );
+	$("#" + mode + "_gastos_adm_suscrip").html( gastos_adm_suscrip.ivFormatMoney(pos, ',', '.') );
+	$("#" + mode + "_gastos_adm_suscrip_iva").html(parseFloat( aCurrentRecord[0]["iva_21"]).ivFormatMoney(pos, ',', '.') );
+	$("#" + mode + "_alicuota").html(( parseFloat( aCurrentRecord[0]["pago_adjudicacion_30"] ).ivFormatMoney(pos, ',', '.') || '0'));
+	$("#" + mode + "_modelo_cotizador").html(aCurrentRecord[0]["modelo"]);
+	$("#" + mode + "_nombre_plan_cotizador").html(aCurrentRecord[0]["plan"]);
 
-	 //console.log(parseFloat(carga_admin_suscripcion) + parseFloat(iva_21));
-	 //console.log( parseFloat(carga_admin_suscripcion) + parseFloat(iva_21).toLocaleString('de-DE'));
-	 var gastos_adm_suscrip = parseFloat(carga_admin_suscripcion) + parseFloat(iva_21);
-	 //var gastos_adm_suscrip = parseFloat(gastos_adm_suscrip).toLocaleString('de-DE');
+	//$("#" + mode + "_cant_cuotas").html(getParameters("cuotas"));
+	//$("#" + mode + "_total_cuota_mensual").html('$' + roundNumber( aCurrentRecord[0]["cuota_mensual"]) );
+	//$("#" + mode + "_precio_vehiculo_iva").html( roundNumber( aCurrentRecord[0]["precio_publico"]) );
+	//$("#" + mode + "_tipo_plan").html(aCurrentRecord[0]["plan"]);
+	//$("#" + mode + "_cuota_pura").html(roundNumber( aCurrentRecord[0]["cuota_pura"] ) );
+	//$("#" + mode + "_gastos_adm_suscrip").html( gastos_adm_suscrip.toLocaleString('de-DE') );
+	//$("#" + mode + "_gastos_adm_suscrip_iva").html(roundNumber( aCurrentRecord[0]["iva_21"]) );
+	//$("#" + mode + "_alicuota").html(( roundNumber( aCurrentRecord[0]["pago_adjudicacion_30"] ) || '0'));
+	//$("#" + mode + "_modelo_cotizador").html(aCurrentRecord[0]["modelo"]);
+	//$("#" + mode + "_nombre_plan_cotizador").html(aCurrentRecord[0]["plan"]);
+	//
+	$("#" + mode + "_img_ppal").attr("src", aCurrentRecord[0]["imagen"]);
 
-	 // Cargo el resultado del Cotizador
-	 $("#" + mode + "_cant_cuotas").html(getParameters("cuotas"));
-	 $("#" + mode + "_total_cuota_mensual").html('$' + roundNumber( aCurrentRecord[0]["cuota_mensual"]) );
-	 $("#" + mode + "_precio_vehiculo_iva").html( roundNumber( aCurrentRecord[0]["precio_publico"]) );
-	 $("#" + mode + "_tipo_plan").html(aCurrentRecord[0]["plan"]);
-	 $("#" + mode + "_cuota_pura").html(roundNumber( aCurrentRecord[0]["cuota_pura"] ) );
-	 $("#" + mode + "_gastos_adm_suscrip").html( gastos_adm_suscrip.toLocaleString('de-DE') );
-	 $("#" + mode + "_gastos_adm_suscrip_iva").html(roundNumber( aCurrentRecord[0]["iva_21"]) );
-	 $("#" + mode + "_alicuota").html(( roundNumber( aCurrentRecord[0]["pago_adjudicacion_30"] ) || '0'));
-	 $("#" + mode + "_modelo_cotizador").html(aCurrentRecord[0]["modelo"]);
-	 $("#" + mode + "_nombre_plan_cotizador").html(aCurrentRecord[0]["plan"]);
-
-	 $("#" + mode + "_img_ppal").attr("src", aCurrentRecord[0]["imagen"]);
-
-	 console.log('showQuoteData: end');
+	console.log('showQuoteData: end');
 }
 
 function updateStoredLeadsCounter() {

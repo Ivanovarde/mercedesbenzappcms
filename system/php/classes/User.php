@@ -16,7 +16,7 @@ class User extends ABM {
 
 
 	function __construct($id=""){
-		$this->readDBFields(Tables::USERS);
+		$this->read_db_table_fields(Tables::USERS);
 		$this->read($id);
 
 		Log::l('User construct this', $this, false);
@@ -60,15 +60,15 @@ class User extends ABM {
 
 	private static function getUser($sql){
 		$db = new DB();
-		$db->setQuery($sql);
-		$record = new User($db->executeValue());
+		$db->set_query($sql);
+		$record = new User($db->execute_value());
 		Log::l('User getUser', $record, false);
 		return $record;
 	}
 
 	private static function getUsers($sql) {
 		$db = new DB();
-		$db->setQuery($sql);
+		$db->set_query($sql);
 		$rsAll = $db->execute();
 		$vAll = array();
 		foreach($rsAll as $record) {
@@ -117,9 +117,9 @@ class User extends ABM {
 		return self::getUser($sql);
 	}
 
-	public static function byUsername($username){
+	public static function by_username($username){
 		$sql = "SELECT " . Tables::USERS . ".id FROM " . Tables::USERS . " WHERE username = '" . $username . "'; ";
-		Log::l('User byUsername', $sql, false);
+		Log::l('User by_username', $sql, false);
 		return self::getUser($sql);
 	}
 
@@ -149,8 +149,8 @@ class User extends ABM {
 	public static function checkUsername($username){
 		$db = new DB();
 		$sql = "SELECT username FROM " . Tables::USERS . " WHERE username = '" . $username . "'";
-		$db->setQuery($sql);
-		$usernameExists = $db->executeRecord();
+		$db->set_query($sql);
+		$usernameExists = $db->execute_record();
 		Log::l("User::checkUsername: ",$usernameExists, false);
 		if(!$usernameExists){
 			return false;
@@ -166,8 +166,8 @@ class User extends ABM {
 	public static function checkUserEmail($userEmail){
 		$db = new DB();
 		$sql = "SELECT email FROM " . Tables::USERS . " WHERE email = '" . $userEmail . "'";
-		$db->setQuery($sql);
-		$userEmailExists = $db->executeRecord();
+		$db->set_query($sql);
+		$userEmailExists = $db->execute_record();
 		if(!$userEmailExists){
 			return false;
 		}else{
@@ -186,9 +186,9 @@ class User extends ABM {
 	public function valid_userName($username){
 		$db = new DB();
 		$sql = "SELECT username FROM " . Tables::USERS . " WHERE username = '" . $username . "' ";
-		$db->setQuery($sql);
+		$db->set_query($sql);
 
-		$this->valid_userName = $db->executeValue();
+		$this->valid_userName = $db->execute_value();
 
 		Log::l("User->valid_userName",$this->valid_userName, false);
 
@@ -202,9 +202,9 @@ class User extends ABM {
 	public static function valid_userEmail($email){
 		$db = new DB();
 		$sql = "SELECT email FROM " . Tables::USERS . " WHERE email = '" . $email . "' ";
-		$db->setQuery($sql);
+		$db->set_query($sql);
 
-		self::$valid_userEmail = $db->executeValue();
+		self::$valid_userEmail = $db->execute_value();
 
 		Log::l("User->valid_userEmail",self::$valid_userEmail, false);
 
@@ -218,9 +218,9 @@ class User extends ABM {
 	public static function valid_userPassword($password){
 		$db = new DB();
 		$sql = "SELECT password FROM " . Tables::USERS . " WHERE password = '" . $password . "' ";
-		$db->setQuery($sql);
+		$db->set_query($sql);
 
-		self::$valid_userPassword = $db->executeValue();
+		self::$valid_userPassword = $db->execute_value();
 
 		Log::l("User->valid_userPassword",self::$valid_userPassword, false);
 
@@ -231,7 +231,7 @@ class User extends ABM {
 		}
 	}
 
-	public function validateUser(){
+	public function validate_user(){
 
 		$db = new DB();
 		$sql = "SELECT id FROM " .
@@ -240,11 +240,11 @@ class User extends ABM {
 				" AND password = '" . $this->password . "' " .
 				" AND status = 1 AND is_admin = 1 LIMIT 1;";
 
-		Log::l('User validateUser', $sql, false);
+		Log::l('User validate_user', $sql, false);
 
 		$this->valid_user = self::getUser($sql);
 
-		Log::l('User validateUser', $this->valid_user, false);
+		Log::l('User validate_user', $this->valid_user, false);
 
 		if($this->valid_user->id != ''){
 			return true;
@@ -266,7 +266,7 @@ class User extends ABM {
 			self::$logged_user_group = isset($this->valid_user->user_group->group_title) ? $this->valid_user->user_group->group_title : '';
 
 			$_SESSION['u'] = self::$logged_user;
-			$_SESSION['logged_user_fields'] = $this->getLoggedUserFieldsArray();
+			$_SESSION['logged_user_fields'] = $this->get_logged_user_fields_array();
 
 			Log::l('User login SESSION["u"]', $_SESSION['u'], false);
 
@@ -286,11 +286,11 @@ class User extends ABM {
 		return self::deleteUser($this->id);
 	}
 
-	private function getLoggedUserFieldsArray(){
+	private function get_logged_user_fields_array(){
 		$fields = array();
 
-		foreach(self::$logged_user->tableFields as $field){
-			Log::l('User getLoggedUserFieldsArray tableFields', $field, false);
+		foreach(self::$logged_user->table_fields as $field){
+			Log::l('User get_logged_user_fields_array table_fields', $field, false);
 			$fields['user_' . $field] = $this->$field;
 		}
 		$fields['user_initial'] = strtoupper($fields['user_firstname'][0]);
@@ -304,8 +304,8 @@ class User extends ABM {
 		}
 		$db = new DB();
 		$sql = "DELETE FROM " . Tables::USERS . " WHERE id=" . $id;
-		$db->setQuery($sql);
-		return $db->executeNonQuery();
+		$db->set_query($sql);
+		return $db->execute_non_query();
 	}
 
 	private function addSessionLog(){

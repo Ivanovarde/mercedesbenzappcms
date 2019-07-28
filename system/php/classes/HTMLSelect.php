@@ -18,7 +18,7 @@ class HTMLSelect extends HTMLFormField{
 	private function bind_data(){
 		if($this->make_db_request){
 			Log::l("FormFieldSelect __construct var sql", $this->sqlQuery,  false);
-			$db->setQuery($this->sqlQuery);
+			$db->set_query($this->sqlQuery);
 			$this->rs_options = $db->execute();
 
 			$this->options .= '<option value="" >' . lbl_select . '</option>';
@@ -69,8 +69,8 @@ class HTMLSelect extends HTMLFormField{
 
 			case "state_id":
 				$this->sqlQuery = "SELECT country_id FROM " . Tables::STATES . " WHERE id = " . $this->field->value;
-				$db->setQuery($sql);
-				$idC = ($this->field->value != '') ? $db->executeValue() : '';
+				$db->set_query($sql);
+				$idC = ($this->field->value != '') ? $db->execute_value() : '';
 				$where = ($idC != '') ? " WHERE country_id = " . $idC : '';
 
 				$this->sqlQuery = "SELECT " . Tables::STATES . ".id AS id, " . Tables::STATES . ".name AS lbl FROM " .

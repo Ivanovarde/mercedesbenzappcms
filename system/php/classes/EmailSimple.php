@@ -157,7 +157,7 @@ class EmailSimple{
 		$this->bcc_name = '';
 	}
 
-	public function load_templates($path){
+	public function load_email_template($path){
 
 		$this->use_template = true;
 
@@ -167,7 +167,7 @@ class EmailSimple{
 			$this->email_template_html = file_get_contents($email_template_filename);
 		}else{
 			$error = $email_template_filename . ' NOT Found';
-			Log::l('EmailSimple load_templates:', $error, $this->config['email_debug']);
+			Log::l('EmailSimple load_email_template:', $error, $this->config['email_debug']);
 
 			$this->error_msg = $error;
 			return false;
