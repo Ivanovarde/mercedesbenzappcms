@@ -316,8 +316,15 @@ $(document).on('hidden.bs.modal', function () {
 	 }
 });
 
+// ABRE EL PANEL DE CONTROL CON DOBLE CLICK ===================================
+$(document).on('doubleclick', '#preloader-cpanel-open', function(e){
+	e.preventDefault();
+	$('#cpanel').modal('toggle');
+});
+
 //// VEHICLES SELECTORS LISTENER ==============================================
 // Paso a setVehiclePanels
+
 
 
 // VARIABLES
