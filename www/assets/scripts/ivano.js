@@ -1,3 +1,11 @@
+$(window).on('resize', function () {
+	setIconButtonSize();
+});
+
+$(window).on('scroll', function (e) {
+
+});
+
 $(window).on('load', function () {
 
 
@@ -12,26 +20,25 @@ $(window).on('load', function () {
 
 });
 
-$(window).on('scroll', function (e) {
-
-});
-
 jQuery(document).ready(function () {
-	 console.log('ready start');
+	console.log('ready start');
 
-	 $.support.cors = true;
-	 //$.mobile.allowCrossDomainPages = true;
+	$.support.cors = true;
+	//$.mobile.allowCrossDomainPages = true;
 
-	 if ($('.home').length) {
-		  isHome = true;
-	 }
+	if ($('.home').length) {
+		isHome = true;
+	}
 
-	 getMainData();
+	setIconButtonSize();
 
-	 updateStoredLeadsCounter();
+	getMainData();
 
-	 console.log('ready end');
+	updateStoredLeadsCounter();
+
+	console.log('ready end');
 });
+
 
 
 $(document).on('click', '.caption .budget > a', function (e) {
@@ -317,7 +324,7 @@ $(document).on('hidden.bs.modal', function () {
 });
 
 // ABRE EL PANEL DE CONTROL CON DOBLE CLICK ===================================
-$(document).on('doubleclick', '#preloader-cpanel-open', function(e){
+$(document).on('dblclick', '#preloader-cpanel-open', function(e){
 	e.preventDefault();
 	$('#cpanel').modal('toggle');
 });
@@ -603,6 +610,13 @@ function setContent() {
 	 }, 1500);
 
 }
+
+function setIconButtonSize(){
+	$('#preloader-cpanel-open').height($('#preloader-cpanel-open').width());
+
+	console.log('setIconButtonSize: Done');
+}
+
 
 
 function refreshSelector(selector, vehicleType, value) {
