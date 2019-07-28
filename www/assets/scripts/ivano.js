@@ -324,9 +324,9 @@ $(document).on('hidden.bs.modal', function () {
 });
 
 // ABRE EL PANEL DE CONTROL CON DOBLE CLICK ===================================
-$(document).on('dblclick', '#preloader-cpanel-open', function(e){
+$(document).on('click', '#preloader-inner', function(e){
 	e.preventDefault();
-	$('#cpanel').modal('toggle');
+	$('#cpanel').modal('show');
 });
 
 //// VEHICLES SELECTORS LISTENER ==============================================
