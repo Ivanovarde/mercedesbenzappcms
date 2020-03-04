@@ -16,6 +16,8 @@ $(window).on('load', function () {
 	 //	server_url = window.localStorage.getItem("server_url");
 	 //}
 
+	$('footer').removeClass('on');
+
 	 app.initialize();
 
 });

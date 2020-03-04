@@ -23,6 +23,7 @@ $config['debug'] = '1';
 $config['install_lock'] = "";
 $config['system_folder'] = "system/admin";
 $config['ee_folder'] = 'ee-2101';
+$config['ee_third_party_folder'] = $config['system_folder'] . '/' . $config['ee_folder'] . '/' . 'expressionengine/third_party';
 $config['is_system_on'] = 'y';
 $config['cookie_prefix'] = 'EE_';
 $config['allow_extensions'] = 'y';

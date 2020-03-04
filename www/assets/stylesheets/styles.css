@@ -553,6 +553,10 @@ form .btn-primary {
 	line-height: 30px;
 	margin: 0 auto;
 }
+form#form-quote .btn-primary{
+	width: 206px;
+	margin: 0 5px;
+}
 
 .bootstrap-select .filter-option {
 	font-size: 18px;

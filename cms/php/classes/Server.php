@@ -86,7 +86,18 @@ class Server {
 	}
 
 	public static function getServerProtocol(){
-		return (!empty($_SERVER['HTTPS'])) ? "https://" : "http://";
+
+		$is_secure = false;
+		if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
+			$is_secure = true;
+		}elseif (
+			(!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') || (!empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] == 'on')
+		){
+			$is_secure = true;
+		}
+
+		return $is_secure ? "https://" : "http://";
+
 	}
 
 	public static function getServerName(){

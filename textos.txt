@@ -1,3 +1,11 @@
+
+FORO
+https://stackoverflow.com/questions/15184567/is-local-storage-for-a-phonegap-app-on-an-android-device-separate-from-the-built?rq=1
+https://stackoverflow.com/questions/9290943/do-phonegap-apps-reset-themselves-on-app-update?rq=1
+https://stackoverflow.com/questions/57063391/how-could-i-recover-data-from-the-localstore-of-a-phonegap-build-installed-app
+
+
+
 POSIBIIDADES PARA EMVIOS PMASIVOS DESDE EE
 
 POSTMASTER
