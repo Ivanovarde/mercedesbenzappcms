@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.mercedesbenzexpo.app" version="16.6.19" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.mercedesbenzexpo.app" version="04.03.20" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
 	<name short="MB Expo">Mercedes-Benz Expo App</name>
 	<description>
 		Aplicación Mobile para exposiciones.
