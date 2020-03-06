@@ -36,7 +36,7 @@ include_once('functions.php');
 $config['debug'] = false;
 $config['site_enabled'] = true;
 $config['site_name'] = 'Mercedes-Benz Expo';
-$config['domain_name'] = 'expoagro2019.nmd';
+$config['domain_name'] = '';
 $config['charset'] = 'utf-8';
 
 
@@ -46,7 +46,7 @@ $company_vars['company_city'] = '';
 $company_vars['company_state'] = '';
 $company_vars['company_zip'] = '';
 $company_vars['company_phone'] = '';
-$company_vars['company_email'] = 'noreply@mercedesappcms.neomedia.com.ar';
+$company_vars['company_email'] = 'noreply@mercedesappcms.com.ar';
 $company_vars['booking-url-desktop'] = '';
 $company_vars['booking-url-mobile'] = '';
 
@@ -56,26 +56,28 @@ $config['smtp_host'] = 'mercedesappcms.neomedia.com.ar';
 $config['smtp_port'] = '465';
 $config['smtp_username'] = 'noreply@mercedesappcms.neomedia.com.ar';
 $config['smtp_password'] = 'm3rc3d3sb3nz#1';
-$config['email_allow_bc'] = true;
+$config['email_allow_bc'] = false;
 $config['email_allow_bcc'] = false;
 $config['company_email'] = $company_vars['company_email'];
 $config['from_address'] = $company_vars['company_email'];
 $config['from_name'] = $config['site_name'];
+$config['to_address'] = '';
+$config['to_name']	= '';
 $config['bc_address'] = '';
 $config['bc_name']	= '';
 $config['bcc_address'] = '';
 $config['bcc_name'] ='';
 
 // EMAIL DEBUG VARS
-$config['email_debug'] = true;
+$config['email_debug'] = false; // There is a local lever debug var in the EmailSimple Class
 $config['from_address'] = $company_vars['company_email'];
 $config['from_name'] = $config['site_name'];
-$config['to_address_debug'] = "info@neomedia.com.ar";
-$config['to_name_debug'] = "Info NMD";
-$config['bc_address_debug'] = 'pagos@neomedia.com.ar';
-$config['bc_name_debug'] = 'Pagos NMD';
-$config['bcc_address_debug'] = 'info@novecentoweb.com';
-$config['bcc_name_debug'] = 'Info Novecentoweb';
+$config['to_address_debug'] = "iv@neomedia.com.ar";
+$config['to_name_debug'] = "Ivano NMD";
+$config['bc_address_debug'] = '';
+$config['bc_name_debug'] = '';
+$config['bcc_address_debug'] = '';
+$config['bcc_name_debug'] = '';
 
 
 //SOCIAL VARS

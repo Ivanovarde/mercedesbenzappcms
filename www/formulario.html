@@ -53,22 +53,7 @@
 			 background-image: url(images/static/loading-white.svg) !important;
 		}
 	</style>
-	<!--
-	<script>
-		(function() {
-			 var xhr = {};
-			 xhr.open = XMLHttpRequest.prototype.open;
 
-			 XMLHttpRequest.prototype.open = function(method, url) {
-				  console.log(url);
-				  if(url.indexOf('/proxy/') == 0){
-						url = window.decodeURIComponent(url.substr(7));
-				  }
-				  xhr.open.apply(this, arguments);
-			 };
-		})(window);
-	</script>
-	-->
 </head>
 
 <body class="formulario">
@@ -86,19 +71,33 @@
 		<header>
 			<div class="container">
 				<div class="row">
-					<div class="col-xs-6">
+
+					<div class="col-xs-6 header-left-holder">
+
 						<div class="logo-holder">
 							<a href="index.html"><img src="assets/images/logo-mercedes-benz.svg"></a>
 						</div>
+
 						<div id="general_header_texto_izquierda" class="content-add">
 							{general_header_texto_izquierda}
 						</div>
+
 					</div>
-					<div class="content-add col-xs-6">
-						<div id="general_header_texto_derecha" class="content-add header-right-holder">
-							{general_header_texto_derecha}
+
+					<div class="content-add header-center-holder">
+						<div id="general_header_texto_centro" class="content-add">
+							{general_header_texto_centro}
 						</div>
 					</div>
+
+					<div class="content-add col-xs-6 header-right-holder">
+
+						<div id="general_header_texto_derecha" class="content-add">
+							{general_header_texto_derecha}
+						</div>
+
+					</div>
+
 				</div>
 			</div>
 		</header>

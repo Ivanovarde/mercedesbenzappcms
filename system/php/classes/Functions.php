@@ -209,9 +209,9 @@ Class Functions {
 	 */
 	public static function array_sanitize($array){
 
-			$a = self::arrayStripTags($array);
-			$a = self::arrayTrim($a);
-			return $a;
+		$a = self::arrayStripTags($array);
+		$a = self::arrayTrim($a);
+		return $a;
 
 	}
 

@@ -78,7 +78,7 @@ switch($action){
 			Log::l('actions.php', $m, false);
 
 			$nombre = 'Usuario';
-			$apellido = 'M Benz App';
+			$apellido = 'M Benz App ' . date('Ymdhis');
 
 			if(isset($record_data->nombre) ){
 				$nombre = ucfirst(strtolower($record_data->nombre));
@@ -89,7 +89,7 @@ switch($action){
 			}
 
 			$m->username = $nombre . ' ' . $apellido;
-			$m->screen_name = $m->username . ' ' . date('Ymdhis');
+			$m->screen_name = $m->username;
 
 			$m->group_id = 7;
 			$m->salt = '';
@@ -114,6 +114,8 @@ switch($action){
 				}
 			}
 
+			$m->member_data->m_field_id_20 = 0;
+
 			// Comienzo la TRANSACTION
 			//mysql_query("BEGIN");
 
@@ -132,7 +134,7 @@ switch($action){
 				$r['failed_records'] = $a_failed_records;
 			}else{
 
-				Log::l('actions.php', $m, true);
+				Log::l('actions.php', $m, false);
 
 				//mysql_query("COMMIT");
 

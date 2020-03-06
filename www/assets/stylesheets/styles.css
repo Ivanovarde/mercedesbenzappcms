@@ -183,11 +183,12 @@ header .row > div:last-child{
 .logo-holder {
 	/* max-width: 60px; */
 	height: 100%;
-	width: 60px;
+	/*width: 60px;*/
 	margin-right: 50px;
 }
 .logo-holder img {
-	 height: 65px;
+	 /*height: 65px;*/
+	 height: 85px;
 }
 header button.btn {
 	position: relative;
@@ -203,6 +204,20 @@ header button.btn {
 	font-weight: bold;
 	letter-spacing: normal;
 }
+
+header .header-left-holder #general_header_texto_izquierda{
+	display: none;
+}
+header .header-center-holder {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	z-index: -1;
+}
+header .header-right-holder{
+	display: none;
+}
+
 header #general_header_texto_derecha span,
 header #general_header_texto_derecha a {
 	 display: inline-block;
@@ -217,13 +232,18 @@ header #general_header_texto_derecha a {
 				transform: translateY(50%);
 	 position: relative;
 }
-header #general_header_texto_izquierda span{
-	 display: inline-block;
-	 position: relative;
-	 bottom: 0;
-	 -webkit-transform: translateY(100%);
-				transform: translateY(100%);
-	 line-height: normal;
+header #general_header_texto_izquierda span,
+header #general_header_texto_centro span {
+	display: inline-block;
+	position: relative;
+	bottom: 0;
+	-webkit-transform: translateY(100%);
+	transform: translateY(100%);
+	line-height: normal;
+}
+header #general_header_texto_centro {
+	font-size: 25px;
+	font-size: 2.5rem;
 }
 
 .inline-table{
@@ -1213,6 +1233,17 @@ button.close span {
 		transform: translateY(calc(50% + 1px));
 		position: relative;
 	}
+	header > .container .row .header-center-holder {
+		width: 100%;
+	}
+	header #general_header_texto_centro {
+		font-size: 25px;
+		font-size: 1.8rem;
+	}
+	header #general_header_texto_izquierda span, header #general_header_texto_centro span {
+		bottom: 8px;
+	}
+
 	header .logo-holder {
 		height: 100%;
 		width: 45px;
@@ -1344,7 +1375,7 @@ button.close span {
 
 	header .logo-holder img {
 		 margin-top: -5px;
-		 height: 35px;
+		 /*height: 35px;*/
 	}
 	header .row > div > div{
 		 font-size: 10px;

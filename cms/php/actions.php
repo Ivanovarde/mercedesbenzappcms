@@ -171,7 +171,7 @@ switch($action){
 		$html = '';
 
 
-		// Remove var from global var POST to iteration
+		// Remove var from global var POST for iteration
 		unset($_POST['action'], $_POST['element_type']);
 
 		$record = ucfirst($element_type);
@@ -211,6 +211,8 @@ switch($action){
 
 		Log::l('actions.php search $filters_string', $filters_string, false);
 
+		//var_dump($filters_string);
+
 		$records = $record::all($filters_string);
 		$records_length = count($records);
 
@@ -249,6 +251,7 @@ switch($action){
 
 		$a_id = explode(',', $_POST['aId']);
 		$a_sent_id = array();
+		$a_sent_addresses = array();
 		$a_not_sent_id = array();
 		$img_newsletter = '';
 
@@ -264,23 +267,32 @@ switch($action){
 
 				$record = new $record($id);
 
-				$email = isset($record->email) ? strtolower($record->email) : '';
+				$target_email = isset($record->email) ? strtolower($record->email) : '';
 
 				$email_subject = $record->member_data->{$record->member_fields_relationships['tipo_vehiculo']} . " Mercedes-Benz: Envío de tu cotización";
 
+				$record_firstname = $record->member_data->{$record->member_fields_relationships['nombre']};
+				$record_lastname = $record->member_data->{$record->member_fields_relationships['apellido']};
+				$record_fullname = $record_firstname . ' ' . $record_lastname;
+
 				Log::l('actions.php', $email_subject, false);
 
-				//$e = new EmailSimple($record->email, $email_subject);
-				$e = new EmailSimple('iv@neomedia.com.ar', $email_subject);
-				$e->debug = true;
-				$e->use_phpmailer = true;
+				$e = new EmailSimple($target_email, $email_subject);
+				$e->debug = false;
+				$e->use_phpmailer = false;
+				$e->set_to_name($record_fullname);
+				//$e->set_email_subject($email_subject);
 				$e->load_email_template($email_template_filename);
 				$e->add_reply_address(Settings::get_config('company_email'), Settings::get_config('site_name'));
-				$e->add_bc_address('mercedes@imc-latam.com', 'Mercedes IMC');
+				$e->allow_bcc = true;
+				$e->add_bcc_address('iv@neomedia.com.ar', 'Ivano');
 
 				$e->email_template_html = Template::swap_member_values($record, $e->get_email_template());
 
 				Log::l('actions.php $e->email_template_html', $e->email_template_html, false);
+
+				//var_dump($e);
+				//exit;
 
 				if($e->send()){
 				//if(1 == 1){
@@ -293,12 +305,13 @@ switch($action){
 					$record->save();
 
 					array_push($a_sent_id , $record->member_id);
+					array_push($a_sent_addresses , '[' . $target_email . '] ' . $record_fullname);
 
 				}else{
 
 					$record->member_data->{$record->member_fields_relationships['envio']} = '0';
 
-					array_push($a_not_sent_id, array($record->member_id, $record->email, $e->get_status() ) );
+					array_push($a_not_sent_id, array($record->member_id, $target_email, $e->get_status() ) );
 				}
 
 			}
@@ -317,9 +330,11 @@ switch($action){
 				$r['title'] = $lang['text_success'];
 				$r['msg'] = $msg;
 				$r['ids'] = $a_sent_id;
+				$r['sent'] = $a_sent_addresses;
 				$r['ids_not_sent'] = $a_not_sent_id;
 				$r['error'] = '';
 				$r['class'] = $result_class;
+
 			}else{
 				$r['status'] = false;
 				$r['title'] = $lang['text_error'];
@@ -346,6 +361,7 @@ switch($action){
 	break;
 
 
+//case 'edit_form':
 /*
 	case 'edit_form':
 
@@ -398,7 +414,11 @@ switch($action){
 		exit;
 
 	break;
+*/
 
+
+//case 'store':
+/*
 	case 'store':
 
 		$chars_to_clean = array("\\", "[", "]","\"");
@@ -493,6 +513,7 @@ switch($action){
 */
 
 
+//case 'delete':
 /*
 	case 'delete':
 
@@ -566,39 +587,97 @@ switch($action){
 */
 
 
-/*
-
-SELECT
-m.member_id AS id,
-md.m_field_id_1 AS 'Nombre',
-md.m_field_id_2 AS 'Apellido',
-m.email AS 'Email',
-md.m_field_id_3 AS 'Telefono',
-md.m_field_id_5 AS 'Ciudad',
-md.m_field_id_19 AS 'Codigo Postal',
-md.m_field_id_4 AS 'Provincia',
-md.m_field_id_9 AS 'Categoria',
-md.m_field_id_10 AS 'Linea',
-md.m_field_id_6 AS 'Modelo',
-md.m_field_id_7 AS 'Plan',
-md.m_field_id_8 AS 'Cuotas',
-md.m_field_id_11 AS 'Precio Publico',
-md.m_field_id_12 AS 'Cuota Pura',
-md.m_field_id_13 AS 'Carga Amin Susc',
-md.m_field_id_14 AS 'IVA 21',
-md.m_field_id_15 AS 'Cuota Mensual',
-md.m_field_id_16 AS 'Pago Adj 30',
-DATE_FORMAT(FROM_UNIXTIME(m.join_date), '%e-%m-%Y') AS 'Reg Fecha'
-(CASE md.m_field_id_20 WHEN 1 THEN 'SI' ELSE 'NO' END) AS 'Envio',
-DATE_FORMAT(FROM_UNIXTIME(md.m_field_id_21), '%e-%m-%Y') AS 'Envio Fecha'
-FROM exp_members m
-LEFT JOIN exp_member_data md ON md.member_id = m.member_id
-WHERE  group_id = 7
-ORDER BY join_date DESC;
-
+//case 'export':
 	case 'export':
+
 		$element_type = $_GET['element_type'];
 		$filters = array();
+		$sql = "SELECT
+				m.member_id AS id,
+				md.m_field_id_1 AS 'Nombre',
+				md.m_field_id_2 AS 'Apellido',
+				m.email AS 'Email',
+				md.m_field_id_3 AS 'Telefono',
+				md.m_field_id_5 AS 'Ciudad',
+				md.m_field_id_19 AS 'Codigo Postal',
+				md.m_field_id_4 AS 'Provincia',
+				md.m_field_id_9 AS 'Categoria',
+				md.m_field_id_10 AS 'Linea',
+				md.m_field_id_6 AS 'Modelo',
+				md.m_field_id_7 AS 'Plan',
+				md.m_field_id_8 AS 'Cuotas',
+				md.m_field_id_11 AS 'Precio Publico',
+				md.m_field_id_12 AS 'Cuota Pura',
+				md.m_field_id_13 AS 'Carga Amin Susc',
+				md.m_field_id_14 AS 'IVA 21',
+				md.m_field_id_15 AS 'Cuota Mensual',
+				md.m_field_id_16 AS 'Pago Adj 30',
+				DATE_FORMAT(FROM_UNIXTIME(m.join_date), '%e-%m-%Y') AS 'Reg Fecha',
+				(CASE md.m_field_id_20 WHEN 1 THEN 'SI' ELSE 'NO' END) AS 'Envio',
+				DATE_FORMAT(FROM_UNIXTIME(md.m_field_id_21), '%e-%m-%Y') AS 'Envio Fecha'
+				FROM exp_members m
+				LEFT JOIN exp_member_data md ON md.member_id = m.member_id
+				WHERE
+				{filters}
+				ORDER BY join_date DESC;";
+
+		$record = ucfirst($element_type);
+		$record = new $record();
+
+		//Remove action and element_type for making the $_GET iteration
+		unset($_GET['action'], $_GET['element_type']);
+
+		//Make filters from GET values
+		foreach($_GET as $k => $v){
+
+			if(!empty($v)){
+
+				if(isset($record->member_fields_relationships[$k])){
+
+					$data_field_id = 'md.' . $record->member_fields_relationships[$k];
+
+				}else{
+
+					$data_field_id = 'm.' . $k;
+
+				}
+
+				switch($k){
+					case 'envio':
+						$value = ' ' . $data_field_id . ' = "' . ($v == 'SI' ? 1 : 0) . '" ';
+					break;
+
+					default:
+						$value = " " . $data_field_id . " LIKE \"%%" . $v . "%\" ";
+				}
+
+				array_push($filters, $value);
+
+			}
+		}
+
+		array_push($filters, ' group_id = 7 ');
+
+		$filters_string = implode(' AND ', $filters);
+		//$filters_string .= ' ORDER BY m.join_date DESC';
+
+		$sql_statement = str_replace('{filters}', ($filters_string ? $filters_string : ''), $sql);
+
+		$db = new DB();
+		$db->set_query($sql_statement);
+		$records = $db->execute();
+		$records_length = count($records);
+
+		//var_dump($_GET);
+		//echo '<br>===============<br>';
+		//echo '<br>Filters: ' . $filters_string;
+		//echo '<br>===============<br>';
+		//echo '<br>SQL: ' . $sql_statement . '<br>';
+		//echo '<br><br>records length: ' . $records_length;
+		//echo '<br>===============<br>';
+		//echo '<br>Recordset<br>';
+		//var_dump( $records );
+
 
 		$download_filename = strtolower(Functions::normalize(Functions::safe_url(Settings::get_config('site_name'))));
 
@@ -617,10 +696,12 @@ ORDER BY join_date DESC;
 		$tdo = $sep . '<td>' . $sep;
 		$tdc = $sep . '</td>' . $sep;
 
-		$record = ucfirst($element_type);
-		$records = $record::all();
-		$records_length = count($records);
+		//All records from the table
+		//$record = ucfirst($element_type);
+		//$records = $record::all();
+		//$records_length = count($records);
 
+		// No results - Exit
 		if($records_length < 1){
 			$r['status'] = true;
 			$r['html'] = '<p class="text-center">' . $lang['text_no_results'] . '</p.>';
@@ -631,11 +712,13 @@ ORDER BY join_date DESC;
 			exit;
 		}
 
+
 		$output = $tableo . $theado . $tro;
 
-		//var_dump($records[0]->table_fields);
+		Log::l('actions.php export $record', $records[0], false);
 
-		foreach($records[0]->table_fields as $field){
+		// Table headers
+		foreach($records[0] as $field => $value){
 			$output .= $tho;
 			$output .= $sep . $field . $sep;
 			$output .= $thc;
@@ -643,15 +726,18 @@ ORDER BY join_date DESC;
 
 		$output .= $trc . $theadc . $tbodyo;
 
+		Log::l('actions.php export $record', $record, false);
+		Log::l('actions.php export $output', $output, false);
 
+		// Table data
 		foreach($records as $row){
 
 			$output .= $tro;
 
-			foreach($row->table_fields as $field){
+			foreach($row as $field => $value){
 				$output .= $tdo;
 
-				$output .= $sep . $row->$field . $sep;
+				$output .= $sep . $value . $sep;
 
 				$output .= $tdc;
 			}
@@ -669,8 +755,9 @@ ORDER BY join_date DESC;
 
 		exit;
 	break;
-*/
 
+
+//case 'signup':
 /*
 	case 'signup':
 
@@ -768,7 +855,8 @@ ORDER BY join_date DESC;
 	break;
 */
 
-/* NEXT
+//case 'next':
+/*
 	case 'next':
 
 		$current_module = $user->module;
@@ -802,7 +890,8 @@ ORDER BY join_date DESC;
 	break;
 */
 
-/* FORGOT
+//case 'forgot':
+/*
 	case 'forgot':
 		$user = User::byEmail($_POST['email']);
 

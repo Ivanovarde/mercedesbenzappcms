@@ -82,7 +82,6 @@ class DB {
 
 		try{
 
-			Log::l('DB execute', $this->query, false);
 			//Log::l('DB execute', $this->connection->query($this->query), true);
 
 			if(!$rs = $this->connection->query($this->query)){
@@ -92,7 +91,7 @@ class DB {
 				throw new NMDDBException($this->databaseName, $this->error_Msg, $this->errorNum, $this->query);
 			}
 		}
-		catch (NMDDBException  $e) {
+		catch (NMDDBException $e) {
 			$e->getMessage();
 			$e->showError();
 			exit;
@@ -104,6 +103,7 @@ class DB {
 		  while($record = $rs->fetch(PDO::FETCH_OBJ)) {
 			array_push($aRecords, $record);
 		}
+
 		$this->closeDB();
 		Log::l('DB execute', $this->query, false);
 		return $aRecords;

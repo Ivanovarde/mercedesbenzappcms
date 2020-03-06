@@ -38,9 +38,9 @@ $('.toggle-records').livequery('click', function (e) { toggleRecordsCheckboxes({
 $('.submit-modal-edit-form').livequery('click', function (e) { modalEditFormSubmit({e: e, el: $(this)}); });
 $('.delete-record, .send-email').livequery('click', function (e) { makeBatchAction({e: e}); });
 $('.validate').livequery('submit', function(e){return ivSendForm({ el: $(this), e: e}); });
-$('#form-search-filters').livequery('submit', function(e){ prepareListResults({ el: $(this), e: e}); });
 $('#search-results input[type="checkbox"]').livequery('change', function(e){ showHideSearchControls({ el: $(this), e: e}); });
-$('button.export-list, button.search-list').livequery('click', function(e){ prepareListResults({e: e}); });
+
+$('button.search-list, button.export-list').livequery('click', function(e){ prepareListResults({e: e}); });
 
 $(document).on('click', '.logout', function(e){ logout({e: e}); });
 $(document).on('change focus click', '.has-error', function (e) {
@@ -67,14 +67,19 @@ function prepareListResults(data){
 	var e = data.e;
 	var el = $(e.currentTarget);
 	var form = $('#form-search-filters');
+	var str = form.serialize();
 
 	if(el.hasClass('export-list')){
-		//form.data('action', 'export');
 
-		var elementType = el.data('element-type');
-		var iframe = createIframe({id: 'export', url: URL + '?action=export&element_type=' + elementType});
+		el.addClass('loading').attr('disabled', 'disabled');
+
+		var iframe = createIframe({id: 'export', url: URL + '?action=export&' + str, callback: function(){
+			el.removeClass('loading').removeAttr('disabled', 'disabled');
+		}});
 		iframe.appendTo($('body'));
 
+		//el.removeClass('loading').removeAttr('disabled', 'disabled');
+		return;
 	}
 
 	if(el.hasClass('search-list')){
@@ -83,7 +88,7 @@ function prepareListResults(data){
 
 	e.preventDefault();
 
-	ivSendForm({ el: form, e: e});
+	ivSendForm({ el: form, btn: el, e: e});
 }
 
 function updateListEmailStatus(response){
@@ -174,7 +179,7 @@ function makeBatchAction(data){
 				type: 'POST',
 				data: d,
 				dataType: 'json',
-				timeout: 10000
+				timeout: 20000
 			})
 			.done(function (response, status, xhr) {
 				//				console.log('prepareSendForm: done: ');
@@ -313,7 +318,7 @@ function getEditForm(data){
 		type: 'POST',
 		data: d,
 		dataType: 'json',
-		timeout: 10000
+		timeout: 20000
 	})
 	.done(function (response, status, xhr) {
 		//				console.log('prepareSendForm: done: ');

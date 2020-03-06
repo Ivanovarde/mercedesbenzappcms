@@ -151,7 +151,7 @@ function fadingElements(data){
 
 function ivSendForm(data) {
 	var el = data.el;
-	var btn = el.find('[type="submit"]');
+	var btn = data.btn !== undefined ? data.btn : el.find('[type="submit"]');
 	var isAjax = (el.data('ajax') !== undefined ? el.data('ajax') : true);
 	//var URL = '/' + (siteFolder ? siteFolder + '/' : '') +'php/actions.php';
 	var isValid = false;
@@ -214,7 +214,7 @@ function ivSendForm(data) {
 				type: 'POST',
 				data: d,
 				dataType: ajaxType,
-				timeout: 10000
+				timeout: 20000
 		})
 		.done(function (response, status, xhr) {
 			//				console.log('prepareSendForm: done: ');
@@ -1770,6 +1770,11 @@ function createIframe(data){
 	var url = data.url;
 	var src;
 	var iframe = $('#' + iframeID).length ?  $('#' + iframeID) : $('<iframe></iframe>').attr('id', iframeID);
+
+	iframe.on('load', function(){
+		console.log('iframe: #' + id + ' loaded');
+		data.callback();
+	});
 
 	if(typeof url == 'boolean'){
 		src = 'javascript:false';

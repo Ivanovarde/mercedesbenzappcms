@@ -45,6 +45,7 @@ class EmailSimple{
 		$this->globals = Settings::get_globals();
 
 		$this->to_address = $to_address;
+
 		$this->email_subject = ($subject ? $subject : '');
 		$this->email_template_html = ($content ? $content : '');
 
@@ -67,6 +68,10 @@ class EmailSimple{
 		// EL dominio del header From deberia coincidir con el dominio del servidor
 		if($this->from_name && $this->from_address){
 			$headers[] = "From: " . $this->from_name . " <" . $this->from_address . ">";
+		}
+
+		if($this->from_name && $this->from_address){
+			$headers[] = "To: " . $this->to_name . " <" . $this->to_address . ">";
 		}
 
 		if( ($this->config['email_allow_bc'] == true || $this->allow_bc == true) && $this->bc_address){
@@ -97,7 +102,8 @@ class EmailSimple{
 	public function send(){
 
 		// EL dominio del header From deberia coincidir con el dominio del servidor
-		if($this->config['email_debug'] === true){
+		if($this->config['email_debug'] === true || $this->debug === true){
+
 			$this->from_address = $this->config['from_address'];
 			$this->from_name = $this->config['from_name'];
 			$this->reply_address = $this->from_address;
@@ -109,19 +115,24 @@ class EmailSimple{
 			$this->bc_name = $this->config['bc_name_debug'];
 			$this->bcc_address = $this->config['bcc_address_debug'];
 			$this->bcc_name = $this->config['bcc_name_debug'];
+
+		}
+
+		if(!$this->to_name){
+			 $this->to_name = 'Contact';
 		}
 
 		if(!$this->validate_email_address($this->to_address)){
-			Log:l('EmailSimple send:', 'Invalid email address: ' . $this->to_address, $this->debug);
+			Log::l('EmailSimple send:', 'Invalid email address: ' . $this->to_address, ($this->debug || $this->config['email_debug']) );
 			$error = 'Invalid email address: ' . $this->to_address;
-			$this->error_msg = $error;
-			return false;
+			return $this->error_msg = $error;
+			//return false;
 		}
 
 		$this->swap_system_vars();
 
 		if($this->use_phpmailer){
-			Log::l('EmailSimple send()', $this, true);
+			Log::l('EmailSimple send()', $this, ($this->debug || $this->config['email_debug']) );
 			return $this->send_with_phpmailer();
 		}else{
 			return $this->send_with_mail();
@@ -179,14 +190,14 @@ class EmailSimple{
 			$mail->Body    = $this->email_template_html;
 			//$mail->AltBody = 'This is a html email. Please turn html on to see';
 
-			//Testing site's contact form #1
-			//Please forward this message to accounts@ulmarketing.com
 
 			$this->clear_address();
 
 			if($mail != false){
 				$this->error_msg = '';
 			}
+
+			// FALTA HCER EL ENVIO
 
 			return $mail;
 
@@ -228,8 +239,12 @@ class EmailSimple{
 
 	}
 
-	public function set_subject($subject){
-		$this->subject = $subject;
+	public function set_to_name($name){
+		$this->to_name = $name;
+	}
+
+	public function set_email_subject($subject){
+		$this->email_subject = $subject;
 	}
 
 	public function add_from_address($address, $name=''){
@@ -254,6 +269,7 @@ class EmailSimple{
 
 	private function clear_address(){
 		$this->to_address = '';
+		$this->to_name = '';
 		$this->from_address = '';
 		$this->from_name = '';
 		$this->bc_address = '';
@@ -272,7 +288,7 @@ class EmailSimple{
 			$this->email_template_html = file_get_contents($email_template_filename);
 		}else{
 			$error = $email_template_filename . ' NOT Found';
-			Log::l('EmailSimple load_email_template:', $error, $this->debug);
+			Log::l('EmailSimple load_email_template:', $error, ($this->debug || $this->config['email_debug']) );
 
 			$this->error_msg = $error;
 			return false;
